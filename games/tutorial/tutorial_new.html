@@ -1,0 +1,75 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<div class="masulesson-proportion-box">
+  <div id="masulesson-virtual-screen" class="masulesson-novel-container">
+    
+<div id="novel-header-bar" class="story-header-bar">Masu Lesson Class</div>
+
+<div id="stage-selector" class="selector-screen" style="background-image: url('../../assets/bg/bg_manabiya.webp');">
+    <div class="novel-content-wrapper">
+    <div class="novel-top-title">チュートリアル</div>
+    <p class="novel-top-subtitle">今を学ぶ, ますレッスン🎵</p>
+    <div class="stage-menu-list">
+        <button id="start-lesson-btn" class="menu-btn active-stage">
+          <span class="moving-arrow">➔</span> レッスンスタート
+        </button>
+
+    </div>
+    </div>
+</div>
+
+<div id="game-stage-area" class="stage-area" style="display: none;">
+    <div id="center-popup-wrap" class="popup-image-wrap hidden-popup">
+        <img id="center-popup-img" src="" alt="説明画像">
+    </div>
+    <div id="game-popup-trigger-container" class="game-popup-trigger-container"></div>
+    </div>
+
+    <div id="game-message-window" class="message-window" style="display: none;">
+      <div id="chara-name-box" class="name-box">名前</div>
+      <div id="dialogue-text" class="text-box">セリフ</div>
+      <div id="choice-container" class="choice-box-area" style="display: none;"></div>
+    </div>
+        
+    <div id="game-control-bar" class="control-bar" style="display: none;">
+      <button id="next-scene-btn" class="embedded-next-btn" onclick="advanceStory()">
+        次へ ➔
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+.stage-menu-list .menu-btn .moving-arrow {
+    margin-right: 8px;
+    font-size: 18px;
+    display: inline-block;
+}
+</style>
+
+<script>
+window.addEventListener('load', function() {
+    (function($) {
+    // レッスンスタートボタンの処理
+    $('#start-lesson-btn').on('click', function() {
+        if (typeof startSelectedStage === "function") {
+            $('#stage-selector').hide();
+            $('#game-stage-area').show();
+            $('#game-message-window').show();
+            $('#game-control-bar').show();
+            startSelectedStage('tutorial_start', false, '', 'tutorial');
+        } else {
+            alert("ゲームエンジンが読み込まれていません。");
+        }
+    });
+})(jQuery);
+
+});
+</script>
+
+<!-- 音声プレイヤー（共通） -->
+<audio id="novel-bgm" loop="" preload="auto"></audio>
+
+<script src="../../core/common-loader.js"></script>
+
+<script src="./tutorial_new.js"></script>

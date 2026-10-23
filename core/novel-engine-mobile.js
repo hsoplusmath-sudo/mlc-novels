@@ -1,0 +1,1837 @@
+/**
+ * ==========================================================================
+ * ノベルゲームコアエンジン（スマホ版）
+ * ==========================================================================
+ */
+
+
+/**
+ * ==========================================================================
+ * 0. 状態管理
+ * ==========================================================================
+ */
+
+let currentChapter = "";
+let currentRoute = "start";
+let novelIndex = 0;
+let currentBgmSrc = "";
+
+
+/**
+ * ==========================================================================
+ * 0.5 汎用ストーリーカウンター
+ * ==========================================================================
+ *
+ * story側で自由にラベル名を決められる。
+ *
+ * 例：
+ *
+ * count: {
+ *     lend: 1,
+ *     ask: 1
+ * }
+ */
+
+const storyCounters = {};
+
+window.storyCounters = storyCounters;
+
+
+/**
+ * カウンター初期化
+ */
+function resetStoryCounters() {
+
+    Object.keys(storyCounters).forEach(key => {
+        delete storyCounters[key];
+    });
+
+    console.log(
+        "🔄 [Story Counters] reset"
+    );
+}
+
+
+/**
+ * カウンター加算
+ */
+function addStoryCounts(countData) {
+
+    if (
+        !countData ||
+        typeof countData !== "object"
+    ) {
+        return;
+    }
+
+    Object.entries(countData).forEach(
+        ([key, value]) => {
+
+            if (
+                typeof value !== "number"
+            ) {
+
+                console.warn(
+                    `⚠️ count "${key}" は数値で指定してください:`,
+                    value
+                );
+
+                return;
+            }
+
+
+            if (
+                typeof storyCounters[key] !==
+                "number"
+            ) {
+
+                storyCounters[key] = 0;
+            }
+
+
+            storyCounters[key] += value;
+        }
+    );
+
+
+    console.log(
+        "📊 [Story Counters]",
+        JSON.parse(
+            JSON.stringify(
+                storyCounters
+            )
+        )
+    );
+}
+
+
+/**
+ * カウンター取得
+ *
+ * 未定義なら0
+ */
+function getStoryCount(key) {
+
+    return (
+        typeof storyCounters[key] ===
+        "number"
+    )
+        ? storyCounters[key]
+        : 0;
+}
+
+
+/**
+ * ==========================================================================
+ * 0.6 条件判定
+ * ==========================================================================
+ *
+ * 使用可能：
+ *
+ * eq
+ * neq
+ * gt
+ * gte
+ * lt
+ * lte
+ *
+ * 通常複数条件 = AND
+ * any = OR
+ * all = AND
+ * not = NOT
+ */
+
+
+/**
+ * 1ラベルの条件判定
+ */
+function evaluateStoryRule(
+    value,
+    rule
+) {
+
+    /*
+     * 数字だけ指定した場合
+     *
+     * score: 3
+     *
+     * ↓
+     *
+     * score === 3
+     */
+
+    if (
+        typeof rule === "number"
+    ) {
+
+        return value === rule;
+    }
+
+
+    if (
+        !rule ||
+        typeof rule !== "object"
+    ) {
+
+        return false;
+    }
+
+
+    if (
+        "eq" in rule &&
+        value !== rule.eq
+    ) {
+        return false;
+    }
+
+
+    if (
+        "neq" in rule &&
+        value === rule.neq
+    ) {
+        return false;
+    }
+
+
+    if (
+        "gt" in rule &&
+        value <= rule.gt
+    ) {
+        return false;
+    }
+
+
+    if (
+        "gte" in rule &&
+        value < rule.gte
+    ) {
+        return false;
+    }
+
+
+    if (
+        "lt" in rule &&
+        value >= rule.lt
+    ) {
+        return false;
+    }
+
+
+    if (
+        "lte" in rule &&
+        value > rule.lte
+    ) {
+        return false;
+    }
+
+
+    return true;
+}
+
+
+/**
+ * 条件全体を判定
+ */
+function checkStoryCondition(
+    condition
+) {
+
+    if (
+        !condition ||
+        typeof condition !== "object"
+    ) {
+
+        return false;
+    }
+
+
+    /*
+     * any = OR
+     */
+
+    if (
+        Array.isArray(
+            condition.any
+        )
+    ) {
+
+        const ok =
+            condition.any.some(
+                subCondition =>
+                    checkStoryCondition(
+                        subCondition
+                    )
+            );
+
+
+        if (!ok) {
+            return false;
+        }
+    }
+
+
+    /*
+     * all = AND
+     */
+
+    if (
+        Array.isArray(
+            condition.all
+        )
+    ) {
+
+        const ok =
+            condition.all.every(
+                subCondition =>
+                    checkStoryCondition(
+                        subCondition
+                    )
+            );
+
+
+        if (!ok) {
+            return false;
+        }
+    }
+
+
+    /*
+     * not
+     */
+
+    if (
+        condition.not &&
+        checkStoryCondition(
+            condition.not
+        )
+    ) {
+
+        return false;
+    }
+
+
+    /*
+     * 通常条件
+     *
+     * 同じオブジェクト内はAND
+     */
+
+    const normalConditions =
+        Object.entries(
+            condition
+        ).filter(
+            ([key]) =>
+                ![
+                    "any",
+                    "all",
+                    "not"
+                ].includes(key)
+        );
+
+
+    return normalConditions.every(
+        ([key, rule]) => {
+
+            const value =
+                getStoryCount(
+                    key
+                );
+
+
+            return evaluateStoryRule(
+                value,
+                rule
+            );
+        }
+    );
+}
+
+
+/**
+ * branchを上から順番に判定
+ */
+function resolveStoryBranch(
+    branchData,
+    elseRoute = ""
+) {
+
+    if (
+        !Array.isArray(
+            branchData
+        )
+    ) {
+
+        return elseRoute;
+    }
+
+
+    for (
+        const item of branchData
+    ) {
+
+        if (
+            !item ||
+            !item.if
+        ) {
+
+            continue;
+        }
+
+
+        if (
+            checkStoryCondition(
+                item.if
+            )
+        ) {
+
+            console.log(
+                "🔀 [Story Branch]",
+                item.if,
+                "→",
+                item.nextRoute
+            );
+
+
+            return (
+                item.nextRoute ||
+                elseRoute
+            );
+        }
+    }
+
+
+    console.log(
+        "🔀 [Story Branch] 条件なし →",
+        elseRoute
+    );
+
+
+    return elseRoute;
+}
+
+
+/**
+ * ==========================================================================
+ * 1. キャラクター立ち絵の事前生成ロジック
+ *
+ * ★ここは以前動いていたコードを維持
+ * ==========================================================================
+ */
+
+function initCharacterImages() {
+
+    const stageArea =
+        document.getElementById(
+            'game-stage-area'
+        );
+
+
+    // configファイルから取得
+    const master =
+        window.CHARACTER_MASTER;
+
+
+    if (
+        !stageArea ||
+        !master
+    ) {
+
+        console.warn(
+            "⚠️ キャラクター設定データが見つかりません。configファイルが読み込まれているか確認してください。"
+        );
+
+        return;
+    }
+
+
+    const oldCharas =
+        stageArea.querySelectorAll(
+            '.chara-img'
+        );
+
+
+    oldCharas.forEach(
+        el => el.remove()
+    );
+
+
+    master.forEach(chara => {
+
+        const img =
+            document.createElement(
+                'img'
+            );
+
+
+        img.id =
+            chara.id;
+
+
+        img.src =
+            chara.src;
+
+
+        img.alt =
+            chara.alt;
+
+
+        /*
+         * ★旧スマホ版そのまま
+         */
+
+        img.className =
+            "chara-img left-chara hidden-chara";
+
+
+        stageArea.insertBefore(
+            img,
+            stageArea.firstChild
+        );
+    });
+}
+
+
+/*
+ * ★旧版同様2つとも残す
+ */
+
+
+if (document.readyState === "loading") {
+    document.addEventListener(
+        "DOMContentLoaded",
+        initCharacterImages,
+        { once: true }
+    );
+} else {
+    initCharacterImages();
+};
+
+
+/**
+ * ==========================================================================
+ * 2. ゲーム進行・画面制御
+ * ==========================================================================
+ */
+
+
+/**
+ * ゲーム開始
+ */
+function startSelectedStage(
+    targetRoute,
+    isLocked,
+    password = "",
+    chapterName = ""
+) {
+
+    if (isLocked) {
+
+        const userInput =
+            prompt(
+                "このステージを解放するには, パスワードを入力してください："
+            );
+
+
+        if (
+            userInput === password
+        ) {
+
+            alert(
+                "🔑 パスワード認証成功！ストーリーを開始します。"
+            );
+
+
+            currentRoute =
+                targetRoute;
+
+        } else if (
+            userInput !== null
+        ) {
+
+            alert(
+                "❌ パスワードが違います。正しいパスワードを入力してください。"
+            );
+
+
+            return;
+
+        } else {
+
+            return;
+        }
+
+    } else {
+
+        currentRoute =
+            targetRoute;
+    }
+
+
+    currentChapter =
+        chapterName;
+
+
+    novelIndex =
+        0;
+
+
+    /*
+     * ★追加
+     * 新しくゲームを始めたら
+     * カウンターを0へ
+     */
+
+    resetStoryCounters();
+
+
+    /*
+     * =====================================
+     * 絵馬所持数の計算
+     * =====================================
+     */
+
+    const chapterData =
+        window.storyFlow &&
+        window.storyFlow[currentChapter];
+
+    updateEmaCount(
+        chapterData &&
+        Array.isArray(chapterData.requiredEma)
+            ? chapterData.requiredEma
+            : []
+    );
+
+
+
+    /*
+     * 旧版そのまま
+     */
+
+    if (
+        !document.querySelector(
+            '.chara-img'
+        )
+    ) {
+
+        initCharacterImages();
+    }
+
+
+    document
+        .getElementById(
+            'stage-selector'
+        )
+        .style.display =
+        'none';
+
+
+    document
+        .getElementById(
+            'game-stage-area'
+        )
+        .style.display =
+        'block';
+
+
+    document
+        .getElementById(
+            'game-message-window'
+        )
+        .style.display =
+        'block';
+
+
+    document
+        .getElementById(
+            'game-control-bar'
+        )
+        .style.display =
+        'block';
+
+
+    /*
+     * ★旧版そのまま
+     */
+
+    const allImages =
+        document.querySelectorAll(
+            '.chara-img'
+        );
+
+
+    allImages.forEach(img => {
+
+        img.classList.add(
+            'hidden-chara'
+        );
+
+
+        img.classList.remove(
+            'speaking'
+        );
+    });
+
+
+    renderScene();
+}
+
+
+/**
+ * 次へ
+ */
+function advanceStory() {
+
+    if (
+        !window.storyFlow ||
+        !window.storyFlow[
+            currentChapter
+        ] ||
+        !window.storyFlow[
+            currentChapter
+        ][currentRoute]
+    ) {
+
+        console.error(
+            "対象のシナリオデータが見つかりません:",
+            currentChapter,
+            currentRoute
+        );
+
+
+        return;
+    }
+
+
+    const routeData =
+        window.storyFlow[
+            currentChapter
+        ][currentRoute];
+
+
+    const currentData =
+        routeData[
+            novelIndex
+        ];
+
+
+    /*
+     * 選択肢が出ていたら
+     * 次へボタンでは進めない
+     */
+
+    if (
+        currentData &&
+        currentData.choices
+    ) {
+
+        return;
+    }
+
+
+    /*
+     * 完了ID
+     *
+     * ★旧版維持
+     */
+
+    if (
+        currentData &&
+        currentData.completeStepId
+    ) {
+
+        if (
+            typeof saveUserProgressToServer ===
+            "function"
+        ) {
+
+            saveUserProgressToServer(
+                currentData.completeStepId
+            );
+
+
+            console.log(
+                "🏁 [Story Progress] 完了:",
+                currentData.completeStepId
+            );
+
+        } else {
+
+            console.error(
+                "⚠️ progress-sync.js の saveUserProgressToServer() が見つかりません。"
+            );
+        }
+    }
+
+
+    /*
+     * ★追加
+     *
+     * シーン自体にcountが
+     * 設定されていた場合
+     */
+
+    if (
+        currentData &&
+        currentData.count
+    ) {
+
+        addStoryCounts(
+            currentData.count
+        );
+    }
+
+
+    novelIndex++;
+
+
+    /*
+     * ルート末尾
+     */
+
+    if (
+        novelIndex >=
+        routeData.length
+    ) {
+
+        /*
+         * ★追加
+         *
+         * branchがあれば
+         * 条件分岐
+         */
+
+        if (
+            currentData &&
+            currentData.branch
+        ) {
+
+            const nextRoute =
+                resolveStoryBranch(
+                    currentData.branch,
+                    currentData.elseRoute ||
+                    currentData.nextRoute ||
+                    ""
+                );
+
+
+            if (nextRoute) {
+
+                currentRoute =
+                    nextRoute;
+
+
+                novelIndex =
+                    0;
+
+            } else {
+
+                const nextBtn =
+                    document.getElementById(
+                        'next-scene-btn'
+                    );
+
+
+                nextBtn.innerHTML =
+                    "終了する 🔄";
+
+
+                nextBtn.onclick =
+                    () => {
+                        location.reload();
+                    };
+
+
+                return;
+            }
+        }
+
+
+        /*
+         * 旧nextRoute
+         */
+
+        else if (
+            currentData &&
+            currentData.nextRoute
+        ) {
+
+            currentRoute =
+                currentData.nextRoute;
+
+
+            novelIndex =
+                0;
+
+        } else {
+
+            const nextBtn =
+                document.getElementById(
+                    'next-scene-btn'
+                );
+
+
+            nextBtn.innerHTML =
+                "終了する 🔄";
+
+
+            nextBtn.onclick =
+                () => {
+                    location.reload();
+                };
+
+
+            return;
+        }
+    }
+
+
+    renderScene();
+}
+
+
+/**
+ * ==========================================================================
+ * シーン描画
+ * ==========================================================================
+ */
+
+function renderScene() {
+
+    if (
+        !window.storyFlow ||
+        !window.storyFlow[
+            currentChapter
+        ] ||
+        !window.storyFlow[
+            currentChapter
+        ][currentRoute]
+    ) {
+
+        console.error(
+            "描画対象のデータが存在しません:",
+            currentChapter,
+            currentRoute
+        );
+
+
+        return;
+    }
+
+
+    const routeData =
+        window.storyFlow[
+            currentChapter
+        ][currentRoute];
+
+
+    if (
+        novelIndex < 0 ||
+        novelIndex >=
+        routeData.length
+    ) {
+
+        return;
+    }
+
+
+    const currentData =
+        routeData[
+            novelIndex
+        ];
+
+
+    /*
+     * --------------------------------------------------
+     * 1. テキスト
+     *
+     * ★旧版そのまま
+     * --------------------------------------------------
+     */
+
+    document
+        .getElementById(
+            'chara-name-box'
+        )
+        .innerText =
+        currentData.name ||
+        "";
+
+
+    document
+        .getElementById(
+            'dialogue-text'
+        )
+        .innerHTML =
+        currentData.text ||
+        "";
+
+    /*
+     * --------------------------------------------------
+     * 2. 背景画像
+     * --------------------------------------------------
+     */
+
+    if (currentData.bg) {
+        let bgSrc = currentData.bg;
+        const bgMaster = window.BG_MASTER;
+
+        if (bgMaster && Array.isArray(bgMaster)) {
+            const targetBg = bgMaster.find(item => item.id === currentData.bg);
+            if (targetBg) {
+                bgSrc = targetBg.src;
+            } else {
+                console.warn(`⚠️ 背景ID "${currentData.bg}" が BG_MASTER に見つかりません。そのままパスとして扱います。`);
+            }
+        }
+
+        document
+            .getElementById(
+                'game-stage-area'
+            )
+            .style.backgroundImage =
+            `url('${bgSrc}')`;
+    }
+
+
+    /*
+     * --------------------------------------------------
+     * 3. BGM
+     * --------------------------------------------------
+     */
+    const bgmPlayer =
+        document.getElementById('novel-bgm');
+
+    if (currentData.bgm) {
+
+        if (currentData.bgm === "fadeout") {
+
+            let vol = bgmPlayer.volume;
+
+            const fadeInterval = setInterval(() => {
+
+                if (vol > 0.1) {
+                    vol -= 0.1;
+                    bgmPlayer.volume = Math.max(0, vol);
+
+                } else {
+                    clearInterval(fadeInterval);
+
+                    bgmPlayer.pause();
+                    bgmPlayer.currentTime = 0;
+                    currentBgmSrc = "";
+                }
+
+            }, 100);
+
+        } else {
+
+            let bgmSrc = currentData.bgm;
+            const bgmMaster = window.BGM_MASTER;
+
+            if (bgmMaster && Array.isArray(bgmMaster)) {
+                const targetBgm = bgmMaster.find(item => item.id === currentData.bgm);
+                if (targetBgm) {
+                    bgmSrc = targetBgm.src;
+                } else {
+                    console.warn(`⚠️ BGM ID "${currentData.bgm}" が BGM_MASTER に見つかりません。`);
+                }
+            }
+
+            if (currentBgmSrc !== bgmSrc) {
+
+                bgmPlayer.volume = 1.0;
+                bgmPlayer.src = bgmSrc;
+
+                bgmPlayer.play().catch(e =>
+                    console.error("BGMの再生に失敗しました:", e)
+                );
+
+                currentBgmSrc = bgmSrc;
+            }
+        }
+    }
+
+
+
+    /*
+     * --------------------------------------------------
+     * 4. キャラクター立ち絵
+     * --------------------------------------------------
+     */
+
+    const allImages =
+        document.querySelectorAll(
+            '.chara-img'
+        );
+
+
+    const targetImgId =
+        currentData.showImgId ||
+        "";
+
+
+    allImages.forEach(img => {
+
+        img.classList.remove(
+            'speaking'
+        );
+
+
+        if (
+            currentData.speaker &&
+            img.id.includes(
+                currentData.speaker
+            )
+        ) {
+
+            if (
+                img.id !==
+                targetImgId
+            ) {
+
+                img.classList.add(
+                    'hidden-chara'
+                );
+            }
+        }
+    });
+
+
+    if (
+        targetImgId
+    ) {
+
+        const targetImg =
+            document.getElementById(
+                targetImgId
+            );
+
+
+        if (
+            targetImg
+        ) {
+
+            targetImg.classList.remove(
+                'hidden-chara'
+            );
+
+
+            targetImg.classList.add(
+                'speaking'
+            );
+
+
+            /*
+             * ★最重要
+             *
+             * ここを旧版へ完全に戻す
+             */
+
+            if (
+                currentData.posClass
+            ) {
+
+                targetImg.className =
+                    `chara-img speaking ${currentData.posClass}`;
+            }
+        }
+    }
+
+
+    /*
+     * partnerAction
+     *
+     * ★旧版そのまま
+     */
+
+    if (
+        currentData.partnerAction
+    ) {
+
+        const partner =
+            document.getElementById(
+                currentData.partnerAction.id
+            );
+
+
+        if (
+            partner
+        ) {
+
+            if (
+                currentData.partnerAction.class ===
+                "hidden-chara"
+            ) {
+
+                partner.classList.add(
+                    'hidden-chara'
+                );
+
+            } else {
+
+                partner.className =
+                    `chara-img ${currentData.partnerAction.class}`;
+            }
+        }
+    }
+
+
+    /*
+     * --------------------------------------------------
+     * 5. 中央ポップアップ
+     * --------------------------------------------------
+     */
+    // ポップアップ画像の処理部分
+    const popupWrap = document.getElementById('center-popup-wrap');
+    const popupImg = document.getElementById('center-popup-img');
+
+    if (currentData.popupImg) {
+        let popupSrc = currentData.popupImg;
+        const popupMaster = window.POPUP_MASTER;
+
+        // POPUP_MASTERがあればIDから検索、なければ直接パスとして扱う
+        if (popupMaster && Array.isArray(popupMaster)) {
+            const targetPopup = popupMaster.find(item => item.id === currentData.popupImg);
+            if (targetPopup) {
+                popupSrc = targetPopup.src;
+            }
+        }
+
+        popupImg.src = popupSrc;
+        popupWrap.classList.remove('hidden-popup');
+    } else {
+        popupWrap.classList.add('hidden-popup');
+    }
+
+
+
+    /*
+     * --------------------------------------------------
+     * 5.5 HTMLポップアップボタンの描画処理
+     * --------------------------------------------------
+     */
+
+    const triggerContainer =
+        document.getElementById(
+            'game-popup-trigger-container'
+        );
+
+    if (
+        triggerContainer
+    ) {
+
+        if (
+            currentData.popupLink &&
+            currentData.popupBtnText
+        ) {
+            // # から始まる場合は自前モーダルを開くボタンにする
+            if (currentData.popupLink.startsWith("#")) {
+                const popupKey = currentData.popupLink.replace("#", "");
+                
+                triggerContainer.innerHTML =
+                    `
+                    <button type="button" class="popup-open game-popup-btn" onclick="openCustomModal('${popupKey}')">
+                        ${currentData.popupBtnText}
+                    </button>
+                    `;
+            } else {
+                // 従来の外部URLリンク
+                triggerContainer.innerHTML =
+                    `
+                    <a href="${currentData.popupLink}" class="popup-open game-popup-btn" target="_blank" rel="noopener">
+                        ${currentData.popupBtnText}
+                    </a>
+                    `;
+            }
+
+            triggerContainer.style.display =
+                'block';
+
+        } else {
+
+            triggerContainer.style.display =
+                'none';
+
+            triggerContainer.innerHTML =
+                '';
+        }
+    }
+
+
+    /*
+     * --------------------------------------------------
+     * 6. 選択肢
+     *
+     * 旧版へ count / branch だけ追加
+     * --------------------------------------------------
+     */
+
+    const choiceContainer =
+        document.getElementById(
+            'choice-container'
+        );
+
+
+    // ★ボタンではなく親のコントロールバーを取得する
+    const controlBar =
+        document.getElementById(
+            'game-control-bar'
+        );
+
+
+    if (
+        currentData.choices
+    ) {
+
+        // ★選択肢があるときはコントロールバーごと非表示にする
+        if (controlBar) {
+            controlBar.style.display =
+                'none';
+        }
+
+
+        choiceContainer.innerHTML =
+            '';
+
+
+        choiceContainer.style.display =
+            'flex';
+
+
+        currentData.choices.forEach(
+            ch => {
+
+                const btn =
+                    document.createElement(
+                        'button'
+                    );
+
+
+                btn.className =
+                    'story-choice-btn';
+
+
+                btn.innerHTML =
+                    ch.text;
+
+
+                btn.onclick =
+                    () => {
+
+                        if (
+                            ch.count
+                        ) {
+
+                            addStoryCounts(
+                                ch.count
+                            );
+                        }
+
+
+                        if (
+                            ch.branch
+                        ) {
+
+                            const nextRoute =
+                                resolveStoryBranch(
+                                    ch.branch,
+                                    ch.elseRoute ||
+                                    ch.nextRoute ||
+                                    ""
+                                );
+
+
+                            if (
+                                !nextRoute
+                            ) {
+
+                                console.error(
+                                    "⚠️ 選択肢の分岐先がありません:",
+                                    ch
+                                );
+
+
+                                return;
+                            }
+
+
+                            currentRoute =
+                                nextRoute;
+
+                        } else {
+
+                            currentRoute =
+                                ch.nextRoute;
+                        }
+
+
+                        novelIndex =
+                            0;
+
+
+                        renderScene();
+                    };
+
+
+                choiceContainer.appendChild(
+                    btn
+                );
+            }
+        );
+
+    } else {
+
+        choiceContainer.style.display =
+            'none';
+
+
+        // ★選択肢がない通常時はコントロールバーを表示する
+        if (controlBar) {
+            controlBar.style.display =
+                'block';
+        }
+    }
+
+
+    if (
+        currentData.choices
+    ) {
+
+        nextBtn.style.display =
+            'none';
+
+
+        choiceContainer.innerHTML =
+            '';
+
+
+        choiceContainer.style.display =
+            'flex';
+
+
+        currentData.choices.forEach(
+            ch => {
+
+                const btn =
+                    document.createElement(
+                        'button'
+                    );
+
+
+                btn.className =
+                    'story-choice-btn';
+
+
+                btn.innerHTML =
+                    ch.text;
+
+
+                btn.onclick =
+                    () => {
+
+                        /*
+                         * ★追加
+                         *
+                         * 選んだ瞬間にcount
+                         */
+
+                        if (
+                            ch.count
+                        ) {
+
+                            addStoryCounts(
+                                ch.count
+                            );
+                        }
+
+
+                        /*
+                         * ★追加
+                         *
+                         * 選択肢自体にも
+                         * branchを書ける
+                         */
+
+                        if (
+                            ch.branch
+                        ) {
+
+                            const nextRoute =
+                                resolveStoryBranch(
+                                    ch.branch,
+                                    ch.elseRoute ||
+                                    ch.nextRoute ||
+                                    ""
+                                );
+
+
+                            if (
+                                !nextRoute
+                            ) {
+
+                                console.error(
+                                    "⚠️ 選択肢の分岐先がありません:",
+                                    ch
+                                );
+
+
+                                return;
+                            }
+
+
+                            currentRoute =
+                                nextRoute;
+
+                        } else {
+
+                            /*
+                             * ★旧版そのもの
+                             */
+
+                            currentRoute =
+                                ch.nextRoute;
+                        }
+
+
+                        novelIndex =
+                            0;
+
+
+                        renderScene();
+                    };
+
+
+                choiceContainer.appendChild(
+                    btn
+                );
+            }
+        );
+
+    } else {
+
+        choiceContainer.style.display =
+            'none';
+
+
+        nextBtn.style.display =
+            'inline-block';
+    }
+}
+
+
+/**
+ * ==========================================================================
+ * 3. モバイル用レスポンシブ
+ *
+ * ★旧版そのまま
+ * ==========================================================================
+ */
+
+(function() {
+
+    /*
+     * モバイル縦画面
+     * 最大幅720px
+     */
+
+    const virtualWidth =
+        720;
+
+
+    function resizeVirtualScreen() {
+
+        const screenEl =
+            document.getElementById(
+                'masulesson-novel-container'
+            ) ||
+            document.querySelector(
+                '.masulesson-novel-container'
+            );
+
+
+        if (!screenEl) {
+            return;
+        }
+
+
+        const parentWidth =
+            screenEl.parentElement.clientWidth;
+
+
+        const availableWidth =
+            parentWidth - 4;
+
+
+        const scale =
+            availableWidth /
+            virtualWidth;
+
+
+        if (
+            scale < 1
+        ) {
+
+            screenEl.style.transform =
+                `scale(${scale})`;
+
+        } else {
+
+            screenEl.style.transform =
+                'none';
+        }
+
+
+        screenEl.style.top =
+            '0px';
+
+
+        screenEl.style.left =
+            '0px';
+    }
+
+
+    window.addEventListener(
+        'resize',
+        resizeVirtualScreen
+    );
+
+
+    window.addEventListener(
+        'DOMContentLoaded',
+        resizeVirtualScreen
+    );
+
+
+    setTimeout(
+        resizeVirtualScreen,
+        100
+    );
+
+})();
+
+
+/**
+ * ==========================================================================
+ * キーボード
+ *
+ * ★旧版そのまま
+ * ==========================================================================
+ */
+
+document.addEventListener(
+    'keydown',
+    function(event) {
+
+        if (
+            event.key ===
+            'Enter'
+        ) {
+
+            const stageArea =
+                document.getElementById(
+                    'game-stage-area'
+                );
+
+
+            if (
+                stageArea &&
+                stageArea.style.display !==
+                'none'
+            ) {
+
+                advanceStory();
+            }
+        }
+    }
+);
+
+
+/**
+ * ==========================================================================
+ * デバッグ
+ * ==========================================================================
+ */
+
+window.getStoryCounters =
+    function() {
+
+        const data =
+            JSON.parse(
+                JSON.stringify(
+                    storyCounters
+                )
+            );
+
+
+        console.table(
+            data
+        );
+
+
+        return data;
+    };
+
+
+window.resetStoryCounters =
+    resetStoryCounters;
+
+
+window.checkNovelCondition =
+    checkStoryCondition;
+    
+
+/**
+ * ==========================================================================
+ * 7 絵馬所持数の計算
+ * ==========================================================================
+ *
+ * requiredEmaIds に指定されたIDのうち、
+ * localStorage に "completed" として保存されているIDを数える。
+ *
+ * 結果：
+ * storyCounters.emaCount
+ * storyCounters.emaRequired
+ * ==========================================================================
+ */
+
+function updateEmaCount(requiredEmaIds) {
+
+    if (!Array.isArray(requiredEmaIds)) {
+
+        console.warn(
+            "⚠️ requiredEmaIds は配列で指定してください。"
+        );
+
+        storyCounters.emaCount = 0;
+        storyCounters.emaRequired = 0;
+
+        return 0;
+    }
+
+    // 重複IDは1つとして扱う
+    const uniqueIds = [
+        ...new Set(requiredEmaIds)
+    ];
+
+    // 所持済みの絵馬を抽出
+    const ownedIds = uniqueIds.filter(
+        id =>
+            localStorage.getItem(id) === "completed"
+    );
+
+    // カウンターに反映
+    storyCounters.emaCount =
+        ownedIds.length;
+
+    storyCounters.emaRequired =
+        uniqueIds.length;
+
+    // 全必要絵馬を所持しているか
+    storyCounters.emaComplete =
+        ownedIds.length >= uniqueIds.length
+            ? 1
+            : 0;
+
+    console.log(
+        "⛩️ [Ema Count]",
+        {
+            emaCount: storyCounters.emaCount,
+            emaRequired: storyCounters.emaRequired,
+            emaComplete: storyCounters.emaComplete,
+            ownedIds: ownedIds,
+            missingIds: uniqueIds.filter(
+                id => !ownedIds.includes(id)
+            )
+        }
+    );
+
+    return ownedIds.length;
+}
+
+// 外部から呼び出せるようにする
+window.updateEmaCount = updateEmaCount;
+
+
+/**
+ * ==========================================================================
+ * カスタムHTMLポップアップモーダル制御
+ * ==========================================================================
+ */
+function openCustomModal(popupKey) {
+    window.ML_POPUPS = window.ML_POPUPS || {};
+    const data = window.ML_POPUPS[popupKey];
+
+    if (!data) {
+        console.warn(`⚠️ ポップアップデータ "${popupKey}" が見つかりません。`);
+        return;
+    }
+
+    const overlay = document.getElementById('custom-modal-overlay');
+    const titleEl = document.getElementById('custom-modal-title');
+    const bodyEl = document.getElementById('custom-modal-body');
+
+    if (!overlay || !titleEl || !bodyEl) return;
+
+    // タイトル反映
+    titleEl.innerText = data.title || "";
+
+    // blocks 内の HTML を結合して流し込む
+    let bodyHtml = "";
+    if (Array.isArray(data.blocks)) {
+        data.blocks.forEach(block => {
+            if (block.type === "html" && block.html) {
+                bodyHtml += block.html;
+            }
+        });
+    }
+    bodyEl.innerHTML = bodyHtml;
+
+    // モーダルを表示
+    overlay.style.display = "flex";
+}
+
+function closeCustomModal() {
+    const overlay = document.getElementById('custom-modal-overlay');
+    if (overlay) {
+        overlay.style.display = "none";
+    }
+}
+
+// 外部から呼べるようにグローバル登録
+window.openCustomModal = openCustomModal;
+window.closeCustomModal = closeCustomModal;
+
+/**
+ * ==========================================================================
+ * カスタムHTMLポップアップ内のボタン制御（進捗ID発行 ＆ 自動クローズ）
+ * ==========================================================================
+ */
+document.addEventListener('click', function(e) {
+    // クリックされた要素、またはその親にある .complete-step-btn を探す
+    const btn = e.target.closest('.complete-step-btn');
+    if (!btn) return;
+
+    // 1. data-step-id (または data-complete-id) を取得して進捗を発行（保存）
+    const stepId = btn.getAttribute('data-step-id') || btn.getAttribute('data-complete-id');
+    
+    if (stepId) {
+        localStorage.setItem(stepId, "completed");
+        console.log("🏁 [Popup Progress] 完了ID発行:", stepId);
+
+        // サーバー同期関数があれば実行
+        if (typeof saveUserProgressToServer === "function") {
+            saveUserProgressToServer(stepId);
+        }
+
+        // 現在のチャプターに紐づく絵馬リストがあれば、カウンターを即時再計算する
+        if (typeof updateEmaCount === "function" && window.storyFlow && window.storyFlow[currentChapter]) {
+            const chapterData = window.storyFlow[currentChapter];
+            if (chapterData && Array.isArray(chapterData.requiredEma)) {
+                updateEmaCount(chapterData.requiredEma);
+            }
+        }
+    }
+
+    // 2. 自動的にモーダルを閉じる
+    closeCustomModal();
+});

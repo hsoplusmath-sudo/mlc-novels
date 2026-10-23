@@ -1,0 +1,407 @@
+/* ==========================================================================
+   1. ゲームの親親枠（📱 3:4比率に変更して縦の長さを最適化）
+   ========================================================================== */
+.masulesson-proportion-box {
+    position: relative;
+    width: 100%;
+    padding-top: 133.33%; /* 🌟 177% から 133.33% (3:4) に縮めて縦長感を解消 */
+    overflow: hidden;
+    background: #1a1a1a;
+    border: 2px solid #333333 !important; 
+    border-radius: 12px; 
+    box-sizing: border-box !important;
+    mask-image: radial-gradient(white, black);
+    -webkit-mask-image: radial-gradient(white, black);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin: 10px auto;
+}
+
+.masulesson-novel-container {
+    background: #f7f9fa;
+    border: none;
+    border-radius: 0;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+    font-family: 'Noto Sans JP', sans-serif;
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    width: 720px !important;  
+    height: 960px !important; /* 🌟 1280px から 960px に短縮し、無駄な上下の空間を排除 */
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+    transform-origin: top left; 
+    container-type: inline-size;
+}
+
+/* ==========================================================================
+   2. ヘッダーバー
+   ========================================================================== */
+.story-header-bar {
+    background-color: #333333 !important;
+    color: #ffffff !important; 
+    padding: 0 0 0 20px !important; 
+    height: 55px !important;           
+    line-height: 55px !important; 
+    font-size: 24px !important; 
+    font-weight: bold !important; 
+    position: absolute !important; 
+    top: 0 !important; 
+    left: 0 !important; 
+    width: 100% !important;
+    border-top-left-radius: 10px; 
+    border-top-right-radius: 10px; 
+    z-index: 50 !important;
+    box-sizing: border-box !important;
+}
+
+/* ==========================================================================
+   3. 初めの画面：ステージ選択メニュー（🌟 下の余白詰めの調整）
+   ========================================================================== */
+.selector-screen {
+    position: absolute; 
+    top: 0; left: 0; 
+    width: 720px; height: 960px; 
+    padding: 20px; 
+    box-sizing: border-box;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; 
+    z-index: 30;
+    animation: bgScroll 25s linear infinite !important;
+}
+
+.novel-content-wrapper {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; 
+    width: 100%; height: 100%;
+    padding: 60px 30px 20px 30px; 
+    box-sizing: border-box;
+}
+
+/* 🎯 タイトル */
+.novel-top-title { 
+    /* 🌟 位置を完璧に真ん中へ固定する設定（完全に復元） */
+    position: relative !important;
+    left: 0 !important;
+    top: 0 !important;
+    transform: none !important;
+    text-indent: 0 !important;
+    margin: 0 auto 20px auto !important; 
+    padding: 0 !important;
+    float: none !important;
+    clear: both !important;
+    box-sizing: border-box !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    text-align: center !important; 
+
+    /* デザイン・装飾 */
+    font-size: 34px !important; 
+    color: #333333 !important; 
+    font-weight: 900 !important;
+    font-family: 'Noto Sans JP', sans-serif !important;
+    letter-spacing: 1px !important;
+    line-height: 1.4 !important;
+    background: none !important;
+    border: none !important;
+    
+    /* 🌟 位置を変えずに存在感を出す「光のパルスアニメーション」へ変更 */
+    animation: titlePulseAnimation 3s ease-in-out infinite !important;
+    
+    text-shadow: 
+        -3px -3px 0 #ffffff,  3px -3px 0 #ffffff,
+        -3px  3px 0 #ffffff,  3px  3px 0 #ffffff,
+        -3px  0px 0 #ffffff,  3px  0px 0 #ffffff,
+         0px -3px 0 #ffffff,  0px  3px 0 #ffffff,
+         0px  6px 12px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* 🎯 タイトル専用：位置を固定したまま、文字の影（オーラ）を綺麗に明滅させる */
+@keyframes titlePulseAnimation {
+    0% {
+        opacity: 0.95;
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+    }
+    50% {
+        opacity: 1;
+        filter: drop-shadow(0 0 12px rgba(0, 102, 204, 0.3)); /* ますレッスンカラーの淡い青光 */
+    }
+    100% {
+        opacity: 0.95;
+        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+    }
+}
+
+
+.novel-top-subtitle {
+    font-size: 20px !important; font-weight: bold !important; color: #454D51 !important;
+    background: rgba(255, 255, 255, 0.85) !important; padding: 8px 20px !important; border-radius: 6px !important;
+    margin: 0 auto 30px auto !important; display: inline-block !important;
+}
+
+.selector-screen p { 
+    font-size: 22px !important; margin: 0 auto 20px auto !important; color: #333; 
+    background: rgba(255, 255, 255, 0.75); padding: 10px 20px; border-radius: 8px;
+    display: inline-block !important;    
+}
+
+.stage-menu-list { display: flex; flex-direction: column; gap: 15px; width: 90%; margin: 0 auto !important; }
+.stage-menu-list .menu-btn {
+    display: inline-flex !important; align-items: center; justify-content: center;
+    font-size: 26px !important; font-weight: 900 !important; background: #ffffff !important;
+    color: #0066cc !important; border: 3px solid #0066cc !important; border-bottom: 6px solid #004499 !important; 
+    border-radius: 60px !important; padding: 18px 30px !important; width: 100% !important; 
+    transition: all 0.15s ease; animation: pulseGlow 2.5s infinite ease-in-out; text-align: center;
+}
+
+/* ==========================================================================
+   4. ゲーム本編：ステージエリア・中央スライド画像
+   ========================================================================== */
+.stage-area {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    z-index: 1; 
+    overflow: hidden;
+    background-size: cover; 
+    background-position: center; 
+    transition: background-image 0.5s ease;
+}
+
+/* ポップアップ画像の外枠コンテナ */
+.popup-image-wrap {
+    position: absolute; 
+    top: 38%;                   
+    left: 50%; 
+    transform: translate(-50%, -50%) scale(1.0);
+    z-index: 10; 
+    width: 85%;  
+    height: 42%; 
+    transition: all 0.3s ease;
+    opacity: 1;
+    pointer-events: auto; /* 画像があるときはタップ可能 */
+}
+
+/* 🌟 画像がない（非表示）状態のときは、完全に透明化してサイズを縮小し、タップも無効化する */
+.hidden-popup { 
+    opacity: 0 !important; 
+    transform: translate(-50%, -50%) scale(0.9) !important; 
+    pointer-events: none !important; 
+}
+
+.popup-image-wrap img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: contain; 
+}
+
+/* 🌟 万が一、画像ソースが空のときにブラウザがバツ印や枠線を出してしまうのを防ぐ */
+.popup-image-wrap img[src=""], 
+.popup-image-wrap img:not([src]) {
+    opacity: 0 !important;
+}
+
+/* ==========================================================================
+   5. キャラクター立ち絵（🌟 上の空きすぎを解消するポジション調整）
+   ========================================================================== */
+.chara-img {
+    height: 68cqw;  /* 🌟 キャラサイズをわずかにアップさせて画面の密度を最適化 */
+    position: absolute; 
+    bottom: 245px;  /* 🌟 縦幅短縮に伴い、メッセージウィンドウの頭上に綺麗に着地 */
+    transition: all 0.4s ease;
+    filter: brightness(0.5) grayscale(30%); 
+    object-fit: contain;
+}
+
+.left-chara { left: 1cqw; right: auto; z-index: 5; }
+.right-chara { left: auto; right: 1cqw; z-index: 4; }
+.center-chara { left: 50%; transform: translateX(-50%); right: auto; z-index: 5; }
+.gorogoro-chara { left: 50%; right: auto; transform: translateX(-50%) rotate(-90deg) scale(1.0); z-index: 5; }
+
+.chara-img.speaking { filter: brightness(1.0) grayscale(0%); z-index: 10 !important; }
+.chara-img.speaking.left-chara { transform: scale(1.05); transform-origin: center bottom; }
+.chara-img.speaking.right-chara { transform: scale(1.05); transform-origin: center bottom; }
+.chara-img.speaking.center-chara { transform: translateX(-50%) scale(1.05); }
+.chara-img.speaking.gorogoro-chara { transform: translateX(-50%) rotate(-90deg) scale(1.05); }
+
+.hidden-chara { opacity: 0; pointer-events: none; transform: translateY(30px); }
+
+/* ==========================================================================
+   6. メッセージウィンドウ & 操作バー（🌟 縦幅をスタイリッシュに調整）
+   ========================================================================== */
+.message-window {
+    background: rgba(255, 255, 255, 0.96); 
+    border: 3.5px solid #555; 
+    border-radius: 18px;
+    padding: 25px 35px; 
+    position: absolute !important; 
+    bottom: 20px !important; /* 🌟 画面最下部への余白をスマートに */
+    left: 50% !important; 
+    transform: translateX(-50%) !important;
+    width: 680px !important;  
+    height: 250px !important; /* 🌟 高さを300pxから250pxに抑え、全体の引き締めを図る */
+    box-sizing: border-box; 
+    z-index: 30 !important;
+    box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
+}
+
+.name-box { 
+    font-weight: bold; 
+    font-size: 28px; 
+    border-bottom: 3px solid #333; 
+    display: inline-block; 
+    padding-bottom: 2px; 
+    margin-bottom: 10px; 
+    min-width: 140px; 
+}
+
+.text-box { 
+    font-size: 24px; 
+    line-height: 1.5; 
+    color: #222; 
+}
+
+/* 選択肢ボタン */
+.choice-box-area { 
+    position: absolute; 
+    bottom: 290px; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 85%; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 12px; 
+    z-index: 25; 
+}
+.story-choice-btn {
+    background: #fff; 
+    border: 3px solid #777; 
+    border-radius: 15px; 
+    padding: 16px;
+    text-align: center; 
+    font-size: 22px; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: all 0.2s; 
+    box-shadow: 0 5px 10px rgba(0,0,0,0.08);
+}
+.story-choice-btn:hover { background: #f0f7ff; border-color: #0066cc; color: #0066cc; }
+
+/* 次へボタンのコンテナ */
+.control-bar { 
+    position: absolute !important;
+    bottom: 15px !important; 
+    right: 25px !important;
+    z-index: 40 !important;
+}
+
+.embedded-next-btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px !important; 
+    font-weight: bold !important; 
+    color: #ffffff !important;
+    background: #ff8c00 !important;
+    border: none !important;
+    border-bottom: 4px solid #cc7000 !important;
+    border-radius: 40px !important; 
+    padding: 10px 40px !important;
+    cursor: pointer !important;
+    box-sizing: border-box !important;
+    transition: all 0.1s ease !important;
+    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3) !important;
+}
+
+/* ==========================================================================
+   7. 🎯 オレンジのレッスンポップアップボタン（🌟 フワフワ動く演出を追加）
+   ========================================================================== */
+.game-popup-trigger-container {
+    display: none;
+    position: absolute;
+    top: 450px; 
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 25;
+    width: 80%; 
+    white-space: normal;
+
+    /* 🌟 ボタンコンテナ自体を上下にフワフワと自動ループ浮遊させる */
+    animation: floatAnimation 3s ease-in-out infinite !important;
+
+}
+
+.game-popup-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    background: linear-gradient(135deg, #ff9e42 0%, #ff6f00 100%);
+    color: #ffffff !important;
+    font-weight: bold;
+    font-size: 26px !important; 
+    padding: 22px 30px !important;
+    width: 100%; 
+    border-radius: 50px !important; 
+    /* 🌟 パルス発光エフェクト（pulseGlow）をボタン自体に適用して脈動させる */
+    animation: pulseGlowMobile 2.5s infinite ease-in-out;
+    box-shadow: 0 6px 15px rgba(255, 111, 0, 0.4) !important;
+    transition: transform 0.2s ease !important;
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; 
+}
+
+/* ピカッと光る閃光エフェクト（維持） */
+.game-popup-btn::after {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -60%;
+    width: 30%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.6); 
+    transform: rotate(35deg); 
+    animation: shine-animation 3s infinite ease-in-out; 
+}
+
+.game-popup-btn:hover {
+    transform: scale(1.03);
+}
+
+/* ==========================================================================
+   8. アニメーション共通定義（🌟 モバイル用パルスを新設）
+   ========================================================================== */
+@keyframes bgScroll {
+    0% { background-position: 0 0; }
+    100% { background-position: 500px -500px; }
+}
+
+/* 上下にフワフワ浮遊するアニメーション */
+@keyframes floatAnimation {
+    0% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, -12px); } /* 心地よい幅で上下動 */
+    100% { transform: translate(-50%, 0); }
+}
+
+@keyframes pulseGlow {
+    0% { transform: scale(1); box-shadow: 0 5px 0 #004499, 0 4px 15px rgba(0, 102, 204, 0.15); }
+    50% { transform: scale(1.02); box-shadow: 0 5px 0 #004499, 0 8px 25px rgba(0, 102, 204, 0.25); }
+    100% { transform: scale(1); box-shadow: 0 5px 0 #004499, 0 4px 15px rgba(0, 102, 204, 0.15); }
+}
+
+/* 🎯 オレンジボタン専用：サイズ変化と陰影の脈動エフェクト */
+@keyframes pulseGlowMobile {
+    0% { box-shadow: 0 6px 15px rgba(255, 111, 0, 0.4); }
+    50% { transform: scale(1.02); box-shadow: 0 10px 25px rgba(255, 111, 0, 0.7); }
+    100% { box-shadow: 0 6px 15px rgba(255, 111, 0, 0.4); }
+}
+
+@keyframes shine-animation {
+    0% { left: -60%; }
+    30% { left: 140%; }
+    100% { left: 140%; }
+}

@@ -1,24 +1,17 @@
 window.POPUP_MASTER = [
-	{ id: "kakeibo-step3", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step3.webp"},
-];
+	{ id: "kakeibo-step1", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step1.webp"},
+  { id: "kakeibo-step2", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step2.webp"},
+  { id: "kakeibo-step3", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step3.webp"},
+  { id: "kakeibo-step4", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"},
+
+  ];
+
 
 
 // Storyはここから
-
 if (!window.storyFlow) { window.storyFlow = {}; }
 
 window.storyFlow["kakeibo"] = {
-
-msg_congratulations: [
-{ 
-  name: "",
-  text: "家計簿の完成おめでとうございます！",
-  speaker: "none",
-  showImgId: "none",
-  nextRoute: "excelmotiv"
-}
-],
-
 
 msg_welcome: [
 { 
@@ -27,8 +20,6 @@ msg_welcome: [
   speaker: "none",
   bg: "pc-office",
   showImgId: "none",
-  popupLink: "#popup-step-4",
-  popupBtnText: "Lesson 4：支出のグラフ作成",
   nextRoute: "excelmotiv"
 }
     ],

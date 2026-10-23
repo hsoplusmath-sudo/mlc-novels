@@ -26,15 +26,38 @@ window.CHARACTER_MASTER = [
 //  🎵 BGMのConfig Master
 
 window.BGM_MASTER = [
-    { id: "fraita",  src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_escort.opus" },
-    { id: "kaeru", src: "../assets/bgm/bgm_kaeru-piano.opus" },
+    { id: "fraita",  src: "../../assets/bgm/bgm_france_italia.opus" },
+    { id: "kaeru", src: "../../assets/bgm/bgm_kaeru-piano.opus" },
     { id: "namida", src: "../../assets/bgm/bgm_namidanokessyo.opus"}
 ];
 
 
 //  🏟️ Back ground のConfig Master
 window.BG_MASTER = [
-    { id: "pc-office",  src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/bg%20pc-office.webp" },
-    { id: "living-room", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/bg%20gorogoro.webp" },
-    { id: "cafe-restaurant", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/bg%20arbeit.webp"}
+    // 職場
+    { id: "pc-office",  src: "../../assets/bg/bg_pc-office.webp" },
+    { id: "cafe-restaurant", src: "../../assets/bg/bg_arbeit.webp"},
+    { id: "designer-room", src: "../../assets/bg/bg_designer-room.webp"},
+    { id: "stocksnap", src: "../../assets/bg/bg_stocksnap-people.webp"},
+
+
+    // 自宅
+    { id: "living-room", src: "../../assets/bg/bg_gorogoro.webp" },
+    { id: "kitchen", src: "../../assets/bg/bg_kitchen.webp" },
+
+    // 娯楽
+    { id: "hanabi", src: "../../assets/bg/bg_hanabi.webp" },
+    { id: "omatsuri", src: "../../assets/bg/bg_omatsuri.webp" },
+    { id: "beach", src: "../../assets/bg/bg_romaneau-beach.webp" },
+
+    // 学校
+    { id: "school-sakura", src: "../../assets/bg/bg_school-sakura.webp" },
+
+
+    // 自然・神社
+    { id: "kinjo-jinja", src: "../../assets/bg/bg_image-jinja.webp" },
+    { id: "ryuchin-jinja", src: "../../assets/bg/ryuchin-jinja.webp" },
+    { id: "manabiya", src: "../../assets/bg/bg_manabiya.webp" },
+    { id: "sunny-sky", src: "../../assets/bg/bg_sunny-sky.webp" }
+
 ];

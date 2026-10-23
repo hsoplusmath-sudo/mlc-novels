@@ -6,7 +6,7 @@ window.storyFlow["tutorial"] = {
     { name: "",
       text: "ようこそ！まずはこのアプリの使い方をマスターしましょう！",
       speaker: "none",
-      bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_school-class.webp",
+      bg: "manabiya",
       showImgId: "none",
       nextRoute: "tutorial_start"
     }
@@ -17,10 +17,10 @@ window.storyFlow["tutorial"] = {
       name: "うさこ",
       text: "あ、新しい画面になった！ここがチュートリアルなんだね。",
       speaker: "usako",
-      bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_school-class.webp",
+      bg: "living-room",
       showImgId: "img-usako-normal",
       posClass: "center-chara",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_france_italia.opus"
+      bgm: "fraita"
     },
     {
       name: "うさこ",
@@ -35,7 +35,7 @@ window.storyFlow["tutorial"] = {
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_escort.opus",
+      bgm: "escort",
       partnerAction: { id: "img-usako-normal", class: "right-chara" }
     },
     {

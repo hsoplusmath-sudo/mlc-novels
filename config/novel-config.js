@@ -28,7 +28,8 @@ window.CHARACTER_MASTER = [
 window.BGM_MASTER = [
     { id: "fraita",  src: "../../assets/bgm/bgm_france_italia.opus" },
     { id: "kaeru", src: "../../assets/bgm/bgm_kaeru-piano.opus" },
-    { id: "namida", src: "../../assets/bgm/bgm_namidanokessyo.opus"}
+    { id: "namida", src: "../../assets/bgm/bgm_namidanokessyo.opus"},
+    { id: "escort",  src: "../../assets/bgm/bgm_escort.opus" }
 ];
 
 

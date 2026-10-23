@@ -1,11 +1,12 @@
 window.POPUP_MASTER = [
+  { id: "kakeibo-top", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/top_excel_kakeibo.webp"},
 	{ id: "kakeibo-step1", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step1.webp"},
   { id: "kakeibo-step2", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step2.webp"},
   { id: "kakeibo-step3", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step3.webp"},
   { id: "kakeibo-step4", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"},
+  { id: "kakeibo-goal", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/kakeibo_lesson_goal.webp"}
 
   ];
-
 
 
 // Storyはここから
@@ -99,8 +100,9 @@ excelmotiv: [
   speaker: "hero",
   showImgId: "img-hero-happy",
   posClass: "left-chara",
-  bgm: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_escort.opus",
-  partnerAction: { id: "img-usako-sad", class: "right-chara" } },
+  bgm: "escort",
+  partnerAction: { id: "img-usako-sad", class: "right-chara" }
+},
 {
   name: "うさこ",
   text: "だれ？！！？！！！",
@@ -158,7 +160,8 @@ excelmotiv: [
     { text: "「バイトをがんばる！」",
       nextRoute: "arbeit" },
     { text: "「いつものように家にかえって、とりあえずご飯食べて、ごろごろしながらスマホ見て、なんとなく毎日を過ごす」",
-      nextRoute: "gorogoro" }]
+      nextRoute: "gorogoro" }
+              ]
 }
 ],
 
@@ -169,7 +172,7 @@ arbeit: [
   speaker: "usako",
   showImgId: "img-usako-normal",
   posClass: "center-chara",
-  bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/bg%20arbeit.webp",
+  bg: "cafe-restaurant",
   partnerAction: { id: "img-hero-happy", class: "hidden-chara" }
 },
 {
@@ -213,7 +216,7 @@ gorogoro: [
 {
   name: "うさこ",
   text: "今日も仕事終わった！！",
-  bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/bg%20gorogoro.webp",
+  bg: "living-room",
   speaker: "usako",
   showImgId: "img-usako-normal",
   posClass: "gorogoro-chara",
@@ -270,8 +273,8 @@ kakeibo: [
   speaker: "hero",
   showImgId: "img-hero-happy",
   posClass: "left-chara",
-  bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/bg%20pc-office.webp",
-  bgm: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_kaeru-piano.opus",
+  bg: "pc-office",
+  bgm: "kaeru",
   partnerAction: { id: "img-usako-sad", class: "right-chara" } 
   },
 {
@@ -367,7 +370,7 @@ kakeibo: [
   speaker: "hero",
   showImgId: "img-hero-happy",
   posClass: "left-chara",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"
+  popupImg: "kakeibo-step4"
 },
 {
   name: "ヒーロー",
@@ -375,7 +378,7 @@ kakeibo: [
   speaker: "hero",
   showImgId: "img-hero-happy",
   posClass: "left-chara",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"
+  popupImg: "kakeibo-step4"
 },
 {
   name: "ヒーロー",
@@ -383,7 +386,7 @@ kakeibo: [
   speaker: "hero",
   showImgId: "img-hero-happy",
   posClass: "left-chara",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"
+  popupImg: "kakeibo-step4"
 },
 {
   name: "うさこ",
@@ -391,7 +394,7 @@ kakeibo: [
   speaker: "usako",
   showImgId: "img-usako-normal",
   posClass: "right-chara",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"
+  popupImg: "kakeibo-step4"
 },
 {
   name: "うさこ",
@@ -399,7 +402,7 @@ kakeibo: [
   speaker: "usako",
   showImgId: "img-usako-normal",
   posClass: "right-chara",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"
+  popupImg: "kakeibo-step4"
 },
 {
   name: "ヒーロー",
@@ -407,7 +410,7 @@ kakeibo: [
   speaker: "hero",
   showImgId: "img-hero-happy",
   posClass: "left-chara",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"
+  popupImg: "kakeibo-step4"
 },
 {
   name: "ヒーロー",
@@ -429,7 +432,7 @@ kakeibo: [
   speaker: "usako",
   showImgId: "img-usako-normal",
   posClass: "right-chara",
-  bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_namidanokessyo.opus",
+  bgm: "namida",
   partnerAction: { id: "img-hero-happy", class: "hidden-chara" }
 },
 {
@@ -438,7 +441,6 @@ kakeibo: [
   speaker: "usako",
   showImgId: "img-usako-normal",
   posClass: "right-chara",
-  bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_namidanokessyo.opus",
   partnerAction: { id: "img-hero-happy", class: "hidden-chara" }
 },
 {
@@ -466,14 +468,14 @@ kakeibo: [
   text: "Step１では、表の枠組みの線を作成します。",
   speaker: "none",
   showImgId: "none",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step1.webp"
+  popupImg: "kakeibo-step1"
 },
 {
   name: "",
   text: "Step１では、表の枠組みの線を作成します。",
   speaker: "none",
   showImgId: "none",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step1.webp",
+  popupImg: "kakeibo-step1",
   popupLink: "#popup-step-1",
   popupBtnText: "Lesson 1：家計簿の表の作成"
 },
@@ -482,21 +484,21 @@ kakeibo: [
   text: "Step２では、収入と支出に入力した金額から、収支の差や合計額を自動的に計算するシステムを入力します。",
   speaker: "none",
   showImgId: "none",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step2.webp"
+  popupImg: "kakeibo-step2"
 },
 {
   name: "",
   text: "このように自動で計算するようにできます！",
   speaker: "none",
   showImgId: "none",
-  popupImg: "https://www.masulesson.com/wp-content/uploads/2026/04/kakeibo_lesson_goal.jpg"
+  popupImg: "kakeibo-goal"
 },
 {
   name: "",
   text: "このように自動で計算するようにできます！",
   speaker: "none",
   showImgId: "none",
-  popupImg: "https://www.masulesson.com/wp-content/uploads/2026/04/kakeibo_lesson_goal.jpg",
+  popupImg: "kakeibo-goal",
   popupLink: "#popup-step-2",
   popupBtnText: "Lesson 2：金額の自動計算"
 },
@@ -505,14 +507,14 @@ kakeibo: [
   text: "Step３では、タブを更新して月ごとの家計簿の表を作成する方法を学びます。",
   speaker: "none",
   showImgId: "none",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step3.webp"
+  popupImg: "kakeibo-step3"
 },
 {
   name: "",
   text: "Step３では、タブを更新して月ごとの家計簿の表を作成する方法を学びます。",
   speaker: "none",
   showImgId: "none",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step3.webp",
+  popupImg: "kakeibo-step3",
   popupLink: "#popup-step-3",
   popupBtnText: "Lesson 3：タブ・次月への更新"
 },
@@ -521,14 +523,14 @@ kakeibo: [
   text: "Step４では、作成した家計簿から支出を見える化する円グラフを作ります。",
   speaker: "none",
   showImgId: "none",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"
+  popupImg: "kakeibo-step4"
 },
 {
   name: "",
   text: "Step４では、作成した家計簿から支出を見える化する円グラフを作ります。",
   speaker: "none",
   showImgId: "none",
-  popupImg: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp",
+  popupImg: "kakeibo-goal",
   popupLink: "#popup-step-4",
   popupBtnText: "Lesson 4：支出のグラフ作成"
 },

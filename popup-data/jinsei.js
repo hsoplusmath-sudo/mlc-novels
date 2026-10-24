@@ -53,3 +53,19 @@ window.ML_POPUPS["popup-jinsei"] = {
             `}
     ]
 };
+
+window.ML_POPUPS["popup-step-1_tutorial"] = {
+    title: "ポップアップ",
+
+    blocks: [
+        {type: "html", html: `
+        	<p>ポップアップです。下のボタンを押して閉じてください。</p>
+            <p>このポップアップには、有益な情報が載っています。</p>
+
+            <button class="complete-step-btn"
+                data-step-id="step-1_tutorial">
+                    このステップを完了する！
+            </button>
+        `}
+    ]
+};

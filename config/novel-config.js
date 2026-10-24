@@ -36,7 +36,7 @@ window.BGM_MASTER = [
 //  🏟️ Back ground のConfig Master
 window.BG_MASTER = [
     // 職場
-    { id: "pc-office",  src: "../../assets/bg/bg_pc-office.webp" },
+    { id: "pc-office", src: "../../assets/bg/bg_pc-office.webp" },
     { id: "cafe-restaurant", src: "../../assets/bg/bg_arbeit.webp"},
     { id: "designer-room", src: "../../assets/bg/bg_designer-room.webp"},
     { id: "stocksnap", src: "../../assets/bg/bg_stocksnap-people.webp"},

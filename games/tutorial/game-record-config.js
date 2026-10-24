@@ -1,6 +1,5 @@
 /**
  * ゲームごとの記録・次への扉の設定
- * completeStepId と同じIDで達成状態を管理する
  */
 
 window.GAME_RECORD_CONFIG = {
@@ -9,23 +8,23 @@ window.GAME_RECORD_CONFIG = {
 
     // ① 進捗状況
     progress: [
-        {  id: "kakeibo_step1",  label: "家計簿の表を作る" },
-        {  id: "kakeibo_step2",  label: "自動で計算する" },
-        {  id: "kakeibo_step3",  label: "家計簿を完成させる" },
-        {  id: "kakeibo_step4",  label: "家計簿を活用する" }
+        {  id: "tutorial_1",  label: "ポップアップの見方" },
+        {  id: "tutorial_2",  label: "学習できること" },
+        {  id: "tutorial_3",  label: "電卓の使い方" },
+        {  id: "tutorial_4",  label: "友達の紹介" }
     ],
 
     // ② エンディング
     endings: [
-        {  id: "kakeibo_step4", label: "家計簿マスター" }
+        {  id: "tutorial_end", label: "チュートリアル完了" }
     ],
 
     // ③ 明日の出来事（次への扉）
     doors: [
-        {  id: "circle_door_sign", label: "サインってなに？",
-            description: "円と波のつながりを発見する", 
-            url: "/game/sine/index.html",
-            requiredAny: [ "circle_end_normal", "circle_end_discovery" ] // or
+        {  id: "tutorial_end", label: "近所の神社",
+            description: "ここは近所の神社です", 
+            url: "/game/1_jinja/index.html",
+            requiredAny: [ "tutorial_end" ] // or
         }
     ]
 };

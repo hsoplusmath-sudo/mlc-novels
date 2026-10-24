@@ -286,6 +286,7 @@ window.storyFlow["tutorial"] = {
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara",
+      completeStepId: "tutorial_end"
     },
     {
       name: "",

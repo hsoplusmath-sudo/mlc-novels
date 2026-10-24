@@ -1462,12 +1462,12 @@ function renderScene() {
 ;
 
 
-    if (
-        currentData.choices
-    ) {
+if (currentData.choices) {
+    const nextBtn = document.getElementById('next-scene-btn');
 
-        nextBtn.style.display =
-            'none';
+    if (nextBtn) {
+        nextBtn.style.display = 'none';
+    }
 
 
         choiceContainer.innerHTML =
@@ -1579,15 +1579,15 @@ function renderScene() {
             }
         );
 
-    } else {
+} else {
+    choiceContainer.style.display = 'none';
 
-        choiceContainer.style.display =
-            'none';
+    const nextBtn = document.getElementById('next-scene-btn');
 
-
-        nextBtn.style.display =
-            'inline-block';
+    if (nextBtn) {
+        nextBtn.style.display = 'inline-block';
     }
+}
 }
 
 
@@ -1595,7 +1595,6 @@ function renderScene() {
  * ==========================================================================
  * 3. PC用レスポンシブスケーリング
  *
- * ★旧PC版そのまま
  * ==========================================================================
  */
 

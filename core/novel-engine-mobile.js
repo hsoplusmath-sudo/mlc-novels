@@ -1393,12 +1393,12 @@ function renderScene() {
     }
 
 
-    if (
-        currentData.choices
-    ) {
+if (currentData.choices) {
+    const nextBtn = document.getElementById('next-scene-btn');
 
-        nextBtn.style.display =
-            'none';
+    if (nextBtn) {
+        nextBtn.style.display = 'none';
+    }
 
 
         choiceContainer.innerHTML =
@@ -1513,8 +1513,7 @@ function renderScene() {
             'none';
 
 
-        nextBtn.style.display =
-            'inline-block';
+        document.getElementById('next-scene-btn').style.display = 'inline-block';
     }
 }
 

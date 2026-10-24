@@ -1,0 +1,434 @@
+
+/* =====================================================
+   ますレッスン｜学びのナビゲーション
+   コース一覧 × 絵馬帳
+   ===================================================== */
+
+.mlc-navigation {
+    --mlc-orange: #ff8b2b;
+    --mlc-orange-dark: #ed7417;
+    --mlc-wood: #69432c;
+    --mlc-wood-dark: #39251b;
+    --mlc-gold: #d8b775;
+    --mlc-cream: #fff8e9;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+
+    width: 100%;
+    max-width: 760px;
+    margin: 22px auto 28px;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+/* 共通カード */
+.mlc-navigation .mlc-nav-card {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    min-width: 0;
+    min-height: 94px;
+    padding: 18px;
+
+    box-sizing: border-box;
+    text-decoration: none !important;
+    border-radius: 18px;
+    overflow: hidden;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        filter 0.2s ease;
+}
+
+/* コース一覧：オレンジ */
+.mlc-navigation .mlc-nav-course {
+    color: #fff !important;
+
+    background: linear-gradient(
+        135deg,
+        #ffa54f 0%,
+        var(--mlc-orange) 55%,
+        var(--mlc-orange-dark) 100%
+    );
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+
+    box-shadow:
+        0 5px 0 #d76312,
+        0 9px 18px rgba(190, 100, 30, 0.20);
+}
+
+/* 絵馬帳：木色＋金枠 */
+.mlc-navigation .mlc-nav-ema {
+    color: var(--mlc-cream) !important;
+
+    background:
+        repeating-linear-gradient(
+            0deg,
+            transparent 0,
+            transparent 5px,
+            rgba(255, 220, 160, 0.025) 6px,
+            transparent 8px
+        ),
+        linear-gradient(
+            135deg,
+            #80583b 0%,
+            var(--mlc-wood) 52%,
+            var(--mlc-wood-dark) 100%
+        );
+
+    border: 2px solid var(--mlc-gold);
+
+    box-shadow:
+        inset 0 0 0 2px rgba(255, 225, 170, 0.10),
+        0 5px 0 #2c1b13,
+        0 9px 18px rgba(55, 32, 18, 0.20);
+}
+
+/* アイコン */
+.mlc-navigation .mlc-nav-icon {
+    display: flex;
+    flex: 0 0 48px;
+    align-items: center;
+    justify-content: center;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    box-sizing: border-box;
+}
+
+.mlc-navigation .mlc-nav-course .mlc-nav-icon {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.19);
+}
+
+.mlc-navigation .mlc-nav-ema .mlc-nav-icon {
+    color: #f1d59b;
+    background: rgba(255, 239, 204, 0.10);
+    border: 1px solid rgba(216, 183, 117, 0.55);
+}
+
+.mlc-navigation .mlc-nav-icon svg {
+    display: block;
+    width: 27px;
+    height: 27px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* テキスト */
+.mlc-navigation .mlc-nav-text {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.mlc-navigation .mlc-nav-title {
+    display: block;
+    margin: 0;
+
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.4;
+    letter-spacing: 0.03em;
+}
+
+.mlc-navigation .mlc-nav-description {
+    display: block;
+    margin: 0;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.5;
+    opacity: 0.88;
+}
+
+/* 右端の矢印 */
+.mlc-navigation .mlc-nav-arrow {
+    display: flex;
+    flex: 0 0 25px;
+    align-items: center;
+    justify-content: center;
+
+    width: 25px;
+    height: 25px;
+
+    font-family: Arial, sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 1;
+
+    transition: transform 0.2s ease;
+}
+
+.mlc-navigation .mlc-nav-course .mlc-nav-arrow {
+    color: #fff;
+}
+
+.mlc-navigation .mlc-nav-ema .mlc-nav-arrow {
+    color: var(--mlc-gold);
+}
+
+/* PC：ホバー */
+@media (hover: hover) {
+    .mlc-navigation .mlc-nav-card:hover {
+        transform: translateY(-3px);
+        filter: brightness(1.04);
+    }
+
+    .mlc-navigation .mlc-nav-course:hover {
+        box-shadow:
+            0 5px 0 #d76312,
+            0 13px 24px rgba(190, 100, 30, 0.28);
+    }
+
+    .mlc-navigation .mlc-nav-ema:hover {
+        box-shadow:
+            inset 0 0 0 2px rgba(255, 225, 170, 0.14),
+            0 5px 0 #2c1b13,
+            0 13px 24px rgba(55, 32, 18, 0.28);
+    }
+
+    .mlc-navigation .mlc-nav-card:hover .mlc-nav-arrow {
+        transform: translateX(4px);
+    }
+}
+
+/* キーボード操作 */
+.mlc-navigation .mlc-nav-card:focus-visible {
+    outline: 3px solid #2584d8;
+    outline-offset: 4px;
+}
+
+/* スマートフォン */
+@media screen and (max-width: 600px) {
+    .mlc-navigation {
+        gap: 10px;
+        margin: 18px auto 24px;
+    }
+
+    .mlc-navigation .mlc-nav-card {
+        gap: 9px;
+        min-height: 82px;
+        padding: 12px 10px;
+        border-radius: 13px;
+    }
+
+    .mlc-navigation .mlc-nav-icon {
+        flex-basis: 34px;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+    }
+
+    .mlc-navigation .mlc-nav-icon svg {
+        width: 21px;
+        height: 21px;
+    }
+
+    .mlc-navigation .mlc-nav-title {
+        font-size: 14px;
+        letter-spacing: 0;
+    }
+
+    .mlc-navigation .mlc-nav-description {
+        font-size: 10px;
+        line-height: 1.45;
+    }
+
+    .mlc-navigation .mlc-nav-arrow {
+        flex-basis: 15px;
+        width: 15px;
+        font-size: 23px;
+    }
+}
+
+/* さらに狭い画面 */
+@media screen and (max-width: 360px) {
+    .mlc-navigation {
+        gap: 8px;
+    }
+
+    .mlc-navigation .mlc-nav-card {
+        gap: 7px;
+        padding: 10px 7px;
+    }
+
+    .mlc-navigation .mlc-nav-icon {
+        flex-basis: 29px;
+        width: 29px;
+        height: 29px;
+    }
+
+    .mlc-navigation .mlc-nav-title {
+        font-size: 13px;
+    }
+
+    .mlc-navigation .mlc-nav-description {
+        font-size: 9px;
+    }
+}
+
+/* 動きを減らす設定 */
+@media (prefers-reduced-motion: reduce) {
+    .mlc-navigation .mlc-nav-card,
+    .mlc-navigation .mlc-nav-arrow {
+        transition: none !important;
+    }
+}
+
+/* =====================================================
+   重要：popup-openの横幅だけ上書き
+   既存のポップアップ用CSS・JSはそのまま使う
+   ===================================================== */
+
+.mlc-navigation .popup-open {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   静的サイト用ポップアップ
+   ナビゲーションの既存デザインは変更しない
+   ===================================================== */
+
+.popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 16px;
+    box-sizing: border-box;
+
+    background: rgba(0, 0, 0, 0.65);
+    overflow-y: auto;
+}
+
+.popup.is-open {
+    display: flex;
+}
+
+.popup-content {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    max-height: 90vh;
+
+    margin: auto;
+    padding: 20px;
+    box-sizing: border-box;
+
+    background: #fff;
+    color: #333;
+    border-radius: 16px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.popup-close {
+    display: block;
+    margin: 0 0 16px auto;
+    padding: 8px 16px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f5f5f5;
+    color: #333;
+
+    font: inherit;
+    cursor: pointer;
+}
+
+.popup-inner {
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+@media screen and (max-width: 600px) {
+    .popup {
+        padding: 10px;
+    }
+
+    .popup-content {
+        max-height: 94vh;
+        padding: 14px;
+        border-radius: 12px;
+    }
+}
+
+/* ポップアップ背景 */
+.custom-modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: rgba(0, 0, 0, 0.65);
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+/* ポップアップ本体 */
+.custom-modal {
+    position: relative;
+    width: 100%;
+    max-width: 720px;
+    max-height: 85vh;
+    overflow-y: auto;
+    box-sizing: border-box;
+    background: #fffaf0;
+    border: 3px solid #c59a45;
+    border-radius: 16px;
+    padding: 28px 20px 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* 閉じるボタン */
+.custom-modal-close {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    border: none;
+    background: transparent;
+    font-size: 32px;
+    line-height: 1;
+    cursor: pointer;
+    color: #654321;
+}
+
+/* タイトル */
+#custom-modal-title {
+    margin: 0 32px 20px 0;
+    font-size: 1.4rem;
+    color: #654321;
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+    .custom-modal {
+        padding: 28px 16px 20px;
+        max-height: 90vh;
+    }
+}

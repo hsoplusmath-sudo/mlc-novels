@@ -1,0 +1,84 @@
+<!-- ますレッスン：学びのナビゲーション -->
+<nav class="mlc-navigation" aria-label="学びのメニュー">
+
+  <!-- コース一覧 -->
+  <a
+    class="mlc-nav-card mlc-nav-course popup-open"
+    href="#popup-course-list"
+    aria-label="コース一覧を見る"
+    onclick="openCustomModal('popup-course-list'); return false;"
+  >
+    <span class="mlc-nav-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21z"></path>
+        <path d="M4 5.5v13A2.5 2.5 0 0 1 6.5 16H20"></path>
+        <path d="M8 7h8M8 10h8"></path>
+      </svg>
+    </span>
+
+    <span class="mlc-nav-text">
+      <span class="mlc-nav-title">コース一覧</span>
+      <span class="mlc-nav-description">次の学びを探そう</span>
+    </span>
+
+    <span class="mlc-nav-arrow" aria-hidden="true">›</span>
+  </a>
+
+  <!-- 絵馬帳 -->
+  <a
+    class="mlc-nav-card mlc-nav-ema popup-open"
+    href="#popup-ema-list"
+    aria-label="絵馬帳を見る"
+    onclick="openCustomModal('popup-ema-list'); return false;"
+  >
+    <span class="mlc-nav-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24">
+        <path d="M12 3 21 8v11H3V8z"></path>
+        <path d="M7 12h10M7 15h10"></path>
+        <path d="M9 8V5h6v3"></path>
+      </svg>
+    </span>
+
+    <span class="mlc-nav-text">
+      <span class="mlc-nav-title">絵馬帳</span>
+      <span class="mlc-nav-description">発見した知識を集めよう</span>
+    </span>
+
+    <span class="mlc-nav-arrow" aria-hidden="true">›</span>
+  </a>
+
+</nav>
+
+
+<!-- 共通ポップアップ本体 -->
+<div
+  id="custom-modal-overlay"
+  class="custom-modal-overlay"
+  onclick="if (event.target === this) closeCustomModal();"
+  aria-hidden="true"
+>
+  <div
+    class="custom-modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="custom-modal-title"
+  >
+    <button
+      type="button"
+      class="custom-modal-close"
+      onclick="closeCustomModal()"
+      aria-label="閉じる"
+    >×</button>
+
+    <h2 id="custom-modal-title"></h2>
+
+    <div id="custom-modal-body"></div>
+  </div>
+</div>
+
+
+<!-- ナビゲーション用CSS・JS（各1回だけ読み込む） -->
+<link rel="stylesheet" href="./nav.css">
+
+<script src="./popup-data/navigation.js" defer></script>
+<script src="./nav.js" defer></script>

@@ -1,0 +1,238 @@
+/* ========================================
+冒険の記録
+シンプル・上品・やわらかなデザイン
+======================================== */
+
+.game-record {
+max-width: 900px;
+margin: 24px auto;
+padding: 20px;
+font-size: 14px;
+line-height: 1.7;
+color: #39382f;
+background: #fffdf8;
+border: 1px solid #e9e2d4;
+border-radius: 12px;
+box-sizing: border-box;
+}
+
+/* 各セクション */
+
+.game-record .record-section {
+margin: 0 0 22px;
+}
+
+.game-record .record-section:last-child {
+margin-bottom: 0;
+}
+
+.game-record .record-section h3 {
+margin: 0 0 8px;
+padding: 0 0 7px;
+font-size: 15px;
+font-weight: 600;
+color: #594b35;
+border-bottom: 1px solid #e5dccb;
+}
+
+/* ========================================
+進捗状況・エンディングの各行
+======================================== */
+
+.game-record .record-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 12px;
+min-height: 36px;
+padding: 5px 8px;
+border-bottom: 1px solid #f0ece4;
+box-sizing: border-box;
+}
+
+.game-record .record-row:last-child {
+border-bottom: none;
+}
+
+.game-record .record-label {
+flex: 1;
+min-width: 0;
+}
+
+/* ========================================
+進捗状況のシンボル
+======================================== */
+
+/* 未達成：ひし形 */
+
+.game-record #record-progress .record-row .record-label::before {
+content: "◇";
+display: inline-block;
+width: 22px;
+margin-right: 4px;
+color: #b8a47d;
+font-size: 15px;
+text-align: center;
+}
+
+/* 達成済み：塗りつぶしたひし形 */
+
+.game-record #record-progress .record-row.is-completed .record-label::before {
+content: "◆";
+color: #66815a;
+}
+
+/* ========================================
+達成状況
+======================================== */
+
+.game-record .record-status {
+flex-shrink: 0;
+font-size: 12px;
+color: #99958b;
+}
+
+.game-record .record-status.completed {
+color: #66815a;
+font-weight: 600;
+}
+
+/* ========================================
+エンディング
+======================================== */
+
+/* 見出しと達成数 */
+
+.game-record .ending-heading {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 8px;
+padding-bottom: 7px;
+color: #594b35;
+font-size: 15px;
+font-weight: 600;
+border-bottom: 1px solid #e5dccb;
+}
+
+/* 0 / 3 などの達成数 */
+
+.game-record .ending-count {
+color: #8a7858;
+font-size: 12px;
+font-weight: 500;
+letter-spacing: 0.04em;
+}
+
+/* 未発見のエンディング */
+
+.game-record .ending-hidden {
+color: #aaa49a;
+letter-spacing: 0.08em;
+}
+
+/* 発見済みのエンディング */
+
+.game-record .ending-found {
+color: #66815a;
+font-weight: 600;
+}
+
+/* ========================================
+次への扉
+======================================== */
+
+.game-record .record-door {
+display: flex;
+align-items: center;
+gap: 10px;
+margin-top: 8px;
+padding: 12px 14px;
+color: inherit;
+text-decoration: none;
+background: #f7f3e9;
+border: 1px solid #e9dfca;
+border-radius: 8px;
+transition: background 0.2s, border-color 0.2s;
+}
+
+.game-record .record-door:first-child {
+margin-top: 0;
+}
+
+.game-record .record-door:hover {
+background: #f0e8d7;
+border-color: #cbbb99;
+}
+
+.game-record .record-door-icon {
+flex-shrink: 0;
+}
+
+.game-record .record-door-title {
+display: block;
+font-size: 14px;
+font-weight: 600;
+color: #655438;
+}
+
+.game-record .record-door-description {
+display: block;
+margin-top: 2px;
+font-size: 13px;
+font-weight: 400;
+color: #777064;
+}
+
+.game-record .record-door-arrow {
+flex-shrink: 0;
+margin-left: auto;
+font-size: 22px;
+color: #9a8969;
+}
+
+/* ========================================
+スマートフォン
+======================================== */
+
+@media (max-width: 600px) {
+.game-record {
+margin: 16px auto;
+padding: 15px 12px;
+font-size: 13px;
+border-radius: 10px;
+}
+
+
+.game-record .record-section {
+    margin-bottom: 18px;
+}
+
+.game-record .record-row {
+    min-height: 35px;
+    padding: 5px 4px;
+    gap: 8px;
+}
+
+.game-record .record-status {
+    font-size: 11px;
+}
+
+.game-record .record-door {
+    gap: 8px;
+    padding: 11px 12px;
+}
+
+.game-record .record-door-title {
+    font-size: 13px;
+}
+
+.game-record .record-door-description {
+    font-size: 12px;
+}
+
+.game-record .record-door-arrow {
+    font-size: 20px;
+}
+
+}

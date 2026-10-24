@@ -1,150 +1,54 @@
-
-/**
- * ますレッスン｜静的サイト用ナビゲーション
- * popup-open / href="#popup-id" で開く
- * 外部HTMLは初回のみ読み込む
- */
-
-document.addEventListener("DOMContentLoaded", function () {
-    const cards = document.querySelectorAll(
-        ".mlc-navigation .popup-open"
-    );
-
-    const popups = document.querySelectorAll(".popup");
-
-    let lastFocusedElement = null;
-
-    function closePopup(popup) {
-        if (!popup) return;
-
-        popup.classList.remove("is-open");
-        popup.setAttribute("aria-hidden", "true");
-
-        if (lastFocusedElement) {
-            lastFocusedElement.focus();
-            lastFocusedElement = null;
-        }
-    }
-
-    async function loadPopupContent(popup) {
-        const inner = popup.querySelector("[data-popup-src]");
-
-        if (!inner || inner.dataset.loaded === "true") {
-            return;
-        }
-
-        const src = inner.dataset.popupSrc;
-
-        try {
-            const response = await fetch(src);
-
-            if (!response.ok) {
-                throw new Error("HTTP " + response.status);
-            }
-
-            inner.innerHTML = await response.text();
-            inner.dataset.loaded = "true";
-
-        } catch (error) {
-            console.error("ポップアップの読み込みに失敗:", error);
-
-            inner.textContent =
-                "内容を読み込めませんでした。ページを再読み込みしてください。";
-        }
-    }
-
-    async function openPopup(popup, trigger) {
-        if (!popup) return;
-
-        document.querySelectorAll(".popup.is-open").forEach(function (item) {
-            item.classList.remove("is-open");
-            item.setAttribute("aria-hidden", "true");
-        });
-
-        lastFocusedElement = trigger;
-
-        popup.classList.add("is-open");
-        popup.setAttribute("aria-hidden", "false");
-
-        await loadPopupContent(popup);
-
-        const closeButton = popup.querySelector(".popup-close");
-        if (closeButton) closeButton.focus();
-    }
-
-    cards.forEach(function (card) {
-        card.addEventListener("click", function (event) {
-            const targetId = card.getAttribute("href");
-
-            if (!targetId || !targetId.startsWith("#")) return;
-
-            const popup = document.querySelector(targetId);
-
-            if (!popup || !popup.classList.contains("popup")) return;
-
-            event.preventDefault();
-            openPopup(popup, card);
-        });
-    });
-
-    popups.forEach(function (popup) {
-        popup.addEventListener("click", function (event) {
-            if (
-                event.target.closest(".popup-close") ||
-                event.target.closest(".complete-step-btn")
-            ) {
-                closePopup(popup);
-                return;
-            }
-
-            if (event.target === popup) {
-                closePopup(popup);
-            }
-        });
-    });
-
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            document.querySelectorAll(".popup.is-open").forEach(closePopup);
-        }
-    });
-});
-
 (function () {
     "use strict";
 
     window.ML_POPUPS = window.ML_POPUPS || {};
 
-    window.openCustomModal = function (popupKey) {
-        const data = window.ML_POPUPS[popupKey];
+    const overlay = () => document.getElementById("custom-modal-overlay");
+    const titleEl = () => document.getElementById("custom-modal-title");
+    const bodyEl  = () => document.getElementById("custom-modal-body");
 
-        const overlay = document.getElementById("custom-modal-overlay");
-        const title = document.getElementById("custom-modal-title");
-        const body = document.getElementById("custom-modal-body");
+    window.openCustomModal = async function (key) {
+        const data = window.ML_POPUPS[key];
+        const o = overlay(), t = titleEl(), b = bodyEl();
 
-        if (!data || !overlay || !title || !body) {
-            console.warn("ポップアップを表示できません:", popupKey);
+        if (!data || !o || !t || !b) {
+            console.warn("ポップアップを表示できません:", key, { data: !!data, overlay: !!o });
             return;
         }
 
-        title.textContent = data.title || "";
+        t.textContent = data.title || "";
+        o.style.display = "flex";
+        o.setAttribute("aria-hidden", "false");
 
-        body.innerHTML = (data.blocks || [])
-            .filter(block => block.type === "html" && block.html)
-            .map(block => block.html)
+        // 外部HTML方式
+        if (data.src) {
+            b.textContent = "読み込み中…";
+            try {
+                const res = await fetch(data.src);
+                if (!res.ok) throw new Error("HTTP " + res.status);
+                b.innerHTML = await res.text();
+            } catch (e) {
+                console.error("ポップアップの読み込みに失敗:", e);
+                b.textContent = "内容を読み込めませんでした。";
+            }
+            return;
+        }
+
+        // 旧 blocks 方式
+        b.innerHTML = (data.blocks || [])
+            .filter(x => x.type === "html" && x.html)
+            .map(x => x.html)
             .join("");
-
-        overlay.style.display = "flex";
     };
 
     window.closeCustomModal = function () {
-        const overlay = document.getElementById("custom-modal-overlay");
-        if (overlay) overlay.style.display = "none";
+        const o = overlay();
+        if (!o) return;
+        o.style.display = "none";
+        o.setAttribute("aria-hidden", "true");
     };
 
-    document.addEventListener("keydown", function (event) {
-        if (event.key === "Escape") {
-            window.closeCustomModal();
-        }
+    document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") window.closeCustomModal();
     });
 })();

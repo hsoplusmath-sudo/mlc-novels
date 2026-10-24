@@ -14,7 +14,7 @@ window.CHARACTER_MASTER = [
     { id: "img-usako-epiphany",   src: "../../assets/chara/usako_epiphany.webp",   alt: "うさこ（ひらめき）" },
 
     { id: "img-hero-happy",   src: "../../assets/chara/hero_happy.webp",   alt: "ヒーロー" },
-    { id: "img-bukiyokun-hard",   src: "../../assets/chara/bukiyokun_hard.webp",   alt: "ぶきようくん" },
+    { id: "img-bukiyokun-hard",   src: "../../assets/chara/student_hard.webp",   alt: "ぶきようくん" },
     { id: "img-sikun-happy",   src: "../../assets/chara/komainu-un_happy.webp",   alt: "シーくん" },
     { id: "img-satyan-happy",   src: "../../assets/chara/komainu-a_happy.webp",   alt: "サーちゃん" },
     { id: "img-siri-normal",   src: "../../assets/chara/siri_normal.webp",   alt: "シリー" },

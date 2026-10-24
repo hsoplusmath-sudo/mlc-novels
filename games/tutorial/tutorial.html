@@ -71,3 +71,30 @@ window.addEventListener('load', function() {
 <audio id="novel-bgm" loop="" preload="auto"></audio>
 <script src="../../core/common-loader.js"></script>
 <script src="./tutorial.js"></script>
+
+
+<!-- ゲーム画面下：冒険の記録 -->
+<section id="game-record" class="game-record">
+    <!-- 進捗状況 -->
+    <section class="record-section">
+        <h3>進捗状況</h3>
+        <div id="record-progress"></div>
+    </section>
+
+    <!-- エンディング -->
+    <section class="record-section">
+        <div id="record-endings"></div>
+    </section>
+
+    <!-- 明日の出来事（次への扉） -->
+    <section class="record-section">
+        <h3>明日の出来事</h3>
+        <div id="record-doors"></div>
+    </section>
+
+</section>
+
+<!-- ゲームごとの記録 -->
+<link rel="stylesheet" href="../../site-ui/game-record/game-record.css">
+<script src="./game-record-config.js"></script>
+<script src="../../site-ui/game-record/game-record.js"></script>

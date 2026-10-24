@@ -39,43 +39,6 @@ window.storyFlow["starter"] = {
       partnerAction: { id: "img-usako-normal", class: "right-chara" }
     },
     {
-      name: "ヒーロー",
-      text: "このシステムでは、お話の途中でポップアップを開いて学習を挟むことができるんだ。",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "ヒーロー",
-      text: "さっそく練習として、オレンジ色のボタンを出すから、それを押してポップアップを開いてみてごらん？",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "わあ、ボタンが出てきた！これを押せばいいんだね？",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara",
-      popupLink: "#popup-step-1_tutorial",
-      popupBtnText: "ボタンを押してみよう"
-    },
-    {
-      name: "うさこ",
-      text: "ポップアップを閉じて戻ってきたよ！ちゃんと「完了」のスタンプももらえた！",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara"
-    },
-    {
-      name: "ヒーロー",
-      text: "素晴らしい！これでポップアップの使い方はバッチリだね。",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara"
-    },
-    {
       name: "うさこ",
       text: "聞いておきたいことがあって、、、",
       speaker: "usako",
@@ -98,7 +61,7 @@ window.storyFlow["starter"] = {
     },
     {
       name: "ヒーロー",
-      text: "ポップアップにまとめたから見てみてよ。",
+      text: "いまはセミナー一覧表を作成中だから、ちょっと待っておいてね",
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara",
@@ -209,21 +172,6 @@ window.storyFlow["starter"] = {
       showImgId: "img-hero-happy",
       posClass: "left-chara",
       nextRoute: "tutorial_end"
-    },
-    {
-      name: "うさこ",
-      text: "よかった！",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara"
-    },
-    {
-      name: "ヒーロー",
-      text: "ほかにみんなに伝えないといけない大事なことあったかな？！",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara",
-      nextRoute: "tutorial_end"
     }
   ],
 
@@ -286,14 +234,7 @@ window.storyFlow["starter"] = {
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara",
-      completeStepId: "tutorial_end"
-    },
-    {
-      name: "",
-      text: "（シークレットステージへ招待します）",
-      speaker: "",
-      popupLink: "#popup-step-5_tutorial",
-      popupBtnText: "こちら"
+      completeStepId: "tutorial_ending"
     },
     {
       name: "ヒーロー",

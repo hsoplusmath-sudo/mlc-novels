@@ -30,8 +30,10 @@ window.BGM_MASTER = [
     { id: "kaeru", src: "../../assets/bgm/bgm_kaeru-piano.opus" },
     { id: "namida", src: "../../assets/bgm/bgm_namidanokessyo.opus"},
     { id: "escort",  src: "../../assets/bgm/bgm_escort.opus" },
+    { id: "shizukana-tikurin",  src: "../../bgm_shizukana-tikurin.mp3" },
     { id: "jinja-icho",  src: "../../assets/bgm/bgm_jinja-icho.mp3" }
 ];
+
 
 
 //  🏟️ Back ground のConfig Master
@@ -58,10 +60,20 @@ window.BG_MASTER = [
     // 神社
     { id: "kinjo-jinja", src: "../../assets/bg/bg_image-jinja.webp" },
     { id: "ryuchin-jinja", src: "../../assets/bg/ryuchin-jinja.webp" },
+    { id: "sanmine-torii", src: "../../assets/bg/bg_sanmine-torii.webp" },
+    { id: "itukushima-misen", src: "../../assets/bg/bg_itukushima-misen.webp" },
 
-    // 自然・神社
+    // 自然
     { id: "nohara", src: "../../assets/bg/bg_nohara.webp" },
     { id: "manabiya", src: "../../assets/bg/bg_manabiya.webp" },
-    { id: "sunny-sky", src: "../../assets/bg/bg_sunny-sky.webp" }
+    { id: "sunny-sky", src: "../../assets/bg/bg_sunny-sky.webp" },
+    { id: "night-sky", src: "../../assets/bg/bg_night-sky.webp" },
+
+    // 山中
+    { id: "sangaku-titai", src: "../../assets/bg/bg_sangaku-titai.webp" },
+
+    // 海外
+    { id: "the-ocean", src: "../../assets/bg/bg_the-ocean.webp" },
+    { id: "egypt-piramid", src: "../../assets/bg/bg_egypt-piramid.webp" }
 
 ];

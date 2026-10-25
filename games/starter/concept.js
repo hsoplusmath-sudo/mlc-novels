@@ -8,7 +8,7 @@ window.storyFlow["concept"] = {
       text: "この物語は「うさこ」が自分に満足する人生を歩む道筋を「横からそっと見守る」ゲームです。",
       speaker: "none",
       showImgId: "none",
-      bg: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_nohara.webp",
+      bg: "nohara",
       nextRoute: "concept_satisfaction"
     }
   ],

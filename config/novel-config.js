@@ -55,10 +55,12 @@ window.BG_MASTER = [
     // 学校
     { id: "school-sakura", src: "../../assets/bg/bg_school-sakura.webp" },
 
-
-    // 自然・神社
+    // 神社
     { id: "kinjo-jinja", src: "../../assets/bg/bg_image-jinja.webp" },
     { id: "ryuchin-jinja", src: "../../assets/bg/ryuchin-jinja.webp" },
+
+    // 自然・神社
+    { id: "nohara", src: "../../assets/bg/bg_nohara.webp" },
     { id: "manabiya", src: "../../assets/bg/bg_manabiya.webp" },
     { id: "sunny-sky", src: "../../assets/bg/bg_sunny-sky.webp" }
 

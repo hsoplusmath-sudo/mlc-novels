@@ -7,11 +7,14 @@
 
 <div id="stage-selector" class="selector-screen" style="background-image: url('../../assets/bg/bg_manabiya.webp');">
     <div class="novel-content-wrapper">
-    <div class="novel-top-title">初心者用チュートリアル</div>
-    <p class="novel-top-subtitle">今を学ぶ, ますレッスン🎵</p>
+    <div class="novel-top-title">初めての方へ</div>
+    <p class="novel-top-subtitle">今をまなぶ、ますレッスン🎵</p>
     <div class="stage-menu-list">
-        <button id="start-lesson-btn" class="menu-btn active-stage">
-          <span class="moving-arrow">➔</span> レッスンスタート
+        <button id="start-lesson-btn-concept" class="menu-btn active-stage">
+          <span class="moving-arrow">🗺️</span> コンセプト
+        </button>
+        <button id="start-lesson-btn-tutorial" class="menu-btn active-stage">
+          <span class="moving-arrow">🔰</span> チュートリアル
         </button>
 
     </div>
@@ -51,7 +54,27 @@
 window.addEventListener('load', function() {
     (function($) {
     // レッスンスタートボタンの処理
-    $('#start-lesson-btn').on('click', function() {
+    $('#start-lesson-btn-concept').on('click', function() {
+        if (typeof startSelectedStage === "function") {
+            $('#stage-selector').hide();
+            $('#game-stage-area').show();
+            $('#game-message-window').show();
+            $('#game-control-bar').show();
+            startSelectedStage('concept_start', false, '', 'concept');
+        } else {
+            alert("ゲームエンジンが読み込まれていません。");
+        }
+    });
+})(jQuery);
+
+});
+</script>
+
+<script>
+window.addEventListener('load', function() {
+    (function($) {
+    // レッスンスタートボタンの処理
+    $('#start-lesson-btn-tutorial').on('click', function() {
         if (typeof startSelectedStage === "function") {
             $('#stage-selector').hide();
             $('#game-stage-area').show();
@@ -67,7 +90,9 @@ window.addEventListener('load', function() {
 });
 </script>
 
+
 <!-- 音声プレイヤー（共通） -->
 <audio id="novel-bgm" loop="" preload="auto"></audio>
 <script src="../../core/common-loader.js"></script>
+<script src="./concept.js"></script>
 <script src="./scenario.js"></script>

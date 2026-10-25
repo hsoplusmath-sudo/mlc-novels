@@ -5,13 +5,17 @@
     
 <div id="novel-header-bar" class="story-header-bar">Masu Lesson Class</div>
 
-<div id="stage-selector" class="selector-screen" style="background-image: url('../../assets/bg/bg_image-jinja.webp');">
+<div id="stage-selector" class="selector-screen" style="background-image: url('../../assets/images/img-jinja-left.webp');">
     <div class="novel-content-wrapper">
     <div class="novel-top-title">ここは近所の神社</div>
-    <p class="novel-top-subtitle">ボーナスステージ</p>
+    <p class="novel-top-subtitle">ふと散歩して辿り着いた</p>
     <div class="stage-menu-list">
         <button id="start-lesson-btn" class="menu-btn active-stage">
-          <span class="moving-arrow">➔</span> レッスンスタート
+          <span class="moving-arrow">➔</span> 行ってみる
+        </button>
+
+        <button id="secret-stage-btn" class="menu-btn locked-stage">
+          <span class="moving-arrow">🔒</span> また来た
         </button>
 
     </div>
@@ -66,6 +70,27 @@ window.addEventListener('load', function() {
 
 });
 </script>
+
+<script>
+window.addEventListener('load', function() {
+    (function($) {
+    // レッスンスタートボタンの処理
+    $('#secret-stage-btn').on('click', function() {
+        if (typeof startSelectedStage === "function") {
+            $('#stage-selector').hide();
+            $('#game-stage-area').show();
+            $('#game-message-window').show();
+            $('#game-control-bar').show();
+            startSelectedStage('laststage', true, 'hitonotame', 'jinja');
+        } else {
+            alert("ゲームエンジンが読み込まれていません。");
+        }
+    });
+})(jQuery);
+
+});
+</script>
+
 
 <!-- 音声プレイヤー（共通） -->
 <audio id="novel-bgm" loop="" preload="auto"></audio>

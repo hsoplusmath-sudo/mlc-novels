@@ -157,7 +157,7 @@ houou: [
       speaker: "usako",
       showImgId: "",
       posClass: "",
-      bg: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_sunny-sky.webp",
+      bg: "bg_sunny-sky",
     },
     {
       name: "",
@@ -183,9 +183,9 @@ laststage : [
       name: "",
       text: "ここは近所の神社",
       speaker: "",
-      bg: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_image-jinja.webp",
+      bg: "kinjo-jinja",
       showImgId: "",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/jinja-icho-namiki.mp3"
+      bgm: "jinja-icho"
     },
     {
       name: "しーくん",

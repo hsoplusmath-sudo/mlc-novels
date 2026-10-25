@@ -26,11 +26,7 @@ window.storyFlow["worldtrip"] = {
       text: "おっ、うさこ！ いきなり大きな疑問だね。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-<<<<<<< HEAD
       posClass: "center-chara"
-=======
-      posClass: "left-chara"
->>>>>>> main
     },
     {
       name: "うさこ",
@@ -58,11 +54,7 @@ window.storyFlow["worldtrip"] = {
       text: "大丈夫！ 最初から何でもできる必要なんてないよ。一歩ずつ進めばいいんだ。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-<<<<<<< HEAD
       posClass: "center-chara"
-=======
-      posClass: "left-chara"
->>>>>>> main
     },
     {
       name: "うさこ",
@@ -83,15 +75,11 @@ window.storyFlow["worldtrip"] = {
       text: "いつもの景色の中に、知らない世界を探しに行こう！",
       speaker: "usagi",
       showImgId: "img-usagi-epiphany",
-<<<<<<< HEAD
       posClass: "center-chara",
       partnerAction: {
         id: "img-hero-happy",
         class: "hidden-chara"
       },
-=======
-      posClass: "left-chara",
->>>>>>> main
       nextRoute: "manabiya_intro"
     }
   ],
@@ -120,11 +108,7 @@ window.storyFlow["worldtrip"] = {
       text: "それも大事！ でも、もうひとつ。分からないことに出会ったら、すぐに諦めないこと。",
       speaker: "usagi",
       showImgId: "img-usagi-epiphany",
-<<<<<<< HEAD
       posClass: "center-chara"
-=======
-      posClass: "left-chara"
->>>>>>> main
     },
     {
       name: "ぶきようくん",
@@ -138,11 +122,7 @@ window.storyFlow["worldtrip"] = {
       text: "分からないからこそ、面白いこともあるんだよ。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-<<<<<<< HEAD
       posClass: "center-chara"
-=======
-      posClass: "left-chara"
->>>>>>> main
     },
     {
       name: "うさこ",
@@ -156,11 +136,7 @@ window.storyFlow["worldtrip"] = {
       text: "失敗したっていい。気づいたことは、きみだけの宝物になる。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-<<<<<<< HEAD
       posClass: "center-chara"
-=======
-      posClass: "left-chara"
->>>>>>> main
     },
     {
       name: "ぶきようくん",
@@ -174,26 +150,18 @@ window.storyFlow["worldtrip"] = {
       text: "よーし！ 今日はどんな宝物が見つかるかな？",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-<<<<<<< HEAD
       posClass: "center-chara"
-=======
-      posClass: "left-chara"
->>>>>>> main
     },
     {
       name: "うさぎ",
       text: "未知の世界への第一歩。さあ、近所の神社へ出発だ！",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-<<<<<<< HEAD
       posClass: "center-chara",
        partnerAction: {
         id: "img-bukiyokun-hard",
         class: "hidden-chara"
       },
-=======
-      posClass: "left-chara",
->>>>>>> main
       nextRoute: "shrine_gate"
     }
   ],
@@ -237,11 +205,7 @@ window.storyFlow["worldtrip"] = {
       text: "うわっ！ 狛犬がしゃべった！？",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-<<<<<<< HEAD
       posClass: "center-chara",
-=======
-      posClass: "left-chara",
->>>>>>> main
       partnerAction: {
         id: "img-satyan-happy",
         class: "hidden-chara"
@@ -263,11 +227,7 @@ window.storyFlow["worldtrip"] = {
       text: "ねえ、二匹はずっとここにいるの？ 毎日、何を見ているの？",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-<<<<<<< HEAD
       posClass: "center-chara",
-=======
-      posClass: "left-chara",
->>>>>>> main
       partnerAction: {
         id: "img-satyan-happy",
         class: "hidden-chara"
@@ -289,11 +249,7 @@ window.storyFlow["worldtrip"] = {
       text: "同じ場所なのに毎日違う？ よく観察したら、何か見つかるってこと？",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-<<<<<<< HEAD
       posClass: "center-chara",
-=======
-      posClass: "left-chara",
->>>>>>> main
       partnerAction: {
         id: "img-satyan-happy",
         class: "hidden-chara"
@@ -354,11 +310,7 @@ window.storyFlow["worldtrip"] = {
       text: "……よく、ここまで来たね。",
       speaker: "itushika",
       showImgId: "img-itushika-normal",
-<<<<<<< HEAD
       posClass: "center-chara"
-=======
-      posClass: "right-chara"
->>>>>>> main
     },
     {
       name: "うさこ",
@@ -372,11 +324,7 @@ window.storyFlow["worldtrip"] = {
       text: "この山には、急いでいると見落としてしまうものがたくさんある。",
       speaker: "itushika",
       showImgId: "img-itushika-normal",
-<<<<<<< HEAD
       posClass: "center-chara"
-=======
-      posClass: "right-chara"
->>>>>>> main
     },
     {
       name: "うさぎ",
@@ -390,11 +338,7 @@ window.storyFlow["worldtrip"] = {
       text: "そう。小さな変化も、見方を変えれば大切な手がかりになる。",
       speaker: "itushika",
       showImgId: "img-itushika-normal",
-<<<<<<< HEAD
       posClass: "center-chara"
-=======
-      posClass: "right-chara"
->>>>>>> main
     },
     {
       name: "うさこ",
@@ -408,11 +352,7 @@ window.storyFlow["worldtrip"] = {
       text: "その気持ちを忘れずに。この先には、雪の厳しい山もあるよ。",
       speaker: "itushika",
       showImgId: "img-itushika-normal",
-<<<<<<< HEAD
       posClass: "center-chara",
-=======
-      posClass: "right-chara",
->>>>>>> main
       nextRoute: "sanmine_snow"
     }
   ],

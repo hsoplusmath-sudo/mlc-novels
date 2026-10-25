@@ -30,7 +30,7 @@ window.CHARACTER_MASTER = [
     { id: "img-zenkun-normal",   src: "../../assets/chara/zenkun_normal.webp",   alt: "ぜんくん" },
     { id: "img-gotyan-normal",   src: "../../assets/chara/gotyan_normal.webp",   alt: "ごっちゃん" },
     { id: "img-toyatori-normal",   src: "../../assets/chara/toyatori_normal.webp",   alt: "トヤとり" },
-    { id: "img-itushikaa-normal",   src: "../../assets/chara/itushika_normal.webp",   alt: "イツシカ" },
+    { id: "img-itushika-normal",   src: "../../assets/chara/itushika_normal.webp",   alt: "イツシカ" },
 
     { id: "img-maruka-normal",   src: "../../assets/chara/maruka_normal.webp",   alt: "まるか" },
     { id: "img-ebisukuzira-normal",   src: "../../assets/chara/ebisukuzira_normal.webp",   alt: "えびすくじら" },

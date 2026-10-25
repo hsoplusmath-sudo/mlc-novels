@@ -19,7 +19,23 @@ window.CHARACTER_MASTER = [
     { id: "img-satyan-happy",   src: "../../assets/chara/komainu-a_happy.webp",   alt: "サーちゃん" },
     { id: "img-siri-normal",   src: "../../assets/chara/siri_normal.webp",   alt: "シリー" },
     { id: "img-ryujin-normal",   src: "../../assets/chara/ryujin_normal.webp",   alt: "龍神さん" },
-    { id: "img-houou-normal",   src: "../../assets/chara/houou_normal.webp",   alt: "鳳凰" }
+    { id: "img-houou-normal",   src: "../../assets/chara/houou_normal.webp",   alt: "鳳凰" },
+
+    { id: "img-meneruf-normal",   src: "../../assets/chara/mineruf_normal.webp",   alt: "みねるふ" },
+    { id: "img-meneruf-angry",   src: "../../assets/chara/mineruf_angry.webp",   alt: "みねるふ（怒）" },
+    { id: "img-meneruf-normal",   src: "../../assets/chara/mineruf_normal.webp",   alt: "みねるふ" },
+    { id: "img-meneruf-angry",   src: "../../assets/chara/mineruf_angry.webp",   alt: "みねるふ（怒）" },
+
+    { id: "img-gotyan-normal",   src: "../../assets/chara/gotyan_normal.webp",   alt: "ごっちゃん" },
+    { id: "img-zenkun-normal",   src: "../../assets/chara/zenkun_normal.webp",   alt: "ぜんくん" },
+    { id: "img-gotyan-normal",   src: "../../assets/chara/gotyan_normal.webp",   alt: "ごっちゃん" },
+    { id: "img-toyatori-normal",   src: "../../assets/chara/toyatori_normal.webp",   alt: "トヤとり" },
+    { id: "img-itushikaa-normal",   src: "../../assets/chara/itushika_normal.webp",   alt: "イツシカ" },
+
+    { id: "img-maruka-normal",   src: "../../assets/chara/maruka_normal.webp",   alt: "まるか" },
+    { id: "img-ebisukuzira-normal",   src: "../../assets/chara/ebisukuzira_normal.webp",   alt: "えびすくじら" },
+
+    { id: "img-sphinx-normal",   src: "../../assets/chara/sphinx_normal.webp",   alt: "スフィンクス" }
 
 ];
 

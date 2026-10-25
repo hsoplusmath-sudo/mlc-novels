@@ -29,7 +29,8 @@ window.BGM_MASTER = [
     { id: "fraita",  src: "../../assets/bgm/bgm_france_italia.opus" },
     { id: "kaeru", src: "../../assets/bgm/bgm_kaeru-piano.opus" },
     { id: "namida", src: "../../assets/bgm/bgm_namidanokessyo.opus"},
-    { id: "escort",  src: "../../assets/bgm/bgm_escort.opus" }
+    { id: "escort",  src: "../../assets/bgm/bgm_escort.opus" },
+    { id: "jinja-icho",  src: "../../assets/bgm/bgm_jinja-icho.mp3" }
 ];
 
 

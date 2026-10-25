@@ -9,7 +9,7 @@ window.storyFlow["jinja"] = {
       speaker: "",
       bg: "kinjo-jinja",
       showImgId: "",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/jinja-icho-namiki.mp3"
+      bgm: "jinja-icho"
     },
     {
       name: "しーくん",
@@ -157,7 +157,7 @@ houou: [
       speaker: "usako",
       showImgId: "",
       posClass: "",
-      bg: "bg_sunny-sky",
+      bg: "sunny-sky",
     },
     {
       name: "",

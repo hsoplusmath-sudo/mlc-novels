@@ -21,10 +21,8 @@ window.CHARACTER_MASTER = [
     { id: "img-ryujin-normal",   src: "../../assets/chara/ryujin_normal.webp",   alt: "龍神さん" },
     { id: "img-houou-normal",   src: "../../assets/chara/houou_normal.webp",   alt: "鳳凰" },
 
-    { id: "img-meneruf-normal",   src: "../../assets/chara/mineruf_normal.webp",   alt: "みねるふ" },
-    { id: "img-meneruf-angry",   src: "../../assets/chara/mineruf_angry.webp",   alt: "みねるふ（怒）" },
-    { id: "img-meneruf-normal",   src: "../../assets/chara/mineruf_normal.webp",   alt: "みねるふ" },
-    { id: "img-meneruf-angry",   src: "../../assets/chara/mineruf_angry.webp",   alt: "みねるふ（怒）" },
+    { id: "img-mineruf-normal",   src: "../../assets/chara/mineruf_normal.webp",   alt: "みねるふ" },
+    { id: "img-mineruf-angry",   src: "../../assets/chara/mineruf_angry.webp",   alt: "みねるふ（怒）" },
 
     { id: "img-gotyan-normal",   src: "../../assets/chara/gotyan_normal.webp",   alt: "ごっちゃん" },
     { id: "img-zenkun-normal",   src: "../../assets/chara/zenkun_normal.webp",   alt: "ぜんくん" },

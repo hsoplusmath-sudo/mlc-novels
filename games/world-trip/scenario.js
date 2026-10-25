@@ -68,7 +68,7 @@ window.storyFlow["worldtrip"] = {
       text: "神社か。いつも前を通るだけだったな。",
       speaker: "hero",
       showImgId: "img-hero-happy",
-      posClass: "right-chara"
+      posClass: "center-chara"
     },
     {
       name: "うさぎ",
@@ -76,10 +76,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "usagi",
       showImgId: "img-usagi-epiphany",
       posClass: "center-chara",
-      partnerAction: {
-        id: "img-hero-happy",
-        class: "hidden-chara"
-      },
+      partnerAction: {  id: "img-hero-happy", class: "hidden-chara"  },
       nextRoute: "manabiya_intro"
     }
   ],
@@ -158,10 +155,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "center-chara",
-       partnerAction: {
-        id: "img-bukiyokun-hard",
-        class: "hidden-chara"
-      },
+      partnerAction: {  id: "img-bukiyokun-hard",  class: "hidden-chara" },
       nextRoute: "shrine_gate"
     }
   ],
@@ -184,32 +178,21 @@ window.storyFlow["worldtrip"] = {
       speaker: "sikun",
       showImgId: "img-sikun-happy",
       posClass: "left-chara",
-      partnerAction: {
-        id: "img-satyan-happy",
-        class: "right-chara"
-      }
+      partnerAction: {  id: "img-satyan-happy", class: "right-chara" }
     },
     {
       name: "サーちゃん",
       text: "シーくん、いきなり大声を出さないの！ びっくりしてるでしょ？",
       speaker: "satyan",
       showImgId: "img-satyan-happy",
-      posClass: "right-chara",
-      partnerAction: {
-        id: "img-sikun-happy",
-        class: "left-chara"
-      }
+      posClass: "right-chara"
     },
     {
       name: "うさこ",
       text: "うわっ！ 狛犬がしゃべった！？",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "center-chara",
-      partnerAction: {
-        id: "img-satyan-happy",
-        class: "hidden-chara"
-      }
+      posClass: "center-chara"
     },
     {
       name: "シーくん",
@@ -217,54 +200,35 @@ window.storyFlow["worldtrip"] = {
       speaker: "sikun",
       showImgId: "img-sikun-happy",
       posClass: "left-chara",
-      partnerAction: {
-        id: "img-satyan-happy",
-        class: "right-chara"
-      }
+      partnerAction: {  id: "img-satyan-happy",   class: "right-chara"  }
     },
     {
       name: "うさぎ",
       text: "ねえ、二匹はずっとここにいるの？ 毎日、何を見ているの？",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "center-chara",
-      partnerAction: {
-        id: "img-satyan-happy",
-        class: "hidden-chara"
-      }
+      posClass: "center-chara"
     },
     {
       name: "サーちゃん",
       text: "人の行き来、風の音、木々の揺れ。同じ場所でも、毎日違うことが起きるのよ。",
       speaker: "satyan",
       showImgId: "img-satyan-happy",
-      posClass: "right-chara",
-      partnerAction: {
-        id: "img-sikun-happy",
-        class: "left-chara"
-      }
+      posClass: "right-chara"
     },
     {
       name: "うさこ",
       text: "同じ場所なのに毎日違う？ よく観察したら、何か見つかるってこと？",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "center-chara",
-      partnerAction: {
-        id: "img-satyan-happy",
-        class: "hidden-chara"
-      }
+      posClass: "center-chara"
     },
     {
       name: "シーくん",
       text: "その通り！ 目の前の景色を、ただ通り過ぎるだけじゃもったいないぞ！",
       speaker: "sikun",
       showImgId: "img-sikun-happy",
-      posClass: "left-chara",
-      partnerAction: {
-        id: "img-satyan-happy",
-        class: "right-chara"
-      }
+      posClass: "left-chara"
     },
     {
       name: "サーちゃん",
@@ -272,11 +236,8 @@ window.storyFlow["worldtrip"] = {
       speaker: "satyan",
       showImgId: "img-satyan-happy",
       posClass: "right-chara",
-      partnerAction: {
-        id: "img-sikun-happy",
-        class: "left-chara"
-      },
-      nextRoute: "misen_forest"
+      nextRoute: "misen_forest",
+      partnerAction: {  id: "img-sikun-happy",  class: "hidden-chara"   }
     }
   ],
 
@@ -289,7 +250,8 @@ window.storyFlow["worldtrip"] = {
       text: "神社をあとにして、山の奥へ。町の音がだんだん遠くなっていく。",
       speaker: "none",
       showImgId: "none",
-      bg: "itukushima-misen"
+      bg: "itukushima-misen",
+      partnerAction: {  id: "img-satyan-happy", class: "hidden-chara"  }
     },
     {
       name: "うさこ",
@@ -366,7 +328,8 @@ window.storyFlow["worldtrip"] = {
       text: "さらに山を進むと、一面の雪！ 息をのむほど白い世界が広がっていた。",
       speaker: "none",
       showImgId: "none",
-      bg: "sanmine-torii"
+      bg: "sanmine-torii",
+      partnerAction: {   id: "img-itushika-normal", class: "hidden-chara"  }
     },
     {
       name: "うさこ",
@@ -378,8 +341,8 @@ window.storyFlow["worldtrip"] = {
     {
       name: "みねるふ",
       text: "おい、そこの旅人！ 雪山を甘く見るんじゃないぞ！",
-      speaker: "meneruf",
-      showImgId: "img-meneruf-angry",
+      speaker: "mineruf",
+      showImgId: "img-mineruf-angry",
       posClass: "right-chara"
     },
     {
@@ -392,8 +355,8 @@ window.storyFlow["worldtrip"] = {
     {
       name: "みねるふ",
       text: "まだ何もしていないからこそ言っているんだ！ 準備もなしに進めば、立ち往生するぞ！",
-      speaker: "meneruf",
-      showImgId: "img-meneruf-angry",
+      speaker: "mineruf",
+      showImgId: "img-mineruf-angry",
       posClass: "right-chara"
     },
     {
@@ -401,7 +364,7 @@ window.storyFlow["worldtrip"] = {
       text: "みねるふ、言い方がきついよ。でも、言っていることは正しい。まずは周りを見よう。",
       speaker: "toyatori",
       showImgId: "img-toyatori-normal",
-      posClass: "right-chara"
+      posClass: "center-chara"
     },
     {
       name: "うさぎ",
@@ -415,13 +378,13 @@ window.storyFlow["worldtrip"] = {
       text: "そうだ。勢いだけでは越えられない場所もある。何を見て、どう判断するかが大切なんだ。",
       speaker: "toyatori",
       showImgId: "img-toyatori-normal",
-      posClass: "right-chara"
+      posClass: "center-chara"
     },
     {
       name: "みねるふ",
       text: "……ふん。少しは分かっているようだな。だが、ここから先はもっと険しいぞ。",
-      speaker: "meneruf",
-      showImgId: "img-meneruf-normal",
+      speaker: "mineruf",
+      showImgId: "img-mineruf-normal",
       posClass: "right-chara"
     },
     {
@@ -430,6 +393,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "toyatori",
       showImgId: "img-toyatori-normal",
       posClass: "right-chara",
+      partnerAction: {   id: "img-mineruf-normal", class: "hidden-chara"  },
       nextRoute: "nara_deep_mountain"
     }
   ],
@@ -443,14 +407,15 @@ window.storyFlow["worldtrip"] = {
       text: "雪の山を越えた先。岩山が連なり、空気まで変わったような場所にたどり着いた。",
       speaker: "none",
       showImgId: "none",
-      bg: "sangaku-titai"
+      bg: "sangaku-titai",
+      partnerAction: {   id: "img-toyatori-normal", class: "hidden-chara"  }
     },
     {
       name: "うさこ",
       text: "ここ……なんだか、今までの山と違うね。静かなのに、何かがいる気配がする。",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "left-chara"
+      posClass: "center-chara"
     },
     {
       name: "ごっちゃん",
@@ -464,28 +429,38 @@ window.storyFlow["worldtrip"] = {
       text: "ここまで来る道のり、ちゃんと覚えている？ 振り返ると不思議だよね。",
       speaker: "zenkun",
       showImgId: "img-zenkun-normal",
-      posClass: "right-chara"
+      posClass: "left-chara"
     },
     {
       name: "うさこ",
       text: "野原から始まって、神社、森、雪山……。ひとつひとつは小さな一歩だったのに！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "left-chara"
+      posClass: "center-chara"
     },
     {
-      name: "シリー",
+      name: "",
+      text: "どんどん",
+      speaker: "",
+      showImgId: "",
+      posClass: "",
+      partnerAction: {   id: "img-usako-epiphany", class: "left-chara"  }
+    },
+    {
+      name: "シリー先生",
       text: "小さな一歩も、積み重ねれば遠くまで行ける。だが、進むほどに見えてくるものも変わる。",
       speaker: "siri",
       showImgId: "img-siri-normal",
-      posClass: "right-chara"
+      posClass: "center-chara",
+      partnerAction: {   id: "img-zenkun-normal", class: "hidden-chara"  }
     },
     {
       name: "龍神さん",
       text: "ふむ。おまえたちは、何を知りたくて旅をしているのだ？",
       speaker: "ryujin",
       showImgId: "img-ryujin-normal",
-      posClass: "center-chara"
+      posClass: "right-chara",
+      partnerAction: {   id: "img-gotyan-normal", class: "hidden-chara"  }
     },
     {
       name: "うさぎ",
@@ -499,7 +474,8 @@ window.storyFlow["worldtrip"] = {
       text: "よい気づきだ。世界は広い。すべてを一度に知ることはできぬ。だからこそ、問いを持ち、歩き、発見するのだ。",
       speaker: "ryujin",
       showImgId: "img-ryujin-normal",
-      posClass: "center-chara"
+      posClass: "center-chara",
+      partnerAction: {   id: "img-siri-normal", class: "hidden-chara"  }
     },
     {
       name: "龍神さん",
@@ -520,14 +496,15 @@ window.storyFlow["worldtrip"] = {
       text: "――そして、山の物語はいったん終わる。",
       speaker: "none",
       showImgId: "none",
-      bg: "sunny-sky"
+      bg: "sunny-sky",
+      partnerAction: {   id: "img-ryujin-normal", class: "hidden-chara"  }
     },
     {
       name: "うさこ",
       text: "わあ……。山から見上げた空とは全然違う！ どこまでも続いているみたい！",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "left-chara"
+      posClass: "center-chara"
     },
     {
       name: "うさぎ",
@@ -548,7 +525,7 @@ window.storyFlow["worldtrip"] = {
       text: "えっ……！ 空から誰か来た！？ あなたは誰？",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "left-chara"
+      posClass: "center-chara"
     },
     {
       name: "鳳凰",
@@ -569,7 +546,7 @@ window.storyFlow["worldtrip"] = {
       text: "手放すって、忘れちゃうってこと？ せっかく見つけたことなのに？",
       speaker: "usako",
       showImgId: "img-usako-sad",
-      posClass: "left-chara"
+      posClass: "center-chara"
     },
     {
       name: "鳳凰",
@@ -583,7 +560,7 @@ window.storyFlow["worldtrip"] = {
       text: "なるほど……！ 山の次は空。そして、その先へ！ 今度は海を見に行こう！",
       speaker: "usagi",
       showImgId: "img-usagi-epiphany",
-      posClass: "left-chara",
+      posClass: "center-chara",
       nextRoute: "ocean_world"
     }
   ],
@@ -597,20 +574,22 @@ window.storyFlow["worldtrip"] = {
       text: "空を越え、広い海へ。見渡す限り、青い水が広がっている。",
       speaker: "none",
       showImgId: "none",
-      bg: "the-ocean"
+      bg: "the-ocean",
+      partnerAction: {   id: "img-houou-normal", class: "hidden-chara"  },
     },
     {
       name: "うさこ",
       text: "うわああっ！ 海って、こんなに大きいの！？ 端っこが見えないよ！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "left-chara"
+      posClass: "center-chara",
+      partnerAction: {   id: "img-usagi-kaeru", class: "left-chara"  }
     },
     {
       name: "うさぎ",
       text: "陸から眺める海と、海の中から見る世界は、きっと違うんだろうね。",
       speaker: "usagi",
-      showImgId: "img-usagi-happy",
+      showImgId: "img-usagi-kaeru",
       posClass: "left-chara"
     },
     {
@@ -625,7 +604,7 @@ window.storyFlow["worldtrip"] = {
       text: "わっ！ 今度は海から誰かが！ あなたは海の住人なの？",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "left-chara"
+      posClass: "center-chara"
     },
     {
       name: "まるか",
@@ -645,14 +624,16 @@ window.storyFlow["worldtrip"] = {
       text: "おおきな海へ、ようこそ……。小さな旅人たちよ。",
       speaker: "ebisukuzira",
       showImgId: "img-ebisukuzira-normal",
-      posClass: "center-chara"
+      posClass: "center-chara",
+      partnerAction: {   id: "img-usako-normal", class: "left-chara"  }
     },
     {
       name: "うさこ",
       text: "すごい……！ こんなに大きな生き物が海の中にいるなんて！ 世界には、まだ知らないことがいっぱいだね！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      partnerAction: {   id: "img-maruka-normal", class: "hidden-chara"  }
     },
     {
       name: "えびすくじら",
@@ -660,6 +641,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "ebisukuzira",
       showImgId: "img-ebisukuzira-normal",
       posClass: "center-chara",
+      partnerAction: {   id: "img-usagi-kaeru", class: "hidden-chara"  },
       nextRoute: "egypt_mystery"
     }
   ],
@@ -673,7 +655,8 @@ window.storyFlow["worldtrip"] = {
       text: "海の向こうにたどり着いたのは、見たこともない砂漠。遠くには巨大なピラミッドがそびえていた。",
       speaker: "none",
       showImgId: "none",
-      bg: "egypt-piramid"
+      bg: "egypt-piramid",
+      partnerAction: {   id: "img-ebisukuzira-normal", class: "hidden-chara"  }
     },
     {
       name: "うさこ",
@@ -750,7 +733,8 @@ window.storyFlow["worldtrip"] = {
       text: "野原から始まった旅は、遠い異国まで続いた。",
       speaker: "none",
       showImgId: "none",
-      bg: "nohara"
+      bg: "nohara",
+      partnerAction: {   id: "img-sphinx-normal", class: "hidden-chara"  }
     },
     {
       name: "うさこ",
@@ -764,21 +748,22 @@ window.storyFlow["worldtrip"] = {
       text: "そう。ここから先は、きみ自身が発見する番だ。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "left-chara"
+      posClass: "center-chara"
     },
     {
       name: "うさぎ",
       text: "身の回りの『なんで？』を、ひとつずつ追いかけてみよう。",
       speaker: "usagi",
       showImgId: "img-usagi-epiphany",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      partnerAction: {   id: "img-usako-epiphany", class: "left-chara"  }
     },
     {
       name: "うさこ",
       text: "次は、きみが世界の秘密を見つける冒険へ！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "left-chara"
+      posClass: "center-chara"
     }
   ]
 

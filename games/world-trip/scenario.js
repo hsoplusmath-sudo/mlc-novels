@@ -20,7 +20,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "left-chara",
-      bgm: "fraita"
+      bgm: "sanpo"
     },
     {
       name: "うさぎ",
@@ -253,6 +253,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "none",
       showImgId: "none",
       bg: "itukushima-misen",
+      bgm: "itukushima",
       partnerAction: {  id: "img-satyan-happy", class: "hidden-chara"  }
     },
     {
@@ -331,6 +332,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "none",
       showImgId: "none",
       bg: "sanmine-torii",
+      bgm: "yukiyama",
       partnerAction: {   id: "img-itushika-normal", class: "hidden-chara"  }
     },
     {
@@ -411,6 +413,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "none",
       showImgId: "none",
       bg: "sangaku-titai",
+      bgm: "yamaoku",
       partnerAction: {   id: "img-toyatori-normal", class: "hidden-chara"  }
     },
     {
@@ -509,6 +512,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "none",
       showImgId: "none",
       bg: "sunny-sky",
+      bgm: "hare-sora",
       partnerAction: {   id: "img-ryujin-normal", class: "hidden-chara"  }
     },
     {
@@ -587,6 +591,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "none",
       showImgId: "none",
       bg: "the-ocean",
+      bgm: "kuzira-umi",
       partnerAction: {   id: "img-houou-normal", class: "hidden-chara"  },
     },
     {
@@ -667,6 +672,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "none",
       showImgId: "none",
       bg: "egypt-piramid",
+      bgm: "egypt",
       partnerAction: {   id: "img-ebisukuzira-normal", class: "hidden-chara"  }
     },
     {
@@ -745,6 +751,7 @@ window.storyFlow["worldtrip"] = {
       speaker: "none",
       showImgId: "none",
       bg: "nohara",
+      bgm: "sanpo",
       partnerAction: {   id: "img-sphinx-normal", class: "hidden-chara"  }
     },
     {

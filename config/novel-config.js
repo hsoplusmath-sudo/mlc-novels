@@ -45,7 +45,16 @@ window.BGM_MASTER = [
     { id: "namida", src: "../../assets/bgm/bgm_namidanokessyo.opus"},
     { id: "escort",  src: "../../assets/bgm/bgm_escort.opus" },
     { id: "shizukana-tikurin",  src: "../../bgm_shizukana-tikurin.mp3" },
-    { id: "jinja-icho",  src: "../../assets/bgm/bgm_jinja-icho.mp3" }
+    { id: "jinja-icho",  src: "../../assets/bgm/bgm_jinja-icho.mp3" },
+
+    { id: "sanpo",  src: "../../assets/bgm/itumonosanpomiti.mp3" },
+    { id: "itukushima",  src: "../../assets/bgm/sizukanarakuen.mp3" },
+    { id: "yukiyama",  src: "../../assets/bgm/yukiyamanoasa.mp3" },
+    { id: "yamaoku",  src: "../../assets/bgm/Flowing_River.mp3" },
+    { id: "hare-sora",  src: "../../assets/bgm/doramatic-city.mp3" },
+    { id: "kuzira-umi",  src: "../../assets/bgm/oounabara-wo-oyogu.mp3" },
+    { id: "egypt",  src: "../../assets/bgm/Mystery_of_Egypt.mp3" }
+
 ];
 
 

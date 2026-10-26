@@ -291,7 +291,7 @@
 .right-chara { 
     left: auto; 
     right: 1cqw; 
-    z-index: 4; 
+    z-index: 5; 
     object-position: right bottom !important; /* 右端を基準にし、左側（中央側）がはみ出たら切る */
 }
 .center-chara { 

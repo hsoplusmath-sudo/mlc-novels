@@ -15,6 +15,7 @@ let currentChapter = "";
 let currentRoute = "start";
 let novelIndex = 0;
 let currentBgmSrc = "";
+let characterZIndex = 10;
 
 
 /**
@@ -670,7 +671,7 @@ function startSelectedStage(
             'speaking'
         );
     });
-
+    characterZIndex = 10;
 
     renderScene();
 }
@@ -1120,11 +1121,13 @@ function renderScene() {
                 'speaking'
             );
 
+            // 新しく登場したキャラクターを手前に表示
+            characterZIndex++;
+            targetImg.style.zIndex = characterZIndex;
+
 
             /*
              * ★最重要
-             *
-             * ここを旧版へ完全に戻す
              */
 
             if (
@@ -1171,6 +1174,8 @@ function renderScene() {
 
                 partner.className =
                     `chara-img ${currentData.partnerAction.class}`;
+                partner.className =
+    `chara-img ${currentData.partnerAction.class}`;
             }
         }
     }

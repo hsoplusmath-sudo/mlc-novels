@@ -19,7 +19,8 @@ window.storyFlow["worldtrip"] = {
       text: "ねえ、うさぎ。毎日見ているこの世界って、どこまで続いているんだろう？",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      bgm: "fraita"
     },
     {
       name: "うさぎ",
@@ -170,7 +171,8 @@ window.storyFlow["worldtrip"] = {
       text: "近所の神社に到着！ 鳥居の向こうから、何か視線を感じる……。",
       speaker: "none",
       showImgId: "none",
-      bg: "kinjo-jinja"
+      bg: "kinjo-jinja",
+      bgm: "jinja-icho"
     },
     {
       name: "シーくん",

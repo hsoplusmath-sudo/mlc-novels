@@ -258,14 +258,14 @@ window.storyFlow["worldtrip"] = {
       text: "わあ……。木がいっぱい。上を見ても、葉っぱばっかり！",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "left-chara"
-    },
+      posClass: "right-chara"
+    }, 
     {
       name: "うさぎ",
       text: "足元も見てごらん。木の根っこ、石、落ち葉。同じ山でも、場所によって景色が違うね。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "left-chara"
+      posClass: "right-chara"
     },
     {
       name: "イツシカ",
@@ -279,7 +279,7 @@ window.storyFlow["worldtrip"] = {
       text: "わあっ！ いつからそこにいたの！？ 全然気づかなかった！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "left-chara"
+      posClass: "right-chara"
     },
     {
       name: "イツシカ",
@@ -293,7 +293,7 @@ window.storyFlow["worldtrip"] = {
       text: "見落としてしまうもの……。それは、景色だけじゃないのかな？",
       speaker: "usagi",
       showImgId: "img-usagi-epiphany",
-      posClass: "left-chara"
+      posClass: "right-chara"
     },
     {
       name: "イツシカ",
@@ -307,7 +307,7 @@ window.storyFlow["worldtrip"] = {
       text: "なんだか宝探しみたい！ これからは、もっとよく見て歩こうっと！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "left-chara"
+      posClass: "right-chara"
     },
     {
       name: "イツシカ",
@@ -336,7 +336,8 @@ window.storyFlow["worldtrip"] = {
       text: "さ、寒いっ！ さっきまでの森と、まるで別の世界だよ！",
       speaker: "usako",
       showImgId: "img-usako-sad",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      partnerAction: {   id: "img-usagi-epiphany", class: "left-chara"  }
     },
     {
       name: "みねるふ",
@@ -429,7 +430,8 @@ window.storyFlow["worldtrip"] = {
       text: "ここまで来る道のり、ちゃんと覚えている？ 振り返ると不思議だよね。",
       speaker: "zenkun",
       showImgId: "img-zenkun-normal",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      partnerAction: {   id: "img-usagi-happy", class: "center-chara"  }
     },
     {
       name: "うさこ",
@@ -445,6 +447,14 @@ window.storyFlow["worldtrip"] = {
       showImgId: "",
       posClass: "",
       partnerAction: {   id: "img-usako-epiphany", class: "left-chara"  }
+    },
+    {
+      name: "",
+      text: "どんどん",
+      speaker: "",
+      showImgId: "",
+      posClass: "",
+      partnerAction: {   id: "img-usagi-happy", class: "left-chara"  }
     },
     {
       name: "シリー先生",

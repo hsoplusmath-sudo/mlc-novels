@@ -10,8 +10,8 @@ window.CHARACTER_MASTER = [
 
     { id: "img-usako-normal", src: "../../assets/chara/usako_happy.webp", alt: "うさこ" },
     { id: "img-usako-sad",    src: "../../assets/chara/usako_sad.webp",    alt: "うさこ（悲）" },
-    { id: "img-usako-shocked",   src: "../../assets/chara/usako_shocked.webp",   alt: "うさこ（衝撃）" },
-    { id: "img-usako-epiphany",   src: "../../assets/chara/usako_epiphany.webp",   alt: "うさこ（ひらめき）" },
+    { id: "img-usako-shocked",   src: "../../assets/chara/usako-shocked.webp",   alt: "うさこ（衝撃）" },
+    { id: "img-usako-epiphany",   src: "../../assets/chara/usako-epiphany.webp",   alt: "うさこ（ひらめき）" },
 
     { id: "img-hero-happy",   src: "../../assets/chara/hero_happy.webp",   alt: "ヒーロー" },
     { id: "img-bukiyokun-hard",   src: "../../assets/chara/student_hard.webp",   alt: "ぶきようくん" },

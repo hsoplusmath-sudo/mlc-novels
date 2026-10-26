@@ -242,18 +242,18 @@
    5. キャラクター立ち絵（画面サイズ連動・中央詰まりを完全防止）
    ========================================================================== */
 .chara-img {
-    height: 42cqw;            
-    position: absolute; 
-    bottom: 11cqw;            
-    transition: left 0.5s ease, right 0.5s ease, opacity 0.3s, filter 0.3s, transform 0.3s;
-    filter: brightness(0.6); 
-    
-    /* 🎯 修正：画像を切り取らず、比率を維持したまま枠に収める設定に戻す */
-    object-fit: contain; 
-    
-    /* 🎯 追加：画像が横に広がりすぎて画面外へ逃げるのを防ぐため、最大横幅を明示 */
-    /* これにより、枠内（約380px）で右基準・左基準が正しく機能します */
-    width: 30cqw !important;
+    height: 42cqw;
+    width: auto !important;
+    max-width: none;
+
+    position: absolute;
+    bottom: 11cqw;
+
+    transition: left 0.5s ease, right 0.5s ease,
+                opacity 0.3s, filter 0.3s, transform 0.3s;
+
+    filter: brightness(0.6);
+    object-fit: contain;
 }
 
 /* 🎯 左のキャラは、画像の左下を基準にして配置 */

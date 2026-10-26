@@ -712,7 +712,7 @@ window.storyFlow["worldtrip"] = {
       text: "最初は、知らない世界を見たかった。でも今は、知っていると思っていた世界にも、まだまだ不思議があるって思うんだ！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "left-chara"
+      posClass: "center-chara"
     },
     {
       name: "スフィンクス",
@@ -740,30 +740,30 @@ window.storyFlow["worldtrip"] = {
       name: "うさこ",
       text: "でも、まだ終わりじゃないよね？ 世界には、もっともっと不思議があるんだから！",
       speaker: "usako",
-      showImgId: "img-usako-epiphany",
-      posClass: "left-chara"
+      showImgId: "img-usako-sad",
+      posClass: "center-chara"
     },
     {
       name: "うさぎ",
       text: "そう。ここから先は、きみ自身が発見する番だ。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "center-chara"
+      posClass: "left-chara"
     },
     {
       name: "うさぎ",
       text: "身の回りの『なんで？』を、ひとつずつ追いかけてみよう。",
       speaker: "usagi",
-      showImgId: "img-usagi-epiphany",
+      showImgId: "img-usagi-happy",
       posClass: "left-chara",
-      partnerAction: {   id: "img-usako-epiphany", class: "left-chara"  }
+      partnerAction: {   id: "img-usako-happy", class: "right-chara"  }
     },
     {
       name: "うさこ",
       text: "次は、きみが世界の秘密を見つける冒険へ！",
       speaker: "usako",
-      showImgId: "img-usako-epiphany",
-      posClass: "center-chara"
+      showImgId: "img-usako-normal",
+      posClass: "right-chara"
     }
   ]
 

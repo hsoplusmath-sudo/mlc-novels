@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;500;600;700&display=swap');
+
+:root {
+  --ink: #173f67;
+  --ink-soft: #426789;
+  --blue: #1263a1;
+  --paper: #f7f5ed;
+  --line: rgba(28, 76, 112, .2);
+  --serif: "Noto Serif JP", "Yu Mincho", "Hiragino Mincho ProN", serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--serif); }
+a { color: inherit; }
+.site-header {
+  position: absolute; inset: 0 0 auto; z-index: 5; display: flex; align-items: center;
+  justify-content: space-between; gap: 24px; padding: 24px clamp(20px, 5vw, 76px);
+  color: #fff;
+}
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
+.brand-mark { font-size: 35px; line-height: 1; }
+.brand strong { display: block; font-size: 22px; font-weight: 500; letter-spacing: .1em; }
+.brand small { display: block; margin-top: 4px; font-size: 10px; letter-spacing: .12em; }
+.main-nav { display: flex; gap: clamp(18px, 3vw, 42px); }
+.main-nav a { font-size: 13px; text-decoration: none; letter-spacing: .08em; padding: 8px 0; border-bottom: 1px solid transparent; }
+.main-nav a:hover { border-color: currentColor; }
+.menu-toggle { display: none; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: 999px; padding: 9px 13px; font: inherit; }
+.hero { min-height: min(790px, 100svh); min-height: max(650px, min(790px, 100svh)); position: relative; display: flex; align-items: center; overflow: hidden; color: white; }
+.hero-art { position: absolute; inset: 0; background-image: url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85"); background-position: center 53%; background-size: cover; transform: scale(1.015); }
+.hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9, 43, 77, .68) 0%, rgba(13, 57, 91, .36) 44%, rgba(13, 45, 64, .05) 100%), linear-gradient(0deg, rgba(11, 42, 65, .25), transparent 28%); }
+.hero-content { position: relative; z-index: 1; width: min(1180px, 100%); margin: 70px auto 0; padding: 40px clamp(24px, 7vw, 100px) 100px; }
+.eyebrow, .section-kicker, .game-tag { font-family: Arial, sans-serif; letter-spacing: .2em; font-size: 10px; }
+.eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 25px; }
+.eyebrow span { width: 28px; height: 1px; background: #e8d9a8; }
+.hero h1 { margin: 0; font-weight: 500; letter-spacing: .12em; line-height: 1.65; font-size: clamp(37px, 5.4vw, 68px); text-shadow: 0 2px 24px rgba(0,0,0,.16); }
+.hero-copy { margin: 24px 0 30px; line-height: 2.2; font-size: clamp(13px, 1.4vw, 16px); letter-spacing: .06em; }
+.primary-button { display: inline-flex; align-items: center; gap: 16px; padding: 15px 24px; border-radius: 999px; background: #f8f5eb; color: #164c78; text-decoration: none; font-size: 13px; letter-spacing: .06em; transition: transform .2s, background .2s; }
+.primary-button:hover { transform: translateY(-3px); background: white; }
+.primary-button span:first-child { font-size: 20px; }
+.hero-note { position: absolute; z-index: 1; right: clamp(22px, 5vw, 70px); bottom: 48px; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: .1em; }
+.note-line { display: inline-block; width: 36px; height: 1px; background: rgba(255,255,255,.7); }
+.scroll-cue { position: absolute; z-index: 1; bottom: 0; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding-bottom: 20px; color: #fff; font: 9px Arial, sans-serif; letter-spacing: .22em; text-decoration: none; writing-mode: horizontal-tb; }
+.scroll-cue span { display: inline-block; width: 1px; height: 23px; background: #fff; }
+.paper { background-color: var(--paper); background-image: radial-gradient(ellipse at 20% 20%, rgba(255,255,255,.85), transparent 55%), radial-gradient(ellipse at 90% 80%, rgba(221,215,194,.22), transparent 55%); }
+.games-section { padding: 74px clamp(20px, 6vw, 90px) 84px; }
+.section-heading { text-align: center; margin-bottom: 35px; }
+.section-kicker { margin: 0 0 13px; color: #7d8c8b; }
+.section-heading h2 { margin: 0; font-size: clamp(28px, 3vw, 38px); font-weight: 500; letter-spacing: .13em; }
+.heading-star { display: block; color: #b38d46; font-size: 24px; margin-bottom: 7px; }
+.section-heading > p:last-child { margin: 14px 0 0; color: var(--ink-soft); font-size: 13px; letter-spacing: .04em; }
+.game-list { max-width: 1020px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.game-card { position: relative; min-height: 150px; display: grid; grid-template-columns: 42px 82px minmax(0, 1fr) 20px; align-items: center; gap: 15px; padding: 19px; border: 1px solid var(--line); border-radius: 4px; background: rgba(255,255,255,.58); text-decoration: none; transition: transform .2s, box-shadow .2s, background .2s; }
+.game-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(23,63,103,.08); background: #fff; }
+.game-card.featured { border-color: rgba(179,141,70,.7); background: rgba(255,255,255,.82); }
+.game-number { align-self: start; padding-top: 4px; font: 10px Arial, sans-serif; color: #8a9ba5; letter-spacing: .08em; }
+.game-icon { width: 82px; aspect-ratio: 1; display: grid; place-items: center; border-radius: 3px; font-size: 37px; color: #fff; background: linear-gradient(145deg, #6d9d86, #174e63); }
+.game-icon.compass { background: linear-gradient(145deg, #93c8dc, #1e5a8b); }
+.game-icon.moon { background: linear-gradient(145deg, #263d75, #0d1b40); }
+.game-info { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; }
+.game-tag { font-size: 8px; color: #9a895e; }
+.game-info strong { font-size: 17px; font-weight: 500; letter-spacing: .04em; }
+.game-info > span:last-child { color: #5f7890; font-size: 11px; line-height: 1.9; }
+.game-arrow { align-self: center; font-family: Arial, sans-serif; font-size: 20px; transition: transform .2s; }
+.game-card:hover .game-arrow { transform: translate(3px, -3px); }
+.list-note { text-align: center; margin: 30px 0 0; color: #7e8f93; font-size: 11px; letter-spacing: .07em; }
+.list-note span { color: #b38d46; margin-right: 8px; }
+.manifesto { min-height: 390px; position: relative; display: flex; align-items: center; overflow: hidden; background: #244f68; color: #fff; }
+.manifesto-image { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,48,66,.75), rgba(16,54,68,.38)), url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=85") center 55%/cover; }
+.manifesto-content { position: relative; z-index: 1; width: min(1020px, 100%); margin: auto; padding: 68px 30px; }
+.manifesto-content .section-kicker { color: #d6c79e; }
+.manifesto-content h2 { margin: 0; font-size: clamp(28px, 4vw, 43px); line-height: 1.7; font-weight: 500; letter-spacing: .1em; }
+.manifesto-content > p:not(.section-kicker) { margin: 18px 0 24px; font-size: 13px; line-height: 2.2; letter-spacing: .04em; color: rgba(255,255,255,.87); }
+.text-link { display: inline-flex; gap: 20px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.65); text-decoration: none; font-size: 12px; }
+.manifesto-seal { position: absolute; right: max(7vw, calc((100vw - 1020px)/2)); bottom: 45px; z-index: 1; width: 92px; height: 92px; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; display: grid; place-content: center; text-align: center; font-size: 11px; line-height: 1.5; letter-spacing: .1em; transform: rotate(9deg); }
+.manifesto-seal span { font-size: 17px; }
+.site-footer { text-align: center; padding: 28px 20px 25px; background: #143c54; color: rgba(255,255,255,.8); }
+.footer-brand { text-decoration: none; font-size: 18px; letter-spacing: .12em; }
+.footer-brand span { color: #d9c18b; margin-right: 7px; }
+.site-footer p { margin: 8px 0 16px; font-size: 10px; letter-spacing: .12em; }
+.site-footer small { font: 10px Arial, sans-serif; color: rgba(255,255,255,.5); }
+@media (max-width: 760px) {
+  .site-header { padding: 17px 18px; align-items: flex-start; }
+  .brand-mark { font-size: 29px; }
+  .brand strong { font-size: 18px; }
+  .brand small { font-size: 8px; letter-spacing: .04em; }
+  .menu-toggle { display: inline-flex; align-items: center; gap: 9px; font-size: 11px; }
+  .main-nav { display: none; position: absolute; top: 70px; right: 18px; min-width: 175px; flex-direction: column; gap: 0; padding: 8px 17px; background: rgba(16,54,78,.96); border: 1px solid rgba(255,255,255,.25); border-radius: 5px; }
+  .main-nav.is-open { display: flex; }
+  .main-nav a { padding: 12px 0; }
+  .hero { min-height: 690px; min-height: 94svh; align-items: center; }
+  .hero-art { background-position: 57% center; }
+  .hero-shade { background: linear-gradient(90deg, rgba(9,43,77,.68), rgba(13,57,91,.2)), linear-gradient(0deg, rgba(11,42,65,.28), transparent 50%); }
+  .hero-content { margin-top: 45px; padding: 55px 25px 90px; }
+  .eyebrow { font-size: 8px; letter-spacing: .12em; }
+  .hero h1 { font-size: clamp(34px, 9vw, 48px); letter-spacing: .08em; }
+  .hero-copy { font-size: 12px; line-height: 2.1; }
+  .primary-button { padding: 14px 18px; gap: 11px; font-size: 12px; }
+  .hero-note { left: 25px; right: 25px; bottom: 42px; justify-content: flex-start; font-size: 9px; }
+  .scroll-cue { display: none; }
+  .games-section { padding: 54px 16px 58px; }
+  .section-heading { margin-bottom: 25px; }
+  .section-heading > p:last-child { font-size: 11px; line-height: 1.9; }
+  .game-list { grid-template-columns: 1fr; gap: 10px; }
+  .game-card { min-height: 120px; grid-template-columns: 22px 66px minmax(0,1fr) 14px; gap: 10px; padding: 12px 10px; }
+  .game-icon { width: 66px; font-size: 30px; }
+  .game-info strong { font-size: 15px; }
+  .game-info > span:last-child { font-size: 10px; line-height: 1.7; }
+  .game-tag { font-size: 7px; letter-spacing: .12em; }
+  .game-arrow { font-size: 17px; }
+  .list-note { font-size: 10px; line-height: 1.8; }
+  .manifesto { min-height: 430px; }
+  .manifesto-content { padding: 55px 24px 100px; }
+  .manifesto-content h2 { font-size: 29px; }
+  .manifesto-content > p:not(.section-kicker) { font-size: 11px; }
+  .manifesto-seal { right: 24px; bottom: 18px; width: 68px; height: 68px; font-size: 9px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+}

@@ -13,13 +13,13 @@
     // スマホ・タブレットの判定ロジック
     function checkIsMobile() {
         const ua = navigator.userAgent;
-        // iPhone, Android, iPad, その他のモバイル端末を広くキャッチ
+        // iPhone, Android, iPadなどのモバイル端末
         const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
         
-        // 画面幅が768px以下の場合もスマホ・タブレット扱いにする（お好みで調整可能）
-        const isNarrowScreen = window.innerWidth <= 768;
+        // 画面幅が600px以下の場合
+        const isNarrowScreen = window.innerWidth <= 600;
 
-        // モバイルUA、または画面幅が狭い場合のどちらかに該当すればモバイル版とする
+        // モバイルUA、または画面幅が600px以下の場合にモバイル版とする
         return isMobileUA || isNarrowScreen;
     }
 

@@ -50,7 +50,7 @@ window.MLC_GAMES = [
     number: "03",
     title: "うさことカズザメ",
     tag: "STORY ADVENTURE",
-    description: "うさこがカズザメたちの背中を渡って海の向こう岸へ。最後の選択で結末が分かれる物語です。",
+    description: "うさこが かずを数えながらカズザメたちの背中を渡って海の向こう岸へ。",
     href: "./games/inaba-rabbit/index.html",
     icon: "🐇",
     iconClass: "compass",

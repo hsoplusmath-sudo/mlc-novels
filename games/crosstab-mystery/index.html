@@ -1,0 +1,81 @@
+<!-- 新作「探究ミステリー！回答カードの交差点」 -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<div class="masulesson-proportion-box">
+  <div id="masulesson-virtual-screen" class="masulesson-novel-container">
+    <div id="novel-header-bar" class="story-header-bar">Masu Lesson Class</div>
+
+    <div id="stage-selector" class="selector-screen" style="background-image: url('../../assets/bg/bg_school-sakura.webp');">
+      <div class="novel-content-wrapper">
+        <div class="novel-top-title">探究ミステリー！回答カードの交差点</div>
+        <p class="novel-top-subtitle">うさことぶきようくんと、12人のアンケートにかくれた手がかりを探そう。</p>
+        <div class="stage-menu-list">
+          <button id="start-lesson-btn" class="menu-btn active-stage" disabled>
+            <span class="moving-arrow">🔎</span> 調査をはじめる
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- これらの id は共通エンジンが参照するため変更しないでください。 -->
+    <div id="game-stage-area" class="stage-area" style="display: none;">
+      <div id="center-popup-wrap" class="popup-image-wrap hidden-popup">
+        <img id="center-popup-img" src="" alt="説明画像">
+      </div>
+      <div id="game-popup-trigger-container" class="game-popup-trigger-container"></div>
+    </div>
+    <div id="game-message-window" class="message-window" style="display: none;">
+      <div id="chara-name-box" class="name-box">名前</div>
+      <div id="dialogue-text" class="text-box">セリフ</div>
+      <div id="choice-container" class="choice-box-area" style="display: none;"></div>
+    </div>
+    <div id="game-control-bar" class="control-bar" style="display: none;">
+      <button id="next-scene-btn" class="embedded-next-btn" onclick="advanceStory()">次へ ➔</button>
+    </div>
+  </div>
+</div>
+
+<!-- custom modal は共通エンジンが開閉します。中身はこのゲームの scenario.js で登録。 -->
+<div id="custom-modal-overlay" class="custom-modal-overlay" style="display: none;" role="dialog" aria-modal="true">
+  <div class="custom-modal-content">
+    <button type="button" class="custom-modal-close" onclick="closeCustomModal()" aria-label="閉じる">×</button>
+    <h2 id="custom-modal-title"></h2>
+    <div id="custom-modal-body"></div>
+  </div>
+</div>
+
+<style>
+.stage-menu-list .menu-btn .moving-arrow { margin-right: 8px; font-size: 18px; display: inline-block; }
+#custom-modal-body .clue-image { display: block; width: min(100%, 560px); height: auto; margin: 0 auto 1rem; }
+#custom-modal-body .table-scroll { max-width: 100%; overflow-x: auto; }
+#custom-modal-body table { width: 100%; min-width: 390px; border-collapse: collapse; margin: 1rem 0; font-size: 0.95rem; }
+#custom-modal-body th, #custom-modal-body td { border: 1px solid #8aa5a0; padding: 0.55rem; text-align: center; }
+#custom-modal-body th { background: #e7f3ed; }
+#custom-modal-body .note { font-size: 0.9rem; color: #384b48; }
+</style>
+
+<script>
+window.addEventListener('load', function() {
+  (function($) {
+    $('#start-lesson-btn').on('click', function() {
+      if (typeof startSelectedStage === 'function') {
+        $('#stage-selector').hide();
+        $('#game-stage-area, #game-message-window, #game-control-bar').show();
+        // 新作設定：開始場面ID「start」、ゲームID「crosstab_mystery」。scenario.js と一致。
+        startSelectedStage('start', false, '', 'crosstab_mystery');
+      } else {
+        alert('ゲームエンジンが読み込まれていません。');
+      }
+    });
+  })(jQuery);
+});
+document.addEventListener('novel-engine-ready', function() {
+  const button = document.getElementById('start-lesson-btn');
+  if (button) button.disabled = false;
+});
+</script>
+
+<audio id="novel-bgm" loop preload="auto"></audio>
+<!-- 共通ファイル：理由がない限り変更しない。 -->
+<script src="../../core/common-loader.js"></script>
+<script src="./scenario.js"></script>

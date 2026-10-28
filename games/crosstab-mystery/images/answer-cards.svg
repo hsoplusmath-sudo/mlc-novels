@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 320" role="img" aria-labelledby="title desc">
+  <title id="title">回答カードを見つめるふたり</title>
+  <desc id="desc">教室で、うさことぶきようくんがアンケートの回答カードを見ている。</desc>
+  <rect width="720" height="320" rx="28" fill="#f5f1df"/>
+  <rect x="34" y="36" width="652" height="248" rx="18" fill="#fffdf6" stroke="#8aa5a0" stroke-width="4"/>
+  <path d="M80 222h560" stroke="#c9d9d2" stroke-width="5"/>
+  <g transform="translate(100 62)">
+    <path d="M40 35 25 5 60 20 92 5 78 38" fill="#fff" stroke="#a85f58" stroke-width="6" stroke-linejoin="round"/>
+    <circle cx="60" cy="72" r="39" fill="#fff" stroke="#a85f58" stroke-width="6"/>
+    <circle cx="47" cy="68" r="4"/><circle cx="72" cy="68" r="4"/><path d="M51 86q9 8 18 0" fill="none" stroke="#a85f58" stroke-width="4"/>
+    <path d="M30 113q30-20 60 0l14 84H16z" fill="#f1a9a0" stroke="#a85f58" stroke-width="5"/>
+  </g>
+  <g transform="translate(520 65)">
+    <path d="M25 18q42-24 82 0v90q-40-20-82 0z" fill="#e5b96b" stroke="#78664d" stroke-width="5"/>
+    <circle cx="65" cy="57" r="30" fill="#d5a46c" stroke="#78664d" stroke-width="5"/>
+    <path d="M39 48h18m17 0h18M56 82q10-8 20 0" fill="none" stroke="#493c32" stroke-width="5"/>
+    <path d="M32 112q34-18 68 0l15 84H18z" fill="#8da9bd" stroke="#536977" stroke-width="5"/>
+  </g>
+  <g fill="#fff" stroke="#718d85" stroke-width="3">
+    <rect x="264" y="76" width="94" height="58" rx="8" transform="rotate(-7 264 76)"/>
+    <rect x="360" y="91" width="94" height="58" rx="8" transform="rotate(5 360 91)"/>
+    <rect x="302" y="151" width="94" height="58" rx="8" transform="rotate(4 302 151)"/>
+  </g>
+  <g fill="#718d85"><circle cx="291" cy="98" r="7"/><circle cx="318" cy="98" r="7"/><circle cx="388" cy="113" r="7"/><circle cx="415" cy="113" r="7"/><circle cx="330" cy="173" r="7"/><circle cx="357" cy="173" r="7"/></g>
+  <path d="M240 54q17-25 34-8m185 18q16-20 29-6" fill="none" stroke="#e9ac48" stroke-width="5" stroke-linecap="round"/>
+</svg>

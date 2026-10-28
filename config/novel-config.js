@@ -32,6 +32,7 @@ window.CHARACTER_MASTER = [
 
     { id: "img-maruka-normal",   src: "../../assets/chara/maruka_normal.webp",   alt: "まるか" },
     { id: "img-ebisukuzira-normal",   src: "../../assets/chara/ebisukuzira_normal.webp",   alt: "えびすくじら" },
+    { id: "img-kazuzame-normal",   src: "../../assets/chara/kazuzame_normal.webp",   alt: "カズザメ" },
 
     { id: "img-sphinx-normal",   src: "../../assets/chara/sphinx_normal.webp",   alt: "スフィンクス" }
 

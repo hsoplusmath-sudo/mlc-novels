@@ -1,0 +1,104 @@
+<!--
+  新作ゲーム用ひな形（jinja の画面構造を参考）
+
+  【新作ごとに変更する箇所】
+  1. ゲーム名・開始画面のタイトルと説明
+  2. 下の startSelectedStage() の開始場面IDとゲームID
+  3. scenario.js の読み込み先（通常はそのまま）
+
+  【変更しない共通部分】
+  ゲームエンジンが参照する画面要素の id、common-loader.js のパス、
+  次へボタンの advanceStory() 呼び出しは、理由がなければ変更しないでください。
+
+  このファイルは games/jinja/index.html と同じHTML断片形式です。
+  公開サイトでの配置方法・文書URLは環境により異なるため、公開前に確認してください。
+-->
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<div class="masulesson-proportion-box">
+  <div id="masulesson-virtual-screen" class="masulesson-novel-container">
+
+    <div id="novel-header-bar" class="story-header-bar">Masu Lesson Class</div>
+
+    <!-- 新作ごとにタイトル・紹介文・開始背景を変更できます。 -->
+    <div id="stage-selector" class="selector-screen" style="background-image: url('../../assets/images/img_jinja-left.webp');">
+      <div class="novel-content-wrapper">
+        <div class="novel-top-title">新しい物語</div>
+        <p class="novel-top-subtitle">ここにゲームの短い紹介を書きます</p>
+        <div class="stage-menu-list">
+          <button id="start-lesson-btn" class="menu-btn active-stage" disabled>
+            <span class="moving-arrow">➔</span> はじめる
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 以下の id は共通エンジンが使うため、原則変更しないでください。 -->
+    <div id="game-stage-area" class="stage-area" style="display: none;">
+      <div id="center-popup-wrap" class="popup-image-wrap hidden-popup">
+        <img id="center-popup-img" src="" alt="説明画像">
+      </div>
+      <div id="game-popup-trigger-container" class="game-popup-trigger-container"></div>
+    </div>
+
+    <div id="game-message-window" class="message-window" style="display: none;">
+      <div id="chara-name-box" class="name-box">名前</div>
+      <div id="dialogue-text" class="text-box">セリフ</div>
+      <div id="choice-container" class="choice-box-area" style="display: none;"></div>
+    </div>
+
+    <div id="game-control-bar" class="control-bar" style="display: none;">
+      <button id="next-scene-btn" class="embedded-next-btn" onclick="advanceStory()">
+        次へ ➔
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+.stage-menu-list .menu-btn .moving-arrow {
+  margin-right: 8px;
+  font-size: 18px;
+  display: inline-block;
+}
+</style>
+
+<script>
+window.addEventListener('load', function() {
+  (function($) {
+    $('#start-lesson-btn').on('click', function() {
+      if (typeof startSelectedStage === "function") {
+        $('#stage-selector').hide();
+        $('#game-stage-area').show();
+        $('#game-message-window').show();
+        $('#game-control-bar').show();
+
+        // 【新作ごとに変更】第1引数は scenario.js の開始場面ID、
+        // 第4引数は window.storyFlow に登録するゲームIDです。
+        startSelectedStage('start', false, '', 'template_game');
+      } else {
+        alert("ゲームエンジンが読み込まれていません。");
+      }
+    });
+  })(jQuery);
+});
+
+// common-loader.js はCSS・設定・エンジンを順に読み込みます。
+// エンジン準備完了の合図を受けてから開始ボタンを有効にします。
+document.addEventListener('novel-engine-ready', function() {
+  const startButton = document.getElementById('start-lesson-btn');
+  if (startButton) {
+    startButton.disabled = false;
+  }
+});
+</script>
+
+<!-- 共通ローダーが必要に応じて音声要素も用意します。 -->
+<audio id="novel-bgm" loop preload="auto"></audio>
+
+<!-- 共通部分：原則変更しない -->
+<script src="../../core/common-loader.js"></script>
+
+<!-- 新作ごとのシナリオファイル -->
+<script src="./scenario.js"></script>

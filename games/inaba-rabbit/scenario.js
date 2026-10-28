@@ -17,7 +17,8 @@ window.storyFlow["inaba_rabbit"] = {
       text: "白い砂浜の先には、うさこが渡りたい海が広がっている。",
       speaker: "",
       showImgId: "",
-      bg: "the-ocean"
+      bg: "the-ocean",
+      bgm: "kuzira-umi"
     },
     {
       name: "うさこ",
@@ -36,20 +37,16 @@ window.storyFlow["inaba_rabbit"] = {
     {
       name: "カズザメ",
       text: "向こう岸へ行きたいのかい？ ぼくたちが道になってあげるよ。",
-      speaker: "kazuzame1",
+      speaker: "kazuzame",
       showImgId: "img-kazuzame-normal",
       posClass: "right-chara"
     },
     {
       name: "カズザメ",
       text: "一匹ずつ並べば、うさこが渡れるかもしれないね。",
-      speaker: "kazuzame2",
+      speaker: "kazuzame",
       showImgId: "img-kazuzame-normal",
-      posClass: "center-chara",
-      partnerAction: {
-        id: "img-kazuzame-normal",
-        class: "left-chara"
-      }
+      posClass: "right-chara"
     },
     {
       name: "うさこ",
@@ -63,42 +60,54 @@ window.storyFlow["inaba_rabbit"] = {
       text: "ひとつ……。最初の背中に、そっと乗る。",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      partnerAction: {
+        id: "img-kazuzame-normal",
+        class: "left-chara"
+      }
     },
     {
       name: "カズザメ",
       text: "ゆっくりで大丈夫。ぼくたちはここにいるよ。",
-      speaker: "kazuzame2",
+      speaker: "kazuzame",
       showImgId: "img-kazuzame2-normal",
-      posClass: "center-chara"
+      posClass: "left-chara"
     },
     {
       name: "うさこ",
       text: "ふたつ……。波の音に合わせて、次の背中へ。",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "center-chara"
+      posClass: "center-chara",
+      partnerAction: {
+        id: "img-kazuzame-normal",
+        class: "center-chara"
+      }
     },
     {
       name: "カズザメ",
       text: "あとひとつで、向こう岸だよ！",
-      speaker: "kazuzame3",
+      speaker: "kazuzame",
       showImgId: "img-kazuzame3-normal",
-      posClass: "right-chara"
+      posClass: "center-chara"
     },
     {
       name: "うさこ",
       text: "みっつ！ 着いたよ。ひとつ、ふたつ、みっつ……数えていたら、あっという間だった。",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      partnerAction: {
+        id: "img-kazuzame-normal",
+        class: "right-chara"
+      }
     },
     {
       name: "カズザメ",
       text: "よかった！ ところで、うさこは何を数えていたの？",
-      speaker: "kazuzame1",
+      speaker: "kazuzame",
       showImgId: "img-kazuzame-normal",
-      posClass: "left-chara",
+      posClass: "center-chara",
       choices: [
         {
           text: "「みんなを数えて渡っていたの」と正直に話す",
@@ -119,12 +128,12 @@ window.storyFlow["inaba_rabbit"] = {
       text: "みんなを数えながら渡っていたの。ひとつ、ふたつ、みっつって。",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "left-chara"
+      posClass: "right-chara"
     },
     {
       name: "カズザメ",
       text: "ぼくたちを数えていたの？ だまされたみたいで、ちょっと怒っちゃうぞ！",
-      speaker: "kazuzame2",
+      speaker: "kazuzame",
       showImgId: "img-kazuzame2-normal",
       posClass: "center-chara"
     },
@@ -156,12 +165,12 @@ window.storyFlow["inaba_rabbit"] = {
       text: "渡らせてくれてありがとう。みんなのおかげで向こう岸に着けたよ。",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "left-chara"
+      posClass: "right-chara"
     },
     {
       name: "カズザメ",
       text: "どういたしまして！ うさこの「みっつ！」って声、ちゃんと聞こえたよ。",
-      speaker: "kazuzame1",
+      speaker: "kazuzame",
       showImgId: "img-kazuzame-normal",
       posClass: "center-chara"
     },

@@ -105,7 +105,11 @@
 
     section.hidden = false;
 
-    news.slice(0, 3).forEach(item => {
+    const visibleNews = section.dataset.newsArchive === "all"
+      ? news
+      : news.slice(0, 3);
+
+    visibleNews.forEach(item => {
       const article = createElement("article", "news-item");
 
       if (item.date) {

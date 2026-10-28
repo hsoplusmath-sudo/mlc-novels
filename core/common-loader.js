@@ -10,7 +10,20 @@
     const coreUrl = new URL("./", loaderScript.src);
     const siteRoot = new URL("../", coreUrl); // サイトのルートディレクトリ
 
-    const isMobile = window.matchMedia("(max-width: 600px)").matches;
+    // スマホ・タブレットの判定ロジック
+    function checkIsMobile() {
+        const ua = navigator.userAgent;
+        // iPhone, Android, iPad, その他のモバイル端末を広くキャッチ
+        const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
+        
+        // 画面幅が768px以下の場合もスマホ・タブレット扱いにする（お好みで調整可能）
+        const isNarrowScreen = window.innerWidth <= 768;
+
+        // モバイルUA、または画面幅が狭い場合のどちらかに該当すればモバイル版とする
+        return isMobileUA || isNarrowScreen;
+    }
+
+    const isMobile = checkIsMobile();
 
     function loadScript(src) {
         return new Promise((resolve, reject) => {
@@ -52,7 +65,6 @@
         // ② ポップアップデータ群 (popup-data/ 配下のファイル)
         await loadScript(new URL("popup-data/jinsei.js", siteRoot).href);
         //  await loadScript(new URL("popup-data/others.js", siteRoot).href);
-
 
         // ③ ゲームエンジン
         const engineFile = isMobile ? "novel-engine-mobile.js" : "novel-engine.js";

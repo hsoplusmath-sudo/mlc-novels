@@ -365,7 +365,7 @@ sin_30:[
       speaker: "usako",
       showImgId: "img-usako-shocked",
       posClass: "right-chara",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3
+      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3"
     },
     {
       name: "先生",
@@ -491,7 +491,7 @@ school_sine: [
       speaker: "usako",
       showImgId: "img-usako-sad",
       posClass: "right-chara",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3
+      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3"
   },
   {
     name: "先生",
@@ -628,7 +628,7 @@ sine_law: [
     speaker: "usako",
     showImgId: "img-usako-shocked",
     posClass: "right-chara",
-    bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3
+    bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3"
   },
   {
     name: "先生",

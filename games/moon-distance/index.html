@@ -1,0 +1,13 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<div class="masulesson-proportion-box"><div id="masulesson-virtual-screen" class="masulesson-novel-container">
+  <div id="novel-header-bar" class="story-header-bar">Masu Lesson Class</div>
+  <div id="stage-selector" class="selector-screen" style="background-image:url('../../assets/bg/bg_night-sky.webp');"><div class="novel-content-wrapper"><div class="novel-top-title">月までの距離をはかろう</div><p class="novel-top-subtitle">うさことぶきようくんと、夜空の謎を追いかけよう。</p><div class="stage-menu-list"><button id="start-lesson-btn" class="menu-btn active-stage" disabled>調査をはじめる</button></div></div></div>
+  <div id="game-stage-area" class="stage-area" style="display:none;"><div id="center-popup-wrap" class="popup-image-wrap hidden-popup"><img id="center-popup-img" src="" alt="説明画像"></div><div id="game-popup-trigger-container" class="game-popup-trigger-container"></div></div>
+  <div id="game-message-window" class="message-window" style="display:none;"><div id="chara-name-box" class="name-box">名前</div><div id="dialogue-text" class="text-box">セリフ</div><div id="choice-container" class="choice-box-area" style="display:none;"></div></div>
+  <div id="game-control-bar" class="control-bar" style="display:none;"><button id="next-scene-btn" class="embedded-next-btn" onclick="advanceStory()">次へ ➔</button></div>
+</div></div>
+<script>
+document.addEventListener('novel-engine-ready', function(){ const b=document.getElementById('start-lesson-btn'); if(b)b.disabled=false; });
+window.addEventListener('load', function(){ $('#start-lesson-btn').on('click', function(){ if(typeof startSelectedStage!=='function')return alert('ゲームエンジンが読み込まれていません。'); $('#stage-selector').hide(); $('#game-stage-area,#game-message-window,#game-control-bar').show(); startSelectedStage('msg_welcome',false,'','moon-distance'); }); });
+</script>
+<audio id="novel-bgm" loop preload="auto"></audio><script src="../../core/common-loader.js"></script><script src="./scenario.js"></script>

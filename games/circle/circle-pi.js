@@ -238,7 +238,7 @@ window.storyFlow["circle-pi"] = {
       speaker: "usako",
       showImgId: "img-usako-shocked",
       posClass: "right-chara",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3
+      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3"
     },
     {
       name: "先生",

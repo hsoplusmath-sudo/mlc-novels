@@ -7,6 +7,46 @@
  */
 window.MLC_NEWS = [
   {
+    id: "release-wordpress",
+    date: "2026-10-29",
+    title: "「WordPressのしくみを知ろう」を追加しました",
+    description: "ホームページを作りたいうさこと、サイトを作る目的やWordPressのしくみを考える物語です。",
+    href: "./games/wordpress/index.html",
+    published: true
+  },
+  {
+    id: "release-circle-pi",
+    date: "2026-10-29",
+    title: "「πってなに？」を追加しました",
+    description: "正方形と円を比べながら、円周率 π が表すものを探ります。",
+    href: "./games/circle/index.html",
+    published: true
+  },
+  {
+    id: "release-circle-sine",
+    date: "2026-10-29",
+    title: "「サインってなに？」を追加しました",
+    description: "円に引いた弦を手掛かりに、sin・cosが表す長さを考えます。",
+    href: "./games/circle/index.html",
+    published: true
+  },
+  {
+    id: "release-moon-distance",
+    date: "2026-10-29",
+    title: "「月まではどれくらい？」を追加しました",
+    description: "二人の距離と月を見た角度から、月までの距離を考える物語です。",
+    href: "./games/moon-distance/index.html",
+    published: true
+  },
+  {
+    id: "release-money-lending",
+    date: "2026-10-29",
+    title: "「お金貸して」を追加しました",
+    description: "友だちとのお金の貸し借りを、何度かの選択を通じて考えます。",
+    href: "./games/money-lending/index.html",
+    published: true
+  },
+  {
     id: "release-inaba-rabbit",
     date: "2026-10-28",
     title: "新しい物語「うさことカズザメ」を追加しました",

@@ -5,115 +5,224 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f5ed">
   <meta name="description" content="物語を楽しみながら、数学のひみつを見つける旅へ。ますレッスンの数学ゲーム。">
+
   <title>ますレッスン｜数学で見つける、自分だけの世界</title>
-  <link rel="stylesheet" href="./style.css">
+
+  <link rel="stylesheet" href="./site/style.css">
 </head>
+
 <body>
+
+  <!-- ヘッダー -->
   <header class="site-header">
+
     <a class="brand" href="./index.html" aria-label="ますレッスン トップ">
       <span class="brand-mark" aria-hidden="true">🍀</span>
-      <span><strong>ますレッスン</strong><small>〜 数学で見つける、自分だけの世界 〜</small></span>
+
+      <span>
+        <strong>ますレッスン</strong>
+        <small>〜 数学で見つける、自分だけの世界 〜</small>
+      </span>
     </a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">メニュー <span aria-hidden="true">☰</span></button>
+
+    <button
+      class="menu-toggle"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      メニュー
+      <span aria-hidden="true">☰</span>
+    </button>
+
     <nav class="main-nav" id="main-nav" aria-label="メインナビゲーション">
       <a href="#home">ホーム</a>
       <a href="#games">ゲーム一覧</a>
+      <a href="#news">更新情報</a>
       <a href="#about">ますレッスンについて</a>
     </nav>
+
   </header>
 
+
   <main>
+
+    <!-- メインビジュアル -->
     <section class="hero" id="home">
-      <div class="hero-art" role="img" aria-label="青空と山々、湖、神社のある幻想的な風景"></div>
+
+      <div
+        class="hero-art"
+        role="img"
+        aria-label="青空と山々、湖、神社のある幻想的な風景"
+      ></div>
+
       <div class="hero-shade"></div>
+
       <div class="hero-content">
-        <p class="eyebrow"><span></span> MATHEMATICS · STORY · DISCOVERY</p>
-        <h1>数学が、<br>君の世界を広げる。</h1>
-        <p class="hero-copy">「わからない」が「おもしろい」に変わる。<br>
-          物語を楽しみながら、数学と出会う旅に出よう。</p>
-        <a class="primary-button" href="#games"><span aria-hidden="true">🍀</span> ゲームをはじめる <span aria-hidden="true">→</span></a>
+
+        <p class="eyebrow">
+          <span></span>
+          MATHEMATICS · STORY · DISCOVERY
+        </p>
+
+        <h1>
+          数学が、<br>
+          君の世界を広げる。
+        </h1>
+
+        <p class="hero-copy">
+          「わからない」が「おもしろい」に変わる。<br>
+          物語を楽しみながら、数学と出会う旅に出よう。
+        </p>
+
+        <a class="primary-button" href="#games">
+          <span aria-hidden="true">🍀</span>
+          ゲームをはじめる
+          <span aria-hidden="true">→</span>
+        </a>
+
       </div>
-      <div class="hero-note"><span class="note-line"></span><span>ひとつの発見が、世界の見え方を変えていく。</span></div>
-      <a class="scroll-cue" href="#games" aria-label="ゲーム一覧へスクロール"><span></span> SCROLL TO DISCOVER</a>
+
+      <div class="hero-note">
+        <span class="note-line"></span>
+        <span>ひとつの発見が、世界の見え方を変えていく。</span>
+      </div>
+
+      <a
+        class="scroll-cue"
+        href="#games"
+        aria-label="ゲーム一覧へスクロール"
+      >
+        <span></span>
+        SCROLL TO DISCOVER
+      </a>
+
     </section>
 
+
+    <!-- ゲーム一覧 -->
     <section class="games-section paper" id="games">
+
       <div class="section-heading">
+
         <p class="section-kicker">YOUR NEXT ADVENTURE</p>
-        <h2><span class="heading-star" aria-hidden="true">➕✖︎</span> ゲーム一覧</h2>
+
+        <h2>
+          <span class="heading-star" aria-hidden="true">➕✖︎</span>
+          ゲーム一覧
+        </h2>
+
         <p>物語の中へ一歩踏み出して、数学のひみつを見つけよう。</p>
+
       </div>
 
-      <!-- 新しいゲームは、この game-list の中に同じ形式で追加できます。 -->
-      <div class="game-list">
-        <a class="game-card featured" href="./games/world-trip/index.html">
-          <span class="game-number">01</span>
-          <span class="game-icon shrine" aria-hidden="true">✈️</span>
-          <span class="game-info">
-            <span class="game-tag">STORY ADVENTURE</span>
-            <strong>World trip</strong>
-            <span>世界を旅しながら、数学のひみつを見つける冒険へ。</span>
-          </span>
-          <span class="game-arrow" aria-hidden="true">↗</span>
-        </a>
+      <!-- ゲームカードは games-data.js の情報から生成 -->
+      <div class="game-list" id="game-list">
 
-        <a class="game-card" href="./games/jinja/index.html">
-          <span class="game-number">02</span>
-          <span class="game-icon compass" aria-hidden="true">⛩</span>
-          <span class="game-info">
-            <span class="game-tag">STORY ADVENTURE</span>
-            <strong>チュートリアル</strong>
-            <span>ますレッスンの世界を、ここから歩きはじめよう。</span>
-          </span>
-          <span class="game-arrow" aria-hidden="true">↗</span>
-        </a>
+        <p class="loading-message">
+          ゲームを準備しています……
+        </p>
 
-        <a class="game-card" href="./games/tutorial/index.html">
-          <span class="game-number">00</span>
-          <span class="game-icon compass" aria-hidden="true">✧</span>
-          <span class="game-info">
-            <span class="game-tag">FIRST STEP</span>
-            <strong>チュートリアル</strong>
-            <span>ますレッスンの世界を、ここから歩きはじめよう。</span>
-          </span>
-          <span class="game-arrow" aria-hidden="true">↗</span>
-        </a>
-
-        <!-- ゲーム追加用テンプレート
-        <a class="game-card" href="./games/ゲームフォルダ/index.html">
-          <span class="game-number">03</span>
-          <span class="game-icon moon" aria-hidden="true">☾</span>
-          <span class="game-info">
-            <span class="game-tag">MATH DISCOVERY</span>
-            <strong>ゲームタイトル</strong>
-            <span>ゲームの紹介文をここに書きます。</span>
-          </span>
-          <span class="game-arrow" aria-hidden="true">↗</span>
-        </a>
-        -->
       </div>
 
-      <p class="list-note"><span aria-hidden="true">✦</span> これから、冒険のステージが少しずつ増えていきます。</p>
+      <p class="list-note">
+        <span aria-hidden="true">✦</span>
+        これから、冒険のステージが少しずつ増えていきます。
+      </p>
+
     </section>
 
+
+    <!-- お知らせ・更新情報 -->
+    <section class="news-section paper" id="news" hidden>
+
+      <div class="section-heading">
+
+        <p class="section-kicker">LATEST UPDATES</p>
+
+        <h2>お知らせ・更新情報</h2>
+
+        <p>ますレッスンの新しい冒険や更新をお知らせします。</p>
+
+      </div>
+
+      <!-- 更新情報は news-data.js の情報から生成 -->
+      <div class="news-list" id="news-list"></div>
+
+    </section>
+
+
+    <!-- ますレッスンについて -->
     <section class="manifesto" id="about">
-      <div class="manifesto-image" role="img" aria-label="木漏れ日が差し込む森の小道"></div>
+
+      <div
+        class="manifesto-image"
+        role="img"
+        aria-label="木漏れ日が差し込む森の小道"
+      ></div>
+
       <div class="manifesto-content">
-        <p class="section-kicker">A LITTLE DISCOVERY, A BIGGER WORLD</p>
-        <h2>数学は、きっと、<br>あなたの味方になる。</h2>
-        <p>答えを覚えるだけじゃなく、<br>「どうして？」を一緒に考えてみよう。<br>
-          自分で発見する喜びが、きっと次の一歩につながる。</p>
-        <a class="text-link" href="#games">次の冒険を探す <span aria-hidden="true">→</span></a>
+
+        <p class="section-kicker">
+          A LITTLE DISCOVERY, A BIGGER WORLD
+        </p>
+
+        <h2>
+          数学は、きっと、<br>
+          あなたの味方になる。
+        </h2>
+
+        <p>
+          答えを覚えるだけじゃなく、<br>
+          「どうして？」を一緒に考えてみよう。<br>
+          自分で発見する喜びが、きっと次の一歩につながる。
+        </p>
+
+        <a class="text-link" href="#games">
+          次の冒険を探す
+          <span aria-hidden="true">→</span>
+        </a>
+
       </div>
-      <div class="manifesto-seal" aria-hidden="true">ます<br>レッスン<br><span>🍀</span></div>
+
+      <div class="manifesto-seal" aria-hidden="true">
+        ます<br>
+        レッスン<br>
+        <span>🍀</span>
+      </div>
+
     </section>
+
   </main>
 
+
+  <!-- フッター -->
   <footer class="site-footer">
-    <a class="footer-brand" href="#home"><span aria-hidden="true">🍀</span> ますレッスン</a>
+
+    <a class="footer-brand" href="#home">
+      <span aria-hidden="true">🍀</span>
+      ますレッスン
+    </a>
+
     <p>数学でひらく、あなたの未来。</p>
+
     <small>© 2026 ますレッスン教室</small>
+
   </footer>
-  <script src="./script.js"></script>
+
+
+  <!--
+    サイト情報の読み込み順序
+
+    1. games-data.js  : ゲームカードの情報
+    2. news-data.js   : 更新情報
+    3. site-render.js : 情報をHTMLに出力
+    4. script.js      : メニューなどの共通動作
+  -->
+
+  <script src="./site/games-data.js"></script>
+  <script src="./site/news-data.js"></script>
+  <script src="./site/site-render.js"></script>
+  <script src="./site/script.js"></script>
+
 </body>
 </html>

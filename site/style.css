@@ -118,3 +118,74 @@ a { color: inherit; }
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition-duration: .01ms !important; }
 }
+
+
+/* ゲームカード：アイキャッチ画像 */
+.game-thumbnail {
+  display: block;
+  width: 82px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+/* お知らせ */
+.news-section {
+  padding: 64px clamp(20px, 6vw, 90px) 72px;
+}
+
+.news-list {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  gap: 12px;
+}
+
+.news-item {
+  padding: 20px 24px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.58);
+}
+
+.news-date {
+  display: block;
+  color: #8a9ba5;
+  font: 11px Arial, sans-serif;
+  margin-bottom: 8px;
+}
+
+.news-title {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.news-description {
+  margin: 8px 0 0;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.9;
+}
+
+.news-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 3px;
+}
+
+@media (max-width: 760px) {
+  .game-thumbnail {
+    width: 66px;
+  }
+
+  .news-section {
+    padding: 50px 16px 56px;
+  }
+
+  .news-item {
+    padding: 16px;
+  }
+}

@@ -12,7 +12,7 @@ window.storyFlow["circle-pi"] = {
       name: "先生",
       text: "今日は、こんな物語をしてみるよ！",
       speaker: "usagi",
-      bg: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_manabiya.webp",
+      bg: "../../assets/bg/bg_manabiya.webp",
       showImgId: "img-usagi-happy",
       posClass: "center-chara"
     },

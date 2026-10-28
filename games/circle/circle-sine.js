@@ -12,7 +12,7 @@ window.storyFlow["circle-sine"] = {
       name: "先生",
       text: "四角と円の左側に、「ピッ」て線を引くね！",
       speaker: "usagi",
-      bg: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_manabiya.webp",
+      bg: "../../assets/bg/bg_manabiya.webp",
       showImgId: "img-usagi-happy",
       posClass: "center-chara",
       bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/manabisya-hukei.mp3"

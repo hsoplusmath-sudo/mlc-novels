@@ -10,7 +10,7 @@ msg_welcome: [
 	name: "",
 	text: "もし、大切な友達から「お金を貸して」と言われたら、あなたはどうしますか？",
 	speaker: "none",
-	bg: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_gorogoro.webp",
+	bg: "../../assets/bg/bg_gorogoro.webp",
 	showImgId: "none",
 	nextRoute: "first_request"
 } 
@@ -26,7 +26,7 @@ first_request: [
 	speaker: "usako",
 	showImgId: "img-usako-sad",
 	posClass: "right-chara",
-	bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_france_italia.opus"
+	bgm: "../../assets/bgm/bgm_france_italia.opus"
 },
 {
 	name: "ぶきようくん",
@@ -413,7 +413,7 @@ ask_finances: [
 		speaker: "bukiyou",
 		showImgId: "img-bukiyokun-hard",
 		posClass: "center-chara",
-		bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_escort.opus",
+		bgm: "../../assets/bgm/bgm_escort.opus",
 
 		branch: [
 			{ if: { lend: { eq: 3 } }, nextRoute: "ending_all_lend" },
@@ -705,7 +705,7 @@ ask_spending: [
 		speaker: "bukiyou",
 		showImgId: "img-bukiyokun-hard",
 		posClass: "center-chara",
-		bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_escort.opus",
+		bgm: "../../assets/bgm/bgm_escort.opus",
 
 		branch: [
 			{ if: { lend: { eq: 3 } }, nextRoute: "ending_all_lend" },
@@ -966,7 +966,7 @@ ask_work: [
 		speaker: "bukiyou",
 		showImgId: "img-bukiyokun-hard",
 		posClass: "center-chara",
-		bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_escort.opus",
+		bgm: "../../assets/bgm/bgm_escort.opus",
 
 		branch: [
 			{ if: { lend: { eq: 3 } }, nextRoute: "ending_all_lend" },

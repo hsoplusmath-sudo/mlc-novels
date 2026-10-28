@@ -5,7 +5,7 @@ window.storyFlow["moon-distance"] = {
     { name: "",
       text: "ある日の夜の話です。あなたはふと考えたことはありませんか？<br>「月までどれくらいだろう？」",
       speaker: "none",
-      bg: "https://masulessonclass.sakura.ne.jp//mlc/novels/the-moon/bg_night-sky.webp",
+      bg: "../../assets/bg/bg_night-sky.webp",
       showImgId: "none",
       nextRoute: "opening"
     }
@@ -18,7 +18,7 @@ window.storyFlow["moon-distance"] = {
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "center-chara",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/shizukana-tikurin.mp3"
+      bgm: "../../assets/bgm/bgm_shizukana-tikurin.mp3"
     },
     {
       name: "ぶきようくん",
@@ -89,7 +89,7 @@ window.storyFlow["moon-distance"] = {
       showImgId: "img-hero-happy",
       posClass: "left-chara",
       partnerAction: { id: "img-bukiyokun-hard", class: "center-chara" },
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_escort.opus"
+      bgm: "../../assets/bgm/bgm_escort.opus"
     },
     {
       name: "2人",

@@ -12,7 +12,7 @@ window.storyFlow["intro-wordpress"] = {
       name: "",
       text: "HPを作ろう！",
       speaker: "",
-      bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_nohara.webp",
+      bg: "../../assets/bg/bg_nohara.webp",
       nextRoute: "wp_scene1"
     }
   ],
@@ -24,8 +24,8 @@ window.storyFlow["intro-wordpress"] = {
       name: "うさぎ",
       text: "ねぇ、ねぇ、",
       speaker: "usagi",
-      bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_gorogoro.webp",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/audio/bgm_france_italia.opus",
+      bg: "../../assets/bg/bg_gorogoro.webp",
+      bgm: "../../assets/bgm/bgm_france_italia.opus",
       showImgId: "img-usagi-happy",
       posClass: "right-chara"
     },
@@ -110,7 +110,7 @@ window.storyFlow["intro-wordpress"] = {
       name: "うさこ",
       text: "ホームページって、作れたら楽しそうだけど……何から始めたらいいんだろう？",
       speaker: "usako",
-      bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_gorogoro.webp",
+      bg: "../../assets/bg/bg_gorogoro.webp",
       showImgId: "img-usako-normal",
       posClass: "left-chara"
     },
@@ -455,7 +455,7 @@ window.storyFlow["intro-wordpress"] = {
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "left-chara",
-      bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_pc-office.webp",
+      bg: "../../assets/bg/bg_pc-office.webp",
       bgm: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/garden-party.mp3"
     },
     {
@@ -506,7 +506,7 @@ window.storyFlow["intro-wordpress"] = {
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "left-chara",
-      bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_pc-office.webp",
+      bg: "../../assets/bg/bg_pc-office.webp",
       bgm: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/garden-party.mp3"
     },
     {
@@ -571,7 +571,7 @@ window.storyFlow["intro-wordpress"] = {
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "left-chara",
-      bg: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/images/bg_pc-office.webp",
+      bg: "../../assets/bg/bg_pc-office.webp",
       bgm: "http://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/garden-party.mp3"
     },
     {

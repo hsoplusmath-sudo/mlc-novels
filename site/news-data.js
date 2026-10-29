@@ -7,6 +7,22 @@
  */
 window.MLC_NEWS = [
   {
+    id: "release-kakeibo",
+    date: "2026-10-29",
+    title: "「家計簿つくるぞ！」を追加しました",
+    description: "うさこと一緒にExcelで家計簿を作り、収支の自動計算や支出の見える化を学ぶ物語です。",
+    href: "./games/kakeibo/index.html",
+    published: true
+  },
+  {
+    id: "release-dietplan",
+    date: "2026-10-29",
+    title: "「Excelで理想の自分をデザイン」を追加しました",
+    description: "うさこと一緒に、目標や計画を見える形にしながら、無理のないダイエットについて考える物語です。",
+    href: "./games/dietplan/index.html",
+    published: true
+  },
+  {
     id: "release-new-nisa",
     date: "2026-10-29",
     title: "「うさこと考える新NISA」を追加しました",

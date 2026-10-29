@@ -1,0 +1,62 @@
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<div class="masulesson-proportion-box">
+  <div id="masulesson-virtual-screen" class="masulesson-novel-container">
+    <div id="novel-header-bar" class="story-header-bar">Masu Lesson Class</div>
+
+    <div id="stage-selector" class="selector-screen" style="background-image: url('../../assets/bg/bg_gorogoro.webp');">
+      <div class="novel-content-wrapper">
+        <div class="novel-top-title">Excelで理想の自分をデザイン</div>
+        <p class="novel-top-subtitle">うさこと一緒に、無理のないダイエット計画を考えよう。</p>
+        <div class="stage-menu-list">
+          <button id="start-lesson-btn" class="menu-btn active-stage" disabled>
+            <span class="moving-arrow">➔</span> 物語をはじめる
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 共通エンジンが参照する id は変更しないでください。 -->
+    <div id="game-stage-area" class="stage-area" style="display: none;">
+      <div id="center-popup-wrap" class="popup-image-wrap hidden-popup">
+        <img id="center-popup-img" src="" alt="説明画像">
+      </div>
+      <div id="game-popup-trigger-container" class="game-popup-trigger-container"></div>
+    </div>
+    <div id="game-message-window" class="message-window" style="display: none;">
+      <div id="chara-name-box" class="name-box">名前</div>
+      <div id="dialogue-text" class="text-box">セリフ</div>
+      <div id="choice-container" class="choice-box-area" style="display: none;"></div>
+    </div>
+    <div id="game-control-bar" class="control-bar" style="display: none;">
+      <button id="next-scene-btn" class="embedded-next-btn" onclick="advanceStory()">次へ ➔</button>
+    </div>
+  </div>
+</div>
+
+<style>
+.stage-menu-list .menu-btn .moving-arrow { margin-right: 8px; font-size: 18px; display: inline-block; }
+</style>
+
+<script>
+document.addEventListener('novel-engine-ready', function() {
+  const button = document.getElementById('start-lesson-btn');
+  if (button) button.disabled = false;
+});
+window.addEventListener('load', function() {
+  $('#start-lesson-btn').on('click', function() {
+    if (typeof startSelectedStage !== 'function') {
+      alert('ゲームエンジンが読み込まれていません。');
+      return;
+    }
+    $('#stage-selector').hide();
+    $('#game-stage-area, #game-message-window, #game-control-bar').show();
+    // scenario.js に登録された開始場面とゲームIDを指定します。
+    startSelectedStage('msg_welcome_dietplan', false, '', 'dietplan');
+  });
+});
+</script>
+
+<audio id="novel-bgm" loop preload="auto"></audio>
+<script src="../../core/common-loader.js"></script>
+<script src="./scenario.js"></script>

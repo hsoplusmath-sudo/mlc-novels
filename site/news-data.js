@@ -7,6 +7,14 @@
  */
 window.MLC_NEWS = [
   {
+    id: "release-new-nisa",
+    date: "2026-10-29",
+    title: "「うさこと考える新NISA」を追加しました",
+    description: "うさこの貯金をきっかけに、新NISAや複利の考え方をたどる物語です。",
+    href: "./games/new-nisa/index.html",
+    published: true
+  },
+  {
     id: "release-wordpress",
     date: "2026-10-29",
     title: "「WordPressのしくみを知ろう」を追加しました",

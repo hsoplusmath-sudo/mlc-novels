@@ -122,5 +122,18 @@ window.MLC_GAMES = [
     image: "./assets/bg/bg_gorogoro.webp",
     featured: false,
     published: true
+  },
+  {
+    id: "new-nisa",
+    number: "09",
+    title: "うさこと考える新NISA",
+    tag: "LIFE & MONEY",
+    description: "うさこの貯金をきっかけに、新NISAや複利の考え方をたどります。",
+    href: "./games/new-nisa/index.html",
+    icon: "¥",
+    iconClass: "compass",
+    image: "./assets/bg/bg_gorogoro.webp",
+    featured: false,
+    published: true
   }
 ];

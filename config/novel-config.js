@@ -44,6 +44,7 @@ window.BGM_MASTER = [
     { id: "fraita",  src: "../../assets/bgm/bgm_france_italia.opus" },
     { id: "kaeru", src: "../../assets/bgm/bgm_kaeru-piano.opus" },
     { id: "namida", src: "../../assets/bgm/bgm_namidanokessyo.opus"},
+    { id: "garden-party",  src: "../../assets/bgm/bgm_garden-party.mp3" },
     { id: "escort",  src: "../../assets/bgm/bgm_escort.opus" },
     { id: "shizukana-tikurin",  src: "../../bgm_shizukana-tikurin.mp3" },
     { id: "jinja-icho",  src: "../../assets/bgm/bgm_jinja-icho.mp3" },

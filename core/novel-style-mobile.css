@@ -604,3 +604,7 @@
 .custom-modal-body .complete-step-btn:active {
     transform: scale(0.98);
 }
+
+.selector-screen {
+    animation: none !important;
+}

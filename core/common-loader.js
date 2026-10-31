@@ -10,13 +10,12 @@
     const coreUrl = new URL("./", loaderScript.src);
     const siteRoot = new URL("../", coreUrl); // サイトのルートディレクトリ
 
-    // 画面サイズのみで判定（600px未満でモバイル版）
+    // 表示領域が縦長ならモバイル版(3:4)、横長ならPC版(16:9)
+    const portraitQuery = window.matchMedia("(orientation: portrait)");
+
     function checkIsMobile() {
-        // viewport未設定のスマホでは innerWidth が約980pxになるため、
-        // 端末の画面幅(screen.width)も見て、小さい方で判定する
-        const w = Math.min(window.innerWidth, window.screen.width);
-        return w < 600;
-}
+        return portraitQuery.matches;
+    }
 
     const isMobile = checkIsMobile();
 
@@ -73,12 +72,24 @@
         alert("ゲームの共通ファイルを読み込めませんでした。");
     });
 
-    let resizeTimer;
-    window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(() => {
-        if (checkIsMobile() !== isMobile) location.reload();
-    }, 300);
-    });
+    // 向きが変わったとき、ステージ選択画面ならレイアウトを切り替える
+    function isSelectorVisible() {
+        const el = document.getElementById("stage-selector");
+        return !el || getComputedStyle(el).display !== "none";
+    }
+
+    function onOrientationChange() {
+        if (checkIsMobile() === isMobile) return;
+        if (isSelectorVisible()) {
+            location.reload();
+        }
+        // プレイ中はリロードしない（進行を守る）
+    }
+
+    if (portraitQuery.addEventListener) {
+        portraitQuery.addEventListener("change", onOrientationChange);
+    } else {
+        portraitQuery.addListener(onOrientationChange); // 古いSafari用
+    }
 
 })();

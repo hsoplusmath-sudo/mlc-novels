@@ -577,7 +577,6 @@
     width: 100%;
     max-width: 350px;
     margin: 20px auto 0 auto;
-    
     background: linear-gradient(135deg, #ff9e42 0%, #ff6f00 100%) !important;
     color: #ffffff !important;
     font-size: 18px !important;
@@ -596,6 +595,8 @@
     transform: scale(0.98);
 }
 
-
+.selector-screen {
+    animation: none !important;
+}
 
 .stage-menu-list .menu-btn { animation: none !important; }

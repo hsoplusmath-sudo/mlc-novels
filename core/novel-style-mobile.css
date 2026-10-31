@@ -5,7 +5,7 @@
 .masulesson-proportion-box {
     position: relative;
     width: 100%;
-    padding-top: 133.33%; /* 🌟 177% から 133.33% (3:4) に縮めて縦長感を解消 */
+    padding-top: 133.33%; /* 3:4比率 */
     overflow: hidden;
     background: #1a1a1a;
     border: 2px solid #333333 !important; 
@@ -26,13 +26,14 @@
     box-shadow: none;
     font-family: 'Noto Sans JP', sans-serif;
     position: absolute;
-    top: -2px;
-    left: -2px;
+    top: 0;
+    left: 50%;
     width: 720px !important;  
-    height: 960px !important; /* 🌟 1280px から 960px に短縮し、無駄な上下の空間を排除 */
+    height: 960px !important; 
     overflow: hidden !important;
     box-sizing: border-box !important;
-    transform-origin: top left; 
+    transform-origin: top center; 
+    transform: translateX(-50%);
     container-type: inline-size;
 }
 
@@ -233,10 +234,10 @@
 /* ポップアップ画像の外枠コンテナ */
 .popup-image-wrap {
     position: absolute; 
-    top: 38%;                   
+    top: 38%;                 
     left: 50%; 
     transform: translate(-50%, -50%) scale(1.0);
-    z-index: 10; 
+    z-index: 500; /* キャラクターよりも常に手前に表示されるよう十分大きくする */
     width: 85%;  
     height: 42%; 
     transition: all 0.3s ease;

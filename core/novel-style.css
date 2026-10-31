@@ -26,13 +26,14 @@
     box-shadow: none;
     font-family: 'Noto Sans JP', sans-serif;
     position: absolute;
-    top: -2px;
-    left: -2px;
+    top: 0;
+    left: 50%;
     width: 1280px !important;
     height: 720px !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
-    transform-origin: top left; 
+    transform-origin: top center; 
+    transform: translateX(-50%);
     
     /* 内部のすべての要素がこの枠の横幅（100cqw = 1280px）を基準に伸縮するように設定 */
     container-type: inline-size;

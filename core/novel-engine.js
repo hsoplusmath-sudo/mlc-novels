@@ -1594,15 +1594,12 @@ if (currentData.choices) {
 /**
  * ==========================================================================
  * 3. PC用レスポンシブスケーリング
- *
  * ==========================================================================
  */
 
 (function() {
 
-    const virtualWidth =
-        1280;
-
+    const virtualWidth = 1280;
 
     function resizeVirtualScreen() {
 
@@ -1616,7 +1613,6 @@ if (currentData.choices) {
 
 
         if (!screenEl) {
-
             return;
         }
 
@@ -1624,9 +1620,8 @@ if (currentData.choices) {
         const parentWidth =
             screenEl.parentElement.clientWidth;
 
-
         const availableWidth =
-            parentWidth - 4;
+            parentWidth;
 
 
         const scale =
@@ -1634,26 +1629,23 @@ if (currentData.choices) {
             virtualWidth;
 
 
-        if (
-            scale < 1
-        ) {
+        // 画面が小さいときは幅に合わせて縮小し、大きいときは等倍(1)にする
+        const finalScale =
+            scale < 1 ? scale : 1;
 
-            screenEl.style.transform =
-                `scale(${scale})`;
 
-        } else {
+        screenEl.style.transformOrigin =
+            'top center';
 
-            screenEl.style.transform =
-                'none';
-        }
+        screenEl.style.transform =
+            `translateX(-50%) scale(${finalScale})`;
 
 
         screenEl.style.top =
             '0px';
 
-
         screenEl.style.left =
-            '0px';
+            '50%';
     }
 
 

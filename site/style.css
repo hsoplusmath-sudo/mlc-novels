@@ -72,7 +72,7 @@ a { color: inherit; }
 .list-note { text-align: center; margin: 30px 0 0; color: #7e8f93; font-size: 11px; letter-spacing: .07em; }
 .list-note span { color: #b38d46; margin-right: 8px; }
 .manifesto { min-height: 390px; position: relative; display: flex; align-items: center; overflow: hidden; background: #244f68; color: #fff; }
-.manifesto-image { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,48,66,.75), rgba(16,54,68,.38)), url("https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1800&q=85") center 55%/cover; }
+.manifesto-image { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(12,48,66,.75), rgba(16,54,68,.38)), url("./top-manifest.webp") center 55%/cover; }
 .manifesto-content { position: relative; z-index: 1; width: min(1020px, 100%); margin: auto; padding: 68px 30px; }
 .manifesto-content .section-kicker { color: #d6c79e; }
 .manifesto-content h2 { margin: 0; font-size: clamp(28px, 4vw, 43px); line-height: 1.7; font-weight: 500; letter-spacing: .1em; }
@@ -80,11 +80,103 @@ a { color: inherit; }
 .text-link { display: inline-flex; gap: 20px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.65); text-decoration: none; font-size: 12px; }
 .manifesto-seal { position: absolute; right: max(7vw, calc((100vw - 1020px)/2)); bottom: 45px; z-index: 1; width: 92px; height: 92px; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; display: grid; place-content: center; text-align: center; font-size: 11px; line-height: 1.5; letter-spacing: .1em; transform: rotate(9deg); }
 .manifesto-seal span { font-size: 17px; }
-.site-footer { text-align: center; padding: 28px 20px 25px; background: #143c54; color: rgba(255,255,255,.8); }
-.footer-brand { text-decoration: none; font-size: 18px; letter-spacing: .12em; }
-.footer-brand span { color: #d9c18b; margin-right: 7px; }
-.site-footer p { margin: 8px 0 16px; font-size: 10px; letter-spacing: .12em; }
-.site-footer small { font: 10px Arial, sans-serif; color: rgba(255,255,255,.5); }
+
+
+/* ==========================================================================
+   3. フッター (修正・追加)
+  ========================================================================== */
+
+/* 提供されたフッターの背景色を維持しつつ、画像を重ねる */
+.site-footer {
+  position: relative;
+  padding: 0; /* paddingを解除 */
+  background: #143c54; /* 提供された背景色 */
+  color: rgba(255, 255, 255, 0.8);
+  overflow: hidden;
+}
+
+/* フッターの背景画像の設定 (./site/footer-background.webpに画像を配置) */
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("./top-footer.webp");
+  background-position: center bottom; /* 下部基準で配置 */
+  background-size: cover;
+  opacity: 0.35; /* 画像の主張を抑え、テキストの可読性を確保 */
+  z-index: 0;
+}
+
+/* フッター内のコンテンツを配置するコンテナ (HTMLに.footer-text-contentを追加) */
+.site-footer .footer-inner-container {
+  position: relative;
+  z-index: 1; /* 画像の上に表示 */
+  width: min(1020px, 100%);
+  margin: 0 auto;
+  /* ヒーローエリアと同じclamp関数を使用して、余白を統一 */
+  padding: 40px clamp(24px, 7vw, 100px) 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* 左寄せ */
+  text-align: left; /* 左寄せ */
+}
+
+/* ブランドロゴのスタイル */
+.footer-brand {
+  text-decoration: none;
+  font-size: 18px;
+  letter-spacing: 0.12em;
+  color: #fff;
+  margin-bottom: 25px; /* テキストとの余白 */
+}
+
+.footer-brand span {
+  color: #d9c18b;
+ margin-right: 7px;
+}
+
+/* テキストコンテンツの配置調整 */
+.footer-text-content {
+  margin-top: auto; /* 下部に配置 */
+  align-self: flex-end; /* 右寄せ */
+  text-align: right; /* 右寄せ */
+}
+
+.site-footer p {
+  margin: 0 0 10px;
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.site-footer small {
+  font: 10px Arial, sans-serif;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* レスポンシブ対応 (既存のmedia queryに追加・統合) */
+@media (max-width: 760px) {
+  .site-footer .footer-inner-container {
+    padding: 25px 20px 20px;
+    align-items: center; /* 中央寄せ */
+    text-align: center; /* 中央寄せ */
+  }
+
+  .footer-brand {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+
+  .footer-text-content {
+    align-self: center; /* 中央寄せ */
+    text-align: center; /* 中央寄せ */
+  }
+
+  .site-footer p {
+    font-size: 9px;
+  }
+}
+
+
 @media (max-width: 760px) {
   .site-header { padding: 17px 18px; align-items: flex-start; }
   .brand-mark { font-size: 29px; }

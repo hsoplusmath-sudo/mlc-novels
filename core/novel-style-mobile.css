@@ -220,7 +220,7 @@
     top: 38%;                 
     left: 50%; 
     transform: translate(-50%, -50%) scale(1.0);
-    z-index: 500; /* キャラクターよりも常に手前に表示されるよう十分大きくする */
+    z-index: 1950; /* キャラクターよりも常に手前に表示されるよう十分大きくする */
     width: 85%;  
     height: 42%; 
     transition: all 0.3s ease;
@@ -393,7 +393,7 @@
     top: 550px; 
     left: 50%;
     transform: translateX(-50%);
-    z-index: 25;
+    z-index: 2000;
     width: 80%; 
     white-space: normal;
     /* 🌟 ボタンコンテナ自体を上下にフワフワと自動ループ浮遊させる */

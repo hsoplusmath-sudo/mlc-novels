@@ -41,15 +41,41 @@ a { color: inherit; }
 .eyebrow span { width: 28px; height: 1px; background: #e8d9a8; }
 .hero h1 { margin: 0; font-weight: 500; letter-spacing: .12em; line-height: 1.65; font-size: clamp(37px, 5.4vw, 68px); text-shadow: 0 2px 24px rgba(0,0,0,.16); }
 .hero-copy { margin: 24px 0 30px; line-height: 2.2; font-size: clamp(13px, 1.4vw, 16px); letter-spacing: .06em; }
-.primary-button { display: inline-flex; align-items: center; gap: 16px; padding: 15px 24px; border-radius: 999px; background: #f8f5eb; color: #164c78; text-decoration: none; font-size: 13px; letter-spacing: .06em; transition: transform .2s, background .2s; }
-.primary-button:hover { transform: translateY(-3px); background: white; }
-.primary-button span:first-child { font-size: 20px; }
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 28px;
+  border-radius: 999px;
+  border: 1px solid rgba(217, 193, 139, 0.6);
+  background: linear-gradient(135deg, #fcfbfa 0%, #f3eee1 100%);
+  color: #164c78;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  box-shadow: 0 4px 15px rgba(11, 42, 65, 0.15);
+  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
+}
+.primary-button:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #ffffff 0%, #f8f5eb 100%);
+  box-shadow: 0 8px 24px rgba(11, 42, 65, 0.25);
+}
+.primary-button span:first-child {
+  font-size: 20px;
+}
 .hero-note { position: absolute; z-index: 1; right: clamp(22px, 5vw, 70px); bottom: 48px; display: flex; align-items: center; gap: 12px; font-size: 11px; letter-spacing: .1em; }
 .note-line { display: inline-block; width: 36px; height: 1px; background: rgba(255,255,255,.7); }
 .scroll-cue { position: absolute; z-index: 1; bottom: 0; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 10px; padding-bottom: 20px; color: #fff; font: 9px Arial, sans-serif; letter-spacing: .22em; text-decoration: none; writing-mode: horizontal-tb; }
 .scroll-cue span { display: inline-block; width: 1px; height: 23px; background: #fff; }
 .paper { background-color: var(--paper); background-image: radial-gradient(ellipse at 20% 20%, rgba(255,255,255,.85), transparent 55%), radial-gradient(ellipse at 90% 80%, rgba(221,215,194,.22), transparent 55%); }
 .games-section { padding: 74px clamp(20px, 6vw, 90px) 84px; }
+/* ゲーム一覧：温かみのあるクリーム色のペーパー風を維持 */
+.games-section.paper {
+  background-color: var(--paper);
+  background-image: radial-gradient(ellipse at 20% 20%, rgba(255,255,255,.85), transparent 55%), radial-gradient(ellipse at 90% 80%, rgba(221,215,194,.22), transparent 55%);
+}
 .section-heading { text-align: center; margin-bottom: 35px; }
 .section-kicker { margin: 0 0 13px; color: #7d8c8b; }
 .section-heading h2 { margin: 0; font-size: clamp(28px, 3vw, 38px); font-weight: 500; letter-spacing: .13em; }
@@ -78,8 +104,8 @@ a { color: inherit; }
 .manifesto-content h2 { margin: 0; font-size: clamp(28px, 4vw, 43px); line-height: 1.7; font-weight: 500; letter-spacing: .1em; }
 .manifesto-content > p:not(.section-kicker) { margin: 18px 0 24px; font-size: 13px; line-height: 2.2; letter-spacing: .04em; color: rgba(255,255,255,.87); }
 .text-link { display: inline-flex; gap: 20px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,.65); text-decoration: none; font-size: 12px; }
-.manifesto-seal { position: absolute; right: max(7vw, calc((100vw - 1020px)/2)); bottom: 45px; z-index: 1; width: 92px; height: 92px; border: 1px solid rgba(255,255,255,.55); border-radius: 50%; display: grid; place-content: center; text-align: center; font-size: 11px; line-height: 1.5; letter-spacing: .1em; transform: rotate(9deg); }
-.manifesto-seal span { font-size: 17px; }
+
+
 
 
 /* ==========================================================================
@@ -233,46 +259,68 @@ a { color: inherit; }
   padding: 64px clamp(20px, 6vw, 90px) 72px;
 }
 
+/* 更新情報：白のきめ細かい方眼紙 */
+.news-section.paper {
+  background-color: #ffffff;
+  background-image: 
+    linear-gradient(to right, rgba(23, 63, 103, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(23, 63, 103, 0.07) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
 .news-list {
   max-width: 900px;
   margin: 0 auto;
   display: grid;
-  gap: 12px;
+  gap: 10px;
 }
 
 .news-item {
-  padding: 20px 24px;
+  padding: 14px 20px;
   border: 1px solid var(--line);
-  background: rgba(255,255,255,.58);
+  background: rgba(255, 255, 255, 0.94); /* 方眼紙の上でも文字がくっきり見えるよう白を強調 */
+  border-radius: 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 16px;
+  box-shadow: 0 1px 4px rgba(23, 63, 103, 0.03);
 }
 
 .news-date {
-  display: block;
+  order: 1;
+  display: inline-block;
   color: #8a9ba5;
   font: 11px Arial, sans-serif;
-  margin-bottom: 8px;
+  margin-bottom: 0;
+  white-space: nowrap;
 }
 
 .news-title {
+  order: 2;
+  flex: 1;
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
 }
 
 .news-description {
-  margin: 8px 0 0;
+  order: 3;
+  width: 100%;
+  margin: 4px 0 0;
   color: var(--ink-soft);
   font-size: 12px;
-  line-height: 1.9;
+  line-height: 1.6;
 }
 
 .news-link {
+  order: 4;
   display: inline-block;
-  margin-top: 10px;
+  margin-top: 4px;
   font-size: 12px;
   text-decoration: none;
   border-bottom: 1px solid var(--line);
-  padding-bottom: 3px;
+  padding-bottom: 2px;
 }
 
 @media (max-width: 760px) {
@@ -285,10 +333,10 @@ a { color: inherit; }
   }
 
   .news-item {
-    padding: 16px;
+    padding: 14px 16px;
+    gap: 4px 10px;
   }
 }
-
 
 /* 更新履歴ページ */
 .news-archive-header {
@@ -311,7 +359,7 @@ a { color: inherit; }
 
 .news-archive-return {
   margin: 0;
-  border-color: rgba(255,255,255,.6);
+  border-color: rgba(255, 255, 255, .6);
   color: #fff;
 }
 

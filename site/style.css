@@ -26,7 +26,14 @@ a { color: inherit; }
 .main-nav a:hover { border-color: currentColor; }
 .menu-toggle { display: none; color: inherit; background: transparent; border: 1px solid currentColor; border-radius: 999px; padding: 9px 13px; font: inherit; }
 .hero { min-height: min(790px, 100svh); min-height: max(650px, min(790px, 100svh)); position: relative; display: flex; align-items: center; overflow: hidden; color: white; }
-.hero-art { position: absolute; inset: 0; background-image: url("https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=2200&q=85"); background-position: center 53%; background-size: cover; transform: scale(1.015); }
+.hero-art {
+  position: absolute;
+  inset: 0;
+  background-image: url("./top-hero.webp");
+  background-position: center 53%;
+  background-size: cover;
+  transform: scale(1.015);
+}
 .hero-shade { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(9, 43, 77, .68) 0%, rgba(13, 57, 91, .36) 44%, rgba(13, 45, 64, .05) 100%), linear-gradient(0deg, rgba(11, 42, 65, .25), transparent 28%); }
 .hero-content { position: relative; z-index: 1; width: min(1180px, 100%); margin: 70px auto 0; padding: 40px clamp(24px, 7vw, 100px) 100px; }
 .eyebrow, .section-kicker, .game-tag { font-family: Arial, sans-serif; letter-spacing: .2em; font-size: 10px; }

@@ -38,7 +38,7 @@ window.MLC_GAMES = [
     title: "チュートリアル",
     tag: "FIRST STEP",
     description: "うさこと一緒に、ゲームの進め方やポップアップの使い方を体験できます。",
-    href: "./games/tutorial/index.html",
+    href: "./games/starter/index.html",
     icon: "✧",
     iconClass: "compass",
     image: "./assets/bg/bg_manabiya.webp",

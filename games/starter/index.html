@@ -10,13 +10,13 @@
     <div class="novel-top-title">初めての方へ</div>
     <p class="novel-top-subtitle">今をまなぶ、ますレッスン🎵</p>
     <div class="stage-menu-list">
-        <button id="start-lesson-btn-concept" class="menu-btn active-stage">
-          <span class="moving-arrow">🗺️</span> コンセプト
-        </button>
         <button id="start-lesson-btn-tutorial" class="menu-btn active-stage">
           <span class="moving-arrow">🔰</span> チュートリアル
         </button>
 
+        <button id="start-lesson-btn-concept" class="menu-btn active-stage">
+          <span class="moving-arrow">🗺️</span> コンセプト
+        </button>
     </div>
     </div>
 </div>
@@ -39,6 +39,15 @@
         次へ ➔
       </button>
     </div>
+  </div>
+</div>
+
+<!-- custom modal は共通エンジンが開閉します。中身はこのゲームの scenario.js で登録。 -->
+<div id="custom-modal-overlay" class="custom-modal-overlay" style="display: none;" role="dialog" aria-modal="true">
+  <div class="custom-modal-content">
+    <button type="button" class="custom-modal-close" onclick="closeCustomModal()" aria-label="閉じる">×</button>
+    <h2 id="custom-modal-title"></h2>
+    <div id="custom-modal-body"></div>
   </div>
 </div>
 
@@ -89,6 +98,7 @@ window.addEventListener('load', function() {
 
 });
 </script>
+
 
 
 <!-- 音声プレイヤー（共通） -->

@@ -11,7 +11,7 @@ window.MLC_NEWS = [
     date: "2026-10-29",
     title: "「家計簿つくるぞ！」を追加しました",
     description: "うさこと一緒にExcelで家計簿を作り、収支の自動計算や支出の見える化を学ぶ物語です。",
-    href: "./games/kakeibo/index.html",
+    href: "../games/kakeibo/index.html",
     published: true
   },
   {
@@ -19,7 +19,7 @@ window.MLC_NEWS = [
     date: "2026-10-29",
     title: "「Excelで理想の自分をデザイン」を追加しました",
     description: "うさこと一緒に、目標や計画を見える形にしながら、無理のないダイエットについて考える物語です。",
-    href: "./games/dietplan/index.html",
+    href: "../games/dietplan/index.html",
     published: true
   },
   {
@@ -27,7 +27,7 @@ window.MLC_NEWS = [
     date: "2026-10-29",
     title: "「うさこと考える新NISA」を追加しました",
     description: "うさこの貯金をきっかけに、新NISAや複利の考え方をたどる物語です。",
-    href: "./games/new-nisa/index.html",
+    href: "../games/new-nisa/index.html",
     published: true
   },
   {
@@ -35,7 +35,7 @@ window.MLC_NEWS = [
     date: "2026-10-29",
     title: "「WordPressのしくみを知ろう」を追加しました",
     description: "ホームページを作りたいうさこと、サイトを作る目的やWordPressのしくみを考える物語です。",
-    href: "./games/wordpress/index.html",
+    href: "../games/wordpress/index.html",
     published: true
   },
   {
@@ -43,7 +43,7 @@ window.MLC_NEWS = [
     date: "2026-10-29",
     title: "「πってなに？」を追加しました",
     description: "正方形と円を比べながら、円周率 π が表すものを探ります。",
-    href: "./games/circle/index.html",
+    href: "../games/circle/index.html",
     published: true
   },
   {
@@ -51,7 +51,7 @@ window.MLC_NEWS = [
     date: "2026-10-29",
     title: "「サインってなに？」を追加しました",
     description: "円に引いた弦を手掛かりに、sin・cosが表す長さを考えます。",
-    href: "./games/circle/index.html",
+    href: "../games/circle/index.html",
     published: true
   },
   {
@@ -59,7 +59,7 @@ window.MLC_NEWS = [
     date: "2026-10-29",
     title: "「月まではどれくらい？」を追加しました",
     description: "二人の距離と月を見た角度から、月までの距離を考える物語です。",
-    href: "./games/moon-distance/index.html",
+    href: "../games/moon-distance/index.html",
     published: true
   },
   {
@@ -67,7 +67,7 @@ window.MLC_NEWS = [
     date: "2026-10-29",
     title: "「お金貸して」を追加しました",
     description: "友だちとのお金の貸し借りを、何度かの選択を通じて考えます。",
-    href: "./games/money-lending/index.html",
+    href: "../games/money-lending/index.html",
     published: true
   },
   {
@@ -75,7 +75,7 @@ window.MLC_NEWS = [
     date: "2026-10-28",
     title: "新しい物語「うさことカズザメ」を追加しました",
     description: "うさこが海を渡る物語です。カズザメたちを数えながら進み、最後の選択で結末が分かれます。",
-    href: "./games/inaba-rabbit/index.html",
+    href: "../games/inaba-rabbit/index.html",
     published: true
   },
   {
@@ -83,7 +83,7 @@ window.MLC_NEWS = [
     date: "2026-10-26",
     title: "「World Trip」の画像を更新しました",
     description: "いつもの野原から旅へ出て、各地の物語や発見に出会う冒険です。",
-    href: "./games/world-trip/index.html",
+    href: "../games/world-trip/index.html",
     published: true
   },
 
@@ -92,7 +92,7 @@ window.MLC_NEWS = [
     date: "2026-10-25",
     title: "「近所の神社」の画像とタイトルを更新しました",
     description: "近所の神社で出会う出来事から、自分の生き方や進み方について考える物語です。",
-    href: "./games/jinja/index.html",
+    href: "../games/jinja/index.html",
     published: true
   },
   {
@@ -100,7 +100,7 @@ window.MLC_NEWS = [
     date: "2026-10-25",
     title: "「チュートリアル」の画像を更新しました",
     description: "うさこと一緒に、ゲームの進め方やポップアップの使い方を体験できるチュートリアルです。",
-    href: "./games/tutorial/index.html",
+    href: "../games/starter/index.html",
     published: true
   },
   {

@@ -1,248 +1,283 @@
-if (!window.storyFlow) { window.storyFlow = {}; }
+
+/**
+ * ==========================================================
+ * starter.js
+ *
+ * お部屋でちょっと練習
+ * ・タップ操作
+ * ・選択肢
+ * ・popup
+ * ==========================================================
+ */
+
+window.POPUP_MASTER = [
+  { id: "tutorial_cake", src: "./img/tutorial_cake.webp"}, 
+  { id: "tutorial_cookie", src: "./img/tutorial_cookie.webp"}
+];
+
+// ----------------------------------------------------------
+// 初期化
+// ----------------------------------------------------------
+
+if (!window.storyFlow) window.storyFlow = {};
+
+window.ML_POPUPS = window.ML_POPUPS || {};
+
+window.ML_POPUPS["starter-popup"] = {
+  title: "ちょっとしたヒント",
+  blocks: [
+    {
+      type: "html",
+      html: `
+        <div style="
+          padding: 12px 8px;
+          text-align: center;
+          line-height: 1.9;
+        ">
+          <p style="font-size:1.1em; font-weight:bold;">
+            困ったときは、ここをのぞいてみよう！
+          </p>
+
+          <p>
+            レッスンの途中には、
+            説明やヒントを見るためのボタンが
+            出てくることがあるよ。
+          </p>
+
+          <p>
+            分からないときは、無理に進まず、
+            ゆっくり考えてみてね。
+          </p>
+
+          <p style="margin-top:18px;">
+            <strong>自分のペースで楽しもう！</strong>
+          </p>
+        </div>
+      `
+    }
+  ]
+};
+
+
+// ----------------------------------------------------------
+// ストーリー
+// ----------------------------------------------------------
 
 window.storyFlow["starter"] = {
 
-  msg_welcome: [
-    { name: "",
-      text: "ようこそ！まずはこのアプリの使い方をマスターしましょう！",
-      speaker: "none",
-      bg: "manabiya",
-      showImgId: "none",
-      nextRoute: "tutorial_start"
-    }
-  ],
+  // ========================================================
+  // はじまり
+  // ========================================================
 
-  tutorial_start: [
+  msg_welcome: [
+
     {
       name: "うさこ",
-      text: "あ、新しい画面になった！ここがチュートリアルなんだね。",
+      text: "あっ、来てくれたんだ！",
       speaker: "usako",
       bg: "living-room",
       showImgId: "img-usako-normal",
       posClass: "center-chara",
       bgm: "fraita"
     },
+
     {
       name: "うさこ",
-      text: "画面をクリックするか、タップするとお話が進むみたい。",
+      text: "ここは、わたしのお部屋。",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "center-chara"
+      posClass: "right-chara"
     },
     {
+      name: "うさこ",
+      text: "わたし、説明ヘタだから、代わりにヒーローに説明してもらうね！",
+      speaker: "usako",
+      showImgId: "img-usako-sad",
+      posClass: "right-chara"
+    },
+
+    {
       name: "ヒーロー",
-      text: "その通り！よく気づいたね、うさこちゃん！",
+      text: "うん。今日は、ちょっとだけ、ゲームの遊び方を一緒に練習してみようか。",
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara",
       bgm: "escort",
-      partnerAction: { id: "img-usako-normal", class: "right-chara" }
+      partnerAction: {
+        id: "img-usako-sad",
+        class: "right-chara"
+      }
     },
+
     {
       name: "うさこ",
-      text: "聞いておきたいことがあって、、、",
+      text: "うん！",
       speaker: "usako",
-      showImgId: "img-usako-normal",
+      showImgId: "img-usako-epiphany",
       posClass: "right-chara"
     },
-    {
-      name: "うさこ",
-      text: "聞いておきたいことがあって、、、どんなことを学べるの？",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara"
-    },
+
     {
       name: "ヒーロー",
-      text: "うん、いい質問だね！",
+      text: "「右下」の「次へ」ボタンを押すと、物語が進んでいくんだ。",
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara"
     },
-    {
-      name: "ヒーロー",
-      text: "いまはセミナー一覧表を作成中だから、ちょっと待っておいてね",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara",
-      popupLink: "#el-course",
-      popupBtnText: "コース紹介"
-    },
+
     {
       name: "うさこ",
-      text: "へぇー、なんかちょっとむずかしそう。でも、ワクワクするね🥰",
+      text: "きっと、みんな、さっきから押してるよ！",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara"
     },
+
     {
       name: "ヒーロー",
-      text: "その気持ちが大事だよ！えらい！！",
+      text: "そうだね、次は「選択肢」の練習をするよ",
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara"
     },
+    // ======================================================
+    // ② 選択肢の練習
+    // ======================================================
+
     {
       name: "ヒーロー",
-      text: "次は「選択肢」の練習をしてみよう。どっちの道に進みたい？",
+      text: "ちょっと質問！おやつを食べるなら、どっちがいい？",
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara",
+      bgm: "sanpo",
       choices: [
-        { text: "もっと詳しく使い方を学ぶ！", nextRoute: "tutorial_deep_study" },
-        { text: "もうバッチリだから先に進む！", nextRoute: "tutorial_skip" }
+        {
+          text: "ケーキがいいな！",
+          nextRoute: "tutorial_cake"
+        },
+        {
+          text: "クッキーがいいな！",
+          nextRoute: "tutorial_cookie"
+        }
       ]
     }
   ],
 
-  tutorial_deep_study: [
+
+  // ========================================================
+  // ③ 選択結果：ケーキ
+  // ========================================================
+
+  tutorial_cake: [
+
     {
       name: "うさこ",
-      text: "念のため、もうちょっと詳しく教えてほしいな！",
+      text: "ケーキなんだね！私も甘いケーキ、大好き！",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "right-chara"
-    },
-    {
-      name: "ヒーロー",
-      text: "いい心がけだね！このアプリでは、学んだ内容を活かしてシミュレーションをすることもできるんだ。",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "ヒーロー",
-      text: "ちょっと説明しておくね",
-      speaker: "hero",
-      showImgId: "img-hero-normal",
       posClass: "right-chara",
-      popupLink: "#popup-step-3_tutorial",
-      popupBtnText: "説明"
-    },
-    {
-      name: "ヒーロー",
-      text: "これからの学習がどんどん楽しみになってくるはずだよ！",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara",
-      nextRoute: "tutorial_end"
+      popupImg: "tutorial_cake",
+      nextRoute: "tutorial_popup"
     }
   ],
 
-  tutorial_skip: [
+
+  // ========================================================
+  // ③ 選択結果：クッキー
+  // ========================================================
+
+  tutorial_cookie: [
+
     {
       name: "うさこ",
-      text: "直感で操作できるから、もうばっちり分かっちゃった！",
+      text: "クッキーなんだね！サクサクしておいしいよね！",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "right-chara"
-    },
-    {
-      name: "ヒーロー",
-      text: "頼もしいな！",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "ヒーロー",
-      text: "でも、その場合、ポップアップ問題が飛ばされて、花丸がもらえないこともあるから気をつけてね！",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "わぁぁ、そうなんだ。",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara"
-    },
-    {
-      name: "うさこ",
-      text: "ぜったい、花丸欲しいから、もらえなかったら、最初からやり直したいな！",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara"
-    },
-    {
-      name: "ヒーロー",
-      text: "人生はやり直せないけど、このレッスンは何度でもやり直せるから安心してね！",
-      speaker: "hero",
-      showImgId: "img-hero-happy",
-      posClass: "left-chara",
-      nextRoute: "tutorial_end"
+      posClass: "right-chara",
+      popupImg: "tutorial_cookie",
+      nextRoute: "tutorial_popup"
     }
   ],
 
-  tutorial_end: [
-    {
-      name: "うさこ",
-      text: "私たちの仲間のことも知ってほしいな！！",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara",
-    },
-    {
-      name: "うさこ",
-      text: "私もボタンを出してみよう！",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara",
-      popupBtnText: "ともだちの紹介！"
-    },
-    {
-      name: "うさこ",
-      text: "私もボタンを出してみよう！ひょい！！",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara",
-      popupLink: "#popup-step-4_tutorial",
-      popupBtnText: "ともだちの紹介！"
-    },
+
+  // ========================================================
+  // ④ popupの練習
+  // ========================================================
+
+  tutorial_popup: [
+
     {
       name: "ヒーロー",
-      text: "よくできたね！すごい、すごい👏",
+      text: "そうそう！自分で好きなものを選んでいいんだよ。",
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara"
     },
+
+    {
+      name: "ヒーロー",
+      text: "もう一つだけ。このボタンを押してみてくれる？",
+      speaker: "hero",
+      showImgId: "img-hero-happy",
+      posClass: "left-chara",
+      popupLink: "#starter-popup",
+      popupBtnText: "ヒントを見てみる！"
+    },
+
     {
       name: "うさこ",
-      text: "褒めてもらっちゃった！",
+      text: "へぇー！こんなふうに説明が見られるんだね！",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara"
     },
+
     {
       name: "ヒーロー",
-      text: "これでチュートリアルはすべて完了さ。よくがんばったね！",
+      text: "そうだよ。でも、「次へ」ボタンを押してしまったら、見逃してしまうから、気をつけてね。",
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara"
     },
+
+
+    // ======================================================
+    // ⑤ おしまい
+    // ======================================================
+
     {
       name: "うさこ",
-      text: "やったー！早く本編のレッスンもやってみたいな！",
+      text: "思ったより簡単だったね！",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara"
     },
+
     {
       name: "ヒーロー",
-      text: "その意気だよ！",
+      text: "うん！これでちょっとした練習はおしまい。",
       speaker: "hero",
       showImgId: "img-hero-happy",
-      posClass: "left-chara",
-      completeStepId: "tutorial_ending"
+      posClass: "left-chara"
     },
+
+    {
+      name: "うさこ",
+      text: "これから、いろんなレッスンを楽しみたいな！",
+      speaker: "usako",
+      showImgId: "img-usako-normal",
+      posClass: "right-chara"
+    },
+
     {
       name: "ヒーロー",
-      text: "さあ、一度メニュー画面に戻って、好きなレッスンを選ぼう！",
+      text: "ゆっくり、自分のペースで楽しんでね！",
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara",
-      customAction: "returnToMenuScreen" 
+      customAction: "returnToMenuScreen"
     }
   ]
+
 };

@@ -76,6 +76,138 @@ a { color: inherit; }
   background-color: var(--paper);
   background-image: radial-gradient(ellipse at 20% 20%, rgba(255,255,255,.85), transparent 55%), radial-gradient(ellipse at 90% 80%, rgba(221,215,194,.22), transparent 55%);
 }
+
+
+/* SNSセクション */
+.sns-section {
+  padding: 56px clamp(20px, 6vw, 90px);
+  background-color: var(--paper);
+  background-image: radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.85), transparent 55%), radial-gradient(ellipse at 10% 80%, rgba(221,215,194,.22), transparent 55%);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  text-align: center;
+}
+
+.sns-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sns-section .section-kicker {
+  margin: 0 0 10px;
+  color: #7d8c8b;
+}
+
+.sns-section h3 {
+  margin: 0;
+  font-size: clamp(24px, 2.5vw, 32px);
+  font-weight: 500;
+  letter-spacing: .13em;
+}
+
+.sns-copy {
+  margin: 12px 0 28px;
+  color: var(--ink-soft);
+  font-size: 13px;
+  letter-spacing: .04em;
+}
+
+.sns-links {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* SNSボタン基本スタイル */
+.sns-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: .06em;
+  transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+.sns-item:hover {
+  transform: translateY(-3px);
+}
+
+.sns-icon {
+  font-size: 14px;
+}
+
+/* --------------------------------------------------
+   各SNSの個別ブランドカラー（初期表示から適用）
+-------------------------------------------------- */
+
+/* YouTube */
+.sns-item.youtube {
+  background: rgba(255, 0, 0, 0.06);
+  border: 1px solid rgba(255, 0, 0, 0.2);
+  color: #c40000;
+}
+.sns-item.youtube .sns-icon { color: #FF0000; }
+.sns-item.youtube:hover {
+  background: rgba(255, 0, 0, 0.12);
+  box-shadow: 0 8px 20px rgba(255, 0, 0, 0.15);
+}
+
+/* X (Twitter) */
+.sns-item.x {
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: #1a1a1a;
+}
+.sns-item.x .sns-icon { color: #000000; }
+.sns-item.x:hover {
+  background: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Instagram */
+.sns-item.instagram {
+  background: rgba(228, 64, 95, 0.06);
+  border: 1px solid rgba(228, 64, 95, 0.2);
+  color: #b5223f;
+}
+.sns-item.instagram .sns-icon { color: #E4405F; }
+.sns-item.instagram:hover {
+  background: rgba(228, 64, 95, 0.12);
+  box-shadow: 0 8px 20px rgba(228, 64, 95, 0.15);
+}
+
+/* note */
+.sns-item.note {
+  background: rgba(44, 182, 150, 0.08);
+  border: 1px solid rgba(44, 182, 150, 0.25);
+  color: #1b8a70;
+}
+.sns-item.note .sns-icon { color: #2CB696; }
+.sns-item.note:hover {
+  background: rgba(44, 182, 150, 0.15);
+  box-shadow: 0 8px 20px rgba(44, 182, 150, 0.15);
+}
+
+@media (max-width: 760px) {
+  .sns-section {
+    padding: 44px 16px;
+  }
+  .sns-links {
+    gap: 10px;
+  }
+  .sns-item {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+}
+
+
+
 .section-heading { text-align: center; margin-bottom: 35px; }
 .section-kicker { margin: 0 0 13px; color: #7d8c8b; }
 .section-heading h2 { margin: 0; font-size: clamp(28px, 3vw, 38px); font-weight: 500; letter-spacing: .13em; }

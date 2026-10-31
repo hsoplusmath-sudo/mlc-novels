@@ -51,7 +51,7 @@
 
         // CSS読み込み
         const cssFile = isMobile ? "novel-style-mobile.css" : "novel-style.css";
-        await loadCSS(new URL(cssFile, coreUrl).href);
+        await loadCSS(new URL(cssFile, coreUrl).href + "?v=5");
 
         // ① 設定ファイル (config/novel-config.js)
         await loadScript(new URL("config/novel-config.js", siteRoot).href);

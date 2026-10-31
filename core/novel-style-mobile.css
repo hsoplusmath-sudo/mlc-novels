@@ -155,7 +155,7 @@
 .stage-menu-list { 
     display: flex; 
     flex-direction: column; 
-    gap: 2.5 cqw; 
+    gap: 2.5cqw; 
     width: 85%; 
 }
 

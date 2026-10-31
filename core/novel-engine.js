@@ -1596,76 +1596,25 @@ if (currentData.choices) {
  * 3. PC用レスポンシブスケーリング
  * ==========================================================================
  */
-
-(function() {
-
-    const virtualWidth = 1280;
+(function () {
+    const virtualWidth = 1280;   // モバイル版は 720
 
     function resizeVirtualScreen() {
+        const screenEl = document.querySelector('.masulesson-novel-container');
+        if (!screenEl || !screenEl.parentElement) return;
 
-        const screenEl =
-            document.getElementById(
-                'masulesson-novel-container'
-            ) ||
-            document.querySelector(
-                '.masulesson-novel-container'
-            );
+        const scale = screenEl.parentElement.clientWidth / virtualWidth;
 
-
-        if (!screenEl) {
-            return;
-        }
-
-
-        const parentWidth =
-            screenEl.parentElement.clientWidth;
-
-        const availableWidth =
-            parentWidth;
-
-
-        const scale =
-            availableWidth /
-            virtualWidth;
-
-
-        // 画面が小さいときは幅に合わせて縮小し、大きいときは等倍(1)にする
-        const finalScale =
-            scale < 1 ? scale : 1;
-
-
-        screenEl.style.transformOrigin =
-            'top center';
-
-        screenEl.style.transform =
-            `translateX(-50%) scale(${finalScale})`;
-
-
-        screenEl.style.top =
-            '0px';
-
-        screenEl.style.left =
-            '50%';
+        screenEl.style.transformOrigin = 'top left';
+        screenEl.style.transform = `scale(${scale})`;
+        screenEl.style.top = '0px';
+        screenEl.style.left = '0px';
     }
 
-
-    window.addEventListener(
-        'resize',
-        resizeVirtualScreen
-    );
-
-
-    window.addEventListener(
-        'DOMContentLoaded',
-        resizeVirtualScreen
-    );
-
-
-    setTimeout(
-        resizeVirtualScreen,
-        100
-    );
-
+    window.addEventListener('resize', resizeVirtualScreen);
+    window.addEventListener('load', resizeVirtualScreen);
+    document.addEventListener('DOMContentLoaded', resizeVirtualScreen);
+    resizeVirtualScreen();   // ローダーは読み込み後に実行されるので即時実行も入れる
 })();
 
 

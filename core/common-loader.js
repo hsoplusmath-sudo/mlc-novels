@@ -10,17 +10,9 @@
     const coreUrl = new URL("./", loaderScript.src);
     const siteRoot = new URL("../", coreUrl); // サイトのルートディレクトリ
 
-    // スマホ・タブレットの判定ロジック
+    // 画面サイズのみで判定するロジック（600px以上でPC版、未満でモバイル版）
     function checkIsMobile() {
-        const ua = navigator.userAgent;
-        // iPhone, Android, iPadなどのモバイル端末
-        const isMobileUA = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(ua);
-        
-        // 画面幅が600px以下の場合
-        const isNarrowScreen = window.innerWidth <= 600;
-
-        // モバイルUA、または画面幅が600px以下の場合にモバイル版とする
-        return isMobileUA || isNarrowScreen;
+        return window.innerWidth < 600;
     }
 
     const isMobile = checkIsMobile();
@@ -77,4 +69,13 @@
         console.error(error);
         alert("ゲームの共通ファイルを読み込めませんでした。");
     });
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+        if (checkIsMobile() !== isMobile) location.reload();
+    }, 300);
+    });
+
 })();

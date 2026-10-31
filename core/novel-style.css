@@ -5,16 +5,14 @@
 .masulesson-proportion-box {
     position: relative;
     width: 100%;
-    padding-top: 56.25%; /* 16:9比率を維持 */
+    aspect-ratio: 1280 / 720;   /* 16:9 固定 */
+    height: auto;
     overflow: hidden;
     background: #1a1a1a;
-    border: 2px solid #333333 !important; 
-    border-radius: 12px; 
-    box-sizing: border-box !important;
-    mask-image: radial-gradient(white, black);
-    -webkit-mask-image: radial-gradient(white, black);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    margin: 20px auto;
+    border-radius: 12px;
+    box-sizing: border-box;
+    box-shadow: 0 0 0 2px #333, 0 10px 30px rgba(0, 0, 0, 0.15);
+    margin: 10px auto;
 }
 
 .masulesson-novel-container {
@@ -27,15 +25,13 @@
     font-family: 'Noto Sans JP', sans-serif;
     position: absolute;
     top: 0;
-    left: 50%;
+    left: 0;
     width: 1280px !important;
     height: 720px !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
-    transform-origin: top center; 
-    transform: translateX(-50%);
-    
-    /* 内部のすべての要素がこの枠の横幅（100cqw = 1280px）を基準に伸縮するように設定 */
+    transform-origin: top left;
+    transform: none;            /* 拡大率はJSが設定 */
     container-type: inline-size;
 }
 

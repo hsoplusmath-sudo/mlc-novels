@@ -596,6 +596,6 @@
     transform: scale(0.98);
 }
 
-.selector-screen {
-    animation: none !important;
-}
+
+
+.stage-menu-list .menu-btn { animation: none !important; }

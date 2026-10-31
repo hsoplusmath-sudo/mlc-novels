@@ -608,9 +608,6 @@
     transform: translateZ(0);
 }
 
-.message-window {
-    will-change: transform;
-}
 
 /* 次へボタンを、必ずウィンドウより上の専用レイヤーに */
 .control-bar {

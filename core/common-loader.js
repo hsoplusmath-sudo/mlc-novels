@@ -64,6 +64,30 @@
         const engineFile = isMobile ? "novel-engine-mobile.js" : "novel-engine.js";
         await loadScript(new URL(engineFile, coreUrl).href);
 
+        // 背景・立ち絵・ポップアップ画像を先に読み込んでデコードしておく
+        function preloadImages(list) {
+            return Promise.all((list || []).map(item => new Promise(resolve => {
+                const img = new Image();
+                img.onload = () => {
+                    // デコード完了まで待つ（対応ブラウザのみ）
+                    if (img.decode) {
+                        img.decode().then(resolve, resolve);
+                    } else {
+                        resolve();
+                    }
+                };
+                img.onerror = () => resolve();
+                img.src = item.src;
+            })));
+        }
+
+        await Promise.all([
+            preloadImages(window.BG_MASTER),
+            preloadImages(window.CHARACTER_MASTER),
+            preloadImages(window.POPUP_MASTER)
+        ]);
+
+
         document.dispatchEvent(new Event("novel-engine-ready"));
     }
 

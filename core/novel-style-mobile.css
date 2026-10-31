@@ -125,18 +125,9 @@
 
 /* 🎯 タイトル専用：位置を固定したまま、文字の影（オーラ）を綺麗に明滅させる */
 @keyframes titlePulseAnimation {
-    0% {
-        opacity: 0.95;
-        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
-    }
-    50% {
-        opacity: 1;
-        filter: drop-shadow(0 0 12px rgba(0, 102, 204, 0.3)); /* ますレッスンカラーの淡い青光 */
-    }
-    100% {
-        opacity: 0.95;
-        filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
-    }
+    0%   { opacity: 0.85; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.85; }
 }
 
 .novel-top-subtitle {

@@ -1,3 +1,15 @@
+window.POPUP_MASTER = [
+  // AdobeStock_410608814
+  { id: "moon-distance_1", src: "./imgs/moon-distance_calcu-1.webp"}, 
+  // AdobeStock_91981458
+  { id: "moon-distance_2", src: "./imgs/moon-distance_calcu-2.webp"},
+  { id: "moon-distance_2-1", src: "./imgs/moon-distance_calcu-2-1.webp"},
+  { id: "moon-distance_3", src: "./imgs/moon-distance_calcu-3.webp"},
+  { id: "moon-distance_4", src: "./imgs/moon-distance_calcu-4.webp"},
+  // Adovestock_????
+  { id: "moon-distance_the-moon", src: "./imgs/img-the-moon.jpeg"}
+];
+
 if (!window.storyFlow) { window.storyFlow = {}; }
 
 window.storyFlow["moon-distance"] = {
@@ -5,7 +17,7 @@ window.storyFlow["moon-distance"] = {
     { name: "",
       text: "ある日の夜の話です。あなたはふと考えたことはありませんか？<br>「月までどれくらいだろう？」",
       speaker: "none",
-      bg: "../../assets/bg/bg_night-sky.webp",
+      bg: "night-sky",
       showImgId: "none",
       nextRoute: "opening"
     }
@@ -18,7 +30,7 @@ window.storyFlow["moon-distance"] = {
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "center-chara",
-      bgm: "../../assets/bgm/bgm_shizukana-tikurin.mp3"
+      bgm: "shizukana-tikurin"
     },
     {
       name: "ぶきようくん",
@@ -34,7 +46,7 @@ window.storyFlow["moon-distance"] = {
       speaker: "bukiyou",
       showImgId: "img-bukiyokun-hard",
       posClass: "left-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-1.webp"
+      popupImg: "moon-distance_1"
     },
     {
       name: "うさこ",
@@ -89,7 +101,7 @@ window.storyFlow["moon-distance"] = {
       showImgId: "img-hero-happy",
       posClass: "left-chara",
       partnerAction: { id: "img-bukiyokun-hard", class: "center-chara" },
-      bgm: "../../assets/bgm/bgm_escort.opus"
+      bgm: "escort"
     },
     {
       name: "2人",
@@ -196,7 +208,7 @@ guess: [
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-2.webp"
+      popupImg: "moon-distance_2"
     },
     {
       name: "ヒーロー",
@@ -204,7 +216,7 @@ guess: [
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "center-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-2.webp"
+      popupImg: "moon-distance_2"
     },
     {
       name: "ヒーロー",
@@ -212,7 +224,7 @@ guess: [
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "center-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-2-1.webp"
+      popupImg: "moon-distance_2-1"
     },
     {
       name: "ぶきようくん",
@@ -241,7 +253,7 @@ guess: [
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "center-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-2-1.webp"
+      popupImg: "moon-distance_2-1"
     },
     {
       name: "うさこ",
@@ -256,7 +268,7 @@ guess: [
       speaker: "bukiyou",
       showImgId: "img-bukiyokun-hard",
       posClass: "left-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-3.webp"
+      popupImg: "moon-distance_3"
     },
     {
       name: "うさこ",
@@ -264,7 +276,7 @@ guess: [
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-3.webp"
+      popupImg: "moon-distance_3"
     },
     {
       name: "ヒーロー",
@@ -300,7 +312,7 @@ guess: [
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-3.webp"
+      popupImg: "moon-distance_3"
     },
       {
       name: "うさこ",
@@ -372,7 +384,7 @@ guess: [
       speaker: "bukiyou",
       showImgId: "img-bukiyokun-hard",
       posClass: "left-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-3.webp"
+      popupImg: "moon-distance_3"
     },
     {
       name: "ヒーロー",
@@ -387,7 +399,7 @@ guess: [
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "center-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-3.webp"
+      popupImg: "moon-distance_3"
     },
     {
       name: "ぶきようくん",
@@ -402,7 +414,7 @@ guess: [
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "center-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-4.webp"
+      popupImg: "moon-distance_4"
     },
     {
       name: "ぶきようくん",
@@ -410,7 +422,7 @@ guess: [
       speaker: "bukiyou",
       showImgId: "img-bukiyokun-hard",
       posClass: "left-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-4.webp"
+      popupImg: "moon-distance_4"
     },
     {
       name: "ヒーロー",
@@ -418,7 +430,7 @@ guess: [
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "center-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img/moon-distance_calcu-4.webp"
+      popupImg: "moon-distance_4"
     },
     {
       name: "うさこ",
@@ -486,7 +498,7 @@ guess: [
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/the-moon/img_the-moon.webp"
+      popupImg: "moon-distance_the-moon"
     },
     {
       name: "ぶきようくん",

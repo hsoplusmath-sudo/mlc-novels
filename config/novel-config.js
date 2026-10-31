@@ -46,7 +46,7 @@ window.BGM_MASTER = [
     { id: "namida", src: "../../assets/bgm/bgm_namidanokessyo.opus"},
     { id: "garden-party",  src: "../../assets/bgm/bgm_garden-party.mp3" },
     { id: "escort",  src: "../../assets/bgm/bgm_escort.opus" },
-    { id: "shizukana-tikurin",  src: "../../bgm_shizukana-tikurin.mp3" },
+    { id: "shizukana-tikurin",  src: "../../assets/bgm/bgm_shizukana-tikurin.mp3" },
     { id: "jinja-icho",  src: "../../assets/bgm/bgm_jinja-icho.mp3" },
 
     { id: "sanpo",  src: "../../assets/bgm/itumonosanpomiti.mp3" },

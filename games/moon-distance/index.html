@@ -10,4 +10,7 @@
 document.addEventListener('novel-engine-ready', function(){ const b=document.getElementById('start-lesson-btn'); if(b)b.disabled=false; });
 window.addEventListener('load', function(){ $('#start-lesson-btn').on('click', function(){ if(typeof startSelectedStage!=='function')return alert('ゲームエンジンが読み込まれていません。'); $('#stage-selector').hide(); $('#game-stage-area,#game-message-window,#game-control-bar').show(); startSelectedStage('msg_welcome',false,'','moon-distance'); }); });
 </script>
-<audio id="novel-bgm" loop preload="auto"></audio><script src="../../core/common-loader.js"></script><script src="./scenario.js"></script>
+<audio id="novel-bgm" loop preload="auto"></audio>
+
+<script src="../../core/common-loader.js"></script>
+<script src="./scenario.js"></script>

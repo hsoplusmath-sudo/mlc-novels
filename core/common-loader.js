@@ -10,10 +10,13 @@
     const coreUrl = new URL("./", loaderScript.src);
     const siteRoot = new URL("../", coreUrl); // サイトのルートディレクトリ
 
-    // 画面サイズのみで判定するロジック（600px以上でPC版、未満でモバイル版）
+    // 画面サイズのみで判定（600px未満でモバイル版）
     function checkIsMobile() {
-        return window.innerWidth < 600;
-    }
+        // viewport未設定のスマホでは innerWidth が約980pxになるため、
+        // 端末の画面幅(screen.width)も見て、小さい方で判定する
+        const w = Math.min(window.innerWidth, window.screen.width);
+        return w < 600;
+}
 
     const isMobile = checkIsMobile();
 

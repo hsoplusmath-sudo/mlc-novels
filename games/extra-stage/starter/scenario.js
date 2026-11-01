@@ -26,38 +26,29 @@ window.ML_POPUPS = window.ML_POPUPS || {};
 window.ML_POPUPS["starter-popup"] = {
   title: "ちょっとしたヒント",
   blocks: [
-    {
-      type: "html",
+    { type: "html",
       html: `
-        <div style="
-          padding: 12px 8px;
-          text-align: center;
-          line-height: 1.9;
-        ">
-          <p style="font-size:1.1em; font-weight:bold;">
+        <div style="padding: 12px 8px; text-align: center; line-height: 1.9;">
+
+        <p style="font-size:1.1em; font-weight:bold;">
             困ったときは、ここをのぞいてみよう！
           </p>
-
           <p>
             レッスンの途中には、
             説明やヒントを見るためのボタンが
             出てくることがあるよ。
           </p>
-
           <p>
             分からないときは、無理に進まず、
             ゆっくり考えてみてね。
           </p>
-
           <p style="margin-top:18px;">
             <strong>自分のペースで楽しもう！</strong>
           </p>
         </div>
-      `
-    }
+      `}
   ]
 };
-
 
 // ----------------------------------------------------------
 // ストーリー

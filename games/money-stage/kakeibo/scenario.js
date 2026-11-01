@@ -1,10 +1,10 @@
 window.POPUP_MASTER = [
-  { id: "kakeibo-top", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/top_excel_kakeibo.webp"},
-	{ id: "kakeibo-step1", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step1.webp"},
-  { id: "kakeibo-step2", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step2.webp"},
-  { id: "kakeibo-step3", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step3.webp"},
-  { id: "kakeibo-step4", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/excel-kakeibo_goal_step4.webp"},
-  { id: "kakeibo-goal", src: "http://masulessonclass.sakura.ne.jp/mlc/novels/excel_map/v1.0_initial/game/images/kakeibo_lesson_goal.webp"}
+  { id: "kakeibo-top", src: "./img/top_excel_kakeibo.webp"},
+	{ id: "kakeibo-step1", src: "./img/excel-kakeibo_goal_step1.webp"},
+  { id: "kakeibo-step2", src: "./img/excel-kakeibo_goal_step2.webp"},
+  { id: "kakeibo-step3", src: "./img/excel-kakeibo_goal_step3.webp"},
+  { id: "kakeibo-step4", src: "./img/excel-kakeibo_goal_step4.webp"},
+  { id: "kakeibo-goal", src: "./img/kakeibo_lesson_goal.webp"}
 
   ];
 

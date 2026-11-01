@@ -21,32 +21,7 @@ window.MLC_GAMES = [
     published: true
   },
 
-  {
-    id: "new-nisa",
-    number: "11",
-    title: "うさこと考える新NISA",
-    tag: "LIFE & MONEY",
-    description: "うさこの貯金をきっかけに、新NISAや複利の考え方をたどります。",
-    href: "./games/new-nisa/index.html",
-    icon: "¥",
-    iconClass: "compass",
-    image: "./assets/bg/bg_gorogoro.webp",
-    featured: false,
-    published: true
-  },
-  {
-    id: "kakeibo",
-    number: "09",
-    title: "家計簿つくるぞ！",
-    tag: "LIFE & LEARNING",
-    description: "うさこと一緒にExcelで家計簿を作り、収支の自動計算や支出の見える化を学びます。",
-    href: "./games/kakeibo/index.html",
-    icon: "¥",
-    iconClass: "compass",
-    image: "./games/kakeibo/img/top_excel_kakeibo.webp",
-    featured: false,
-    published: true
-  },
+ 
   {
     id: "dietplan",
     number: "10",

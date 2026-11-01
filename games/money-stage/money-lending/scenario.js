@@ -10,7 +10,7 @@ msg_welcome: [
 	name: "",
 	text: "もし、大切な友達から「お金を貸して」と言われたら、あなたはどうしますか？",
 	speaker: "none",
-	bg: "../../assets/bg/bg_gorogoro.webp",
+	bg: "living-room",
 	showImgId: "none",
 	nextRoute: "first_request"
 } 
@@ -26,7 +26,7 @@ first_request: [
 	speaker: "usako",
 	showImgId: "img-usako-sad",
 	posClass: "right-chara",
-	bgm: "../../assets/bgm/bgm_france_italia.opus"
+	bgm: "fraita"
 },
 {
 	name: "ぶきようくん",
@@ -413,7 +413,7 @@ ask_finances: [
 		speaker: "bukiyou",
 		showImgId: "img-bukiyokun-hard",
 		posClass: "center-chara",
-		bgm: "../../assets/bgm/bgm_escort.opus",
+		bgm: "escort",
 
 		branch: [
 			{ if: { lend: { eq: 3 } }, nextRoute: "ending_all_lend" },
@@ -705,7 +705,7 @@ ask_spending: [
 		speaker: "bukiyou",
 		showImgId: "img-bukiyokun-hard",
 		posClass: "center-chara",
-		bgm: "../../assets/bgm/bgm_escort.opus",
+		bgm: "escort",
 
 		branch: [
 			{ if: { lend: { eq: 3 } }, nextRoute: "ending_all_lend" },
@@ -966,7 +966,7 @@ ask_work: [
 		speaker: "bukiyou",
 		showImgId: "img-bukiyokun-hard",
 		posClass: "center-chara",
-		bgm: "../../assets/bgm/bgm_escort.opus",
+		bgm: "escort",
 
 		branch: [
 			{ if: { lend: { eq: 3 } }, nextRoute: "ending_all_lend" },

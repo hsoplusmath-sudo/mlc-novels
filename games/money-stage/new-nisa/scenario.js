@@ -12,7 +12,7 @@ window.storyFlow["new-nisa"] = {
 
       text: "うさこの日常を覗いてみましょう！！",
       speaker: "none",
-      bg: "../../assets/bg/bg_gorogoro.webp",
+      bg: "living-room",
       showImgId: "none",
       nextRoute: "new_nisa_start"
     }
@@ -27,10 +27,10 @@ window.storyFlow["new-nisa"] = {
       name: "うさこ",
       text: "将来のこと、しんぱいだよ",
       speaker: "usako",
-      bg: "../../assets/bg/bg_gorogoro.webp",
+      bg: "living-room",
       showImgId: "img-usako-sad",
       posClass: "center-chara",
-      bgm: "../../assets/bgm/bgm_france_italia.opus"
+      bgm: "fraita"
     },
 
     {
@@ -127,7 +127,7 @@ window.storyFlow["new-nisa"] = {
       speaker: "hero",
       showImgId: "img-hero-happy",
       posClass: "left-chara",
-      bgm: "../../assets/bgm/bgm_escort.opus",
+      bgm: "escort",
       partnerAction: { id: "img-usako-sad", class: "right-chara" }
     },
 
@@ -615,7 +615,7 @@ window.storyFlow["new-nisa"] = {
     {
       name: "うさこ",
       text: "やっぱり贅沢に世界旅行でしょ！ 誰も私を止められないわ！",
-      bg: "../../assets/bg/bg_romaneau-beach.jpg",
+      bg: "romaneau-beach",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara"
@@ -656,7 +656,7 @@ window.storyFlow["new-nisa"] = {
       name: "うさこ",
       text: "もっといろんなこと勉強して、自分の可能性を掛け算していきたい！！",
       speaker: "usako",
-      bg: "../../assets/bg/bg_stocksnap-people.jpg",
+      bg: "stocksnap-people",
       showImgId: "img-usako-normal",
       posClass: "right-chara",
    },

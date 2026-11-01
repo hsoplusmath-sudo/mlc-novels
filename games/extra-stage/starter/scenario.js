@@ -70,6 +70,12 @@ window.storyFlow["starter"] = {
   // ========================================================
 
   msg_welcome: [
+    {
+      name: "",
+      text: "ゲームがはじまります！",
+      speaker: "",
+      bg: "living-room",
+    },
 
     {
       name: "うさこ",

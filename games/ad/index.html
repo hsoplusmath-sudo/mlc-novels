@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>エクストラステージ | ますレッスン</title>
+
+  <link rel="stylesheet"
+    href="../../site-ui/stage-common/stage-detail.css">
+</head>
+
+<body data-stage-config="./stage-config.js">
+
+  <header class="site-header">
+    <a href="../../index.html" class="site-logo">ますレッスン</a>
+    <a href="../index.html">ステージ一覧へ</a>
+  </header>
+
+  <main>
+
+    <section id="stage-hero" class="stage-hero">
+      <div class="stage-hero-content">
+        <p id="stage-label"></p>
+        <h1 id="stage-title"></h1>
+        <p id="stage-description"></p>
+      </div>
+    </section>
+
+    <section class="games-container">
+
+      <div class="games-heading">
+        <h2>このステージのゲーム</h2>
+        <p>気になるゲームを選んでみよう。</p>
+      </div>
+
+      <div id="game-grid" class="game-grid"></div>
+
+    </section>
+
+  </main>
+
+  <!-- ゲームPopup -->
+
+  <div id="game-modal" class="game-modal">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close"
+        data-close
+        aria-label="閉じる">×</button>
+      <div id="modal-body"></div>
+
+      <button id="modal-play" class="play-button">
+        ゲームを始める
+      </button>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    © ますレッスン
+  </footer>
+
+  <script type="module"
+    src="../../site-ui/stage-common/stage-detail.js"></script>
+
+</body>
+</html>
+
+

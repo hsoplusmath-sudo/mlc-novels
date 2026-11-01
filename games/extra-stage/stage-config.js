@@ -23,7 +23,7 @@ export default {
       title: "世界へ、世界を知りたい！",
       description:
         "世界を周って、うさこたちは様々な体験をします。",
-      image: "../../assets/bg/bg_romaneau-beach.jpg",
+      image: "./world-trip/imgs/top_world-trip.webp",
       url: "./world-trip/index.html",
       open: "popup"
     }

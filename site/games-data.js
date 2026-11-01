@@ -87,7 +87,7 @@ window.MLC_GAMES = [
     href: "./games/extra-stage/index.html",
     icon: "✈",
     iconClass: "compass",
-    image: "./assets/bg/bg_romaneau-beach.jpg",
+    image: "./games/extra-stage/world-trip/imgs/top_world-trip.webp",
     featured: false,
     published: true
   },

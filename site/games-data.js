@@ -8,19 +8,6 @@
 window.MLC_GAMES = [
 
   {
-    id: "inaba-rabbit",
-    number: "05",
-    title: "うさことカズザメ",
-    tag: "STORY ADVENTURE",
-    description: "うさこが かずを数えながらカズザメたちの背中を渡って海の向こう岸へ。",
-    href: "./games/inaba-rabbit/index.html",
-    icon: "🐇",
-    iconClass: "compass",
-    image: "./assets/bg/bg_the-ocean.webp",
-    featured: false,
-    published: true
-  },
-  {
     id: "wordpress",
     number: "11",
     title: "WordPressのしくみを知ろう",

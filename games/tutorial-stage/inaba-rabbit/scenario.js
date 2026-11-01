@@ -10,9 +10,7 @@
  * ・選択肢の表示順は毎回ランダム
  */
 
-if (!window.storyFlow) {
-  window.storyFlow = {};
-}
+if (!window.storyFlow) { window.storyFlow = {}; }
 
 /* ----------------------------------------
    選択肢の順番をランダムにする

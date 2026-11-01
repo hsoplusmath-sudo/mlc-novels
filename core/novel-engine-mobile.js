@@ -1043,9 +1043,26 @@ function renderScene() {
                 bgmPlayer.volume = 1.0;
                 bgmPlayer.src = bgmSrc;
 
-                bgmPlayer.play().catch(e =>
-                    console.error("BGMの再生に失敗しました:", e)
-                );
+                /* 変更後 */
+                bgmPlayer.play().catch(e => {
+                     console.warn("BGMの自動再生がブロックされました。次のタップで再生します:", e);
+
+                    const retry = () => {
+                        document.removeEventListener('pointerdown', retry, true);
+                        document.removeEventListener('touchend', retry, true);
+                        document.removeEventListener('click', retry, true);
+
+                    if (bgmPlayer.paused && currentBgmSrc === bgmSrc) {
+                     bgmPlayer.play().catch(err =>
+                 console.error("BGMの再生に失敗しました:", err)
+                  );
+             }
+    };
+
+    document.addEventListener('pointerdown', retry, true);
+    document.addEventListener('touchend', retry, true);
+    document.addEventListener('click', retry, true);
+});
 
                 currentBgmSrc = bgmSrc;
             }

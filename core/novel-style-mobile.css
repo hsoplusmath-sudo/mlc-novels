@@ -603,16 +603,11 @@
 
 
 
-/* ステージ内の重なりを独立した層にする */
+/* 変更後 */
 .stage-area {
     isolation: isolate;
-    transform: translateZ(0);
 }
 
-
-/* 次へボタンを、必ずウィンドウより上の専用レイヤーに */
 .control-bar {
     z-index: 100 !important;
-    transform: translateZ(0);
-    will-change: transform;
 }

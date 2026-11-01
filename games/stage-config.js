@@ -3,12 +3,22 @@ export default {
     {
       id: "extra-stage",
       title: "エクストラステージ",
+      subtitle: "エクストラ",
+      description: "ここから旅を広げよう",
+      image: "../site/top-hero.webp",
+      url: "./extra-stage/index.html",
+      label: "Trip",
+      featured: true
+    },
+    {
+      id: "tutorial-stage",
+      title: "チュートリアルステージ",
       subtitle: "チュートリアル & エクストラ",
       description: "ここから旅を広げよう",
-      image: "./extra-stage/starter/img/tutorial_cake.webp",
-      url: "./extra-stage/index.html",
-      label: "MATHEMATICS",
-      featured: true
+      image: "../assets/bg/bg_manabiya.webp",
+      url: "./tutorial-stage/index.html",
+      label: "Tutorial",
+      featured: false
     },
     {
       id: "money",

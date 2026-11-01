@@ -1,32 +1,13 @@
 export default {
   id: "extra-stage",
   title: "エクストラステージ",
-  label: "Tutorial & Extra",
+  label: "Extra",
   description:
     "ここから旅を広げよう",
   heroImage: "../../site/top-hero.webp",
   layout: "card",
 
   games: [
-
-    {
-      id: "starter",
-      title: "チュートリアル",
-      description:
-        "ゲームのやり方を学びます。",
-      image: "../../assets/bg/bg_manabiya.webp",
-      url: "./starter/index.html",
-      open: "popup" // "popup" or "page"
-    },
-    {
-      id: "conceptr",
-      title: "コンセプト",
-      description:
-        "このゲームのコンセプトを感じてみよう。",
-      image: "../../assets/bg/bg_nohara.webp",
-      url: "./starter/index.html",
-      open: "popup"
-    },
 
     {
       id: "jinja",

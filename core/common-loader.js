@@ -156,3 +156,122 @@
     }
 
 })();
+
+
+
+/* ===== 追加: システムボタン(共通) ===== */
+(function () {
+  "use strict";
+
+  // ボタンを増やすときは、この一覧に1つ追加して、下に setup 関数を書くだけ
+  var SYSTEM_BUTTONS = [
+    { id: "bgm-toggle-btn",        icon: "🔊", title: "BGM オン/オフ", setup: setupBgm },
+    { id: "fullscreen-toggle-btn", icon: "⛶",  title: "全画面表示",   setup: setupFullscreen }
+  ];
+
+  // ---------- BGM ----------
+  function setupBgm(btn) {
+    var bgm = document.getElementById("novel-bgm");
+    var STORAGE_KEY = "masulesson-bgm-muted";
+
+    if (!bgm) {
+      btn.style.display = "none";
+      return;
+    }
+
+    function loadMuted() {
+      try { return localStorage.getItem(STORAGE_KEY) === "1"; } catch (e) { return false; }
+    }
+    function saveMuted(v) {
+      try { localStorage.setItem(STORAGE_KEY, v ? "1" : "0"); } catch (e) {}
+    }
+    function render() {
+      btn.textContent = bgm.muted ? "🔇" : "🔊";
+      btn.setAttribute("aria-pressed", bgm.muted ? "true" : "false");
+    }
+
+    bgm.muted = loadMuted();
+    render();
+
+    btn.addEventListener("click", function () {
+      bgm.muted = !bgm.muted;
+      saveMuted(bgm.muted);
+      render();
+    });
+    // 曲が切り替わっても、ミュート設定を維持する
+    bgm.addEventListener("loadstart", function () {
+      bgm.muted = loadMuted();
+      render();
+    });
+  }
+
+  // ---------- 全画面 ----------
+  function setupFullscreen(btn) {
+    var root = document.documentElement;
+
+    // iPhoneのSafariなど、非対応の環境ではボタンを隠す
+    if (!(root.requestFullscreen || root.webkitRequestFullscreen)) {
+      btn.style.display = "none";
+      return;
+    }
+
+    function isFullscreen() {
+      return !!(document.fullscreenElement || document.webkitFullscreenElement);
+    }
+    function render() {
+      btn.textContent = isFullscreen() ? "✕" : "⛶";
+      btn.title = isFullscreen() ? "全画面を終了" : "全画面表示";
+    }
+
+    btn.addEventListener("click", function () {
+      if (isFullscreen()) {
+        (document.exitFullscreen || document.webkitExitFullscreen).call(document);
+      } else {
+        var req = root.requestFullscreen || root.webkitRequestFullscreen;
+        var p = req.call(root);
+        if (p && p.catch) p.catch(function () {});
+      }
+    });
+    document.addEventListener("fullscreenchange", render);
+    document.addEventListener("webkitfullscreenchange", render);
+    render();
+  }
+
+  // ---------- ボタンの作成 ----------
+  function init() {
+    if (document.getElementById("sys-btn-bar")) return; // 二重に作らない
+
+    var style = document.createElement("style");
+    style.textContent =
+      ".sys-btn-bar{position:fixed;top:8px;right:60px;z-index:99999;display:flex;gap:6px;}" +
+      ".sys-btn{width:36px;height:36px;border:none;border-radius:50%;background:rgba(0,0,0,0.45);" +
+      "color:#fff;font-size:18px;line-height:36px;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;}" +
+      ".sys-btn:hover{background:rgba(0,0,0,0.65);}" +
+      ".sys-btn:active{transform:scale(0.94);}";
+    document.head.appendChild(style);
+
+    var bar = document.createElement("div");
+    bar.id = "sys-btn-bar";
+    bar.className = "sys-btn-bar";
+
+    SYSTEM_BUTTONS.forEach(function (def) {
+      var btn = document.createElement("button");
+      btn.type = "button";
+      btn.id = def.id;
+      btn.className = "sys-btn";
+      btn.title = def.title;
+      btn.setAttribute("aria-label", def.title);
+      btn.textContent = def.icon;
+      bar.appendChild(btn);
+      def.setup(btn);
+    });
+
+    document.body.appendChild(bar);
+  }
+
+  if (document.readyState === "complete" || document.readyState === "interactive") {
+    init();
+  } else {
+    window.addEventListener("DOMContentLoaded", init);
+  }
+})();

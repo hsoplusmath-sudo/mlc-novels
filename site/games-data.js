@@ -8,33 +8,6 @@
 window.MLC_GAMES = [
 
   {
-    id: "extra-stage",
-    number: "00",
-    title: "チュートリアル",
-    tag: "TUTORIAL & EXTRA",
-    description: "うさこと一緒に、ゲームの進め方やポップアップの使い方を体験できます。",
-    href: "./games/extra-stage/index.html",
-    icon: "✧",
-    iconClass: "compass",
-    image: "./assets/bg/bg_manabiya.webp",
-    featured: false,
-    published: true
-  },
-  {
-    id: "jinja",
-    number: "02",
-    title: "近所の神社",
-    tag: "STORY ADVENTURE",
-    description: "近所の神社で出会う出来事から、自分の生き方や進み方について考える物語です。",
-    href: "./games/jinja/index.html",
-    icon: "⛩",
-    iconClass: "compass",
-    image: "./assets/images/img_jinja-left.webp",
-    featured: false,
-    published: true
-  },
-
-  {
     id: "inaba-rabbit",
     number: "03",
     title: "うさことカズザメ",
@@ -148,6 +121,48 @@ window.MLC_GAMES = [
     icon: "✧",
     iconClass: "compass",
     image: "./assets/bg/bg_gorogoro.webp",
+    featured: false,
+    published: true
+  },
+
+  {
+    id: "jinja",
+    number: "02",
+    title: "近所の神社",
+    tag: "STORY ADVENTURE",
+    description: "近所の神社で出会う出来事から、自分の生き方や進み方について考える物語です。",
+    href: "./games/extra-stage/jinja/index.html",
+    icon: "⛩",
+    iconClass: "compass",
+    image: "./assets/images/img_jinja-left.webp",
+    featured: false,
+    published: true
+  },
+
+    {
+    id: "extra-stage",
+    number: "01",
+    title: "エクストラステージ",
+    tag: "STORY ADVENTURE",
+    description: "うさこたちの旅を広げる、エクストラステージです。",
+    href: "./games/extra-stage/index.html",
+    icon: "✈",
+    iconClass: "compass",
+    image: "./assets/bg/bg_romaneau-beach.jpg",
+    featured: false,
+    published: true
+  },
+
+  {
+    id: "tutorial-stage",
+    number: "00",
+    title: "チュートリアル",
+    tag: "TUTORIAL",
+    description: "うさこと一緒に、ゲームの進め方やポップアップの使い方を体験できます。",
+    href: "./games/tutorial-stage/index.html",
+    icon: "✧",
+    iconClass: "compass",
+    image: "./assets/bg/bg_manabiya.webp",
     featured: false,
     published: true
   }

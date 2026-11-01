@@ -9,7 +9,7 @@ window.MLC_GAMES = [
 
   {
     id: "inaba-rabbit",
-    number: "03",
+    number: "05",
     title: "うさことカズザメ",
     tag: "STORY ADVENTURE",
     description: "うさこが かずを数えながらカズザメたちの背中を渡って海の向こう岸へ。",
@@ -22,7 +22,7 @@ window.MLC_GAMES = [
   },
   {
     id: "wordpress",
-    number: "04",
+    number: "11",
     title: "WordPressのしくみを知ろう",
     tag: "DIGITAL LEARNING",
     description: "WordPressでホームページを作りたいうさこと、作る目的やサイトのしくみを考えます。",
@@ -33,32 +33,7 @@ window.MLC_GAMES = [
     featured: false,
     published: true
   },
-  {
-    id: "circle-pi",
-    number: "05",
-    title: "πってなに？",
-    tag: "MATH DISCOVERY",
-    description: "正方形と円を比べながら、円周率 π が表すものを探ります。",
-    href: "./games/circle/index.html",
-    icon: "π",
-    iconClass: "moon",
-    image: "./assets/bg/bg_nohara.webp",
-    featured: false,
-    published: true
-  },
-  {
-    id: "circle-sine",
-    number: "06",
-    title: "サインってなに？",
-    tag: "MATH DISCOVERY",
-    description: "円に引いた弦を手掛かりに、sin・cosが表す長さを考えます。",
-    href: "./games/circle/index.html",
-    icon: "∠",
-    iconClass: "compass",
-    image: "./assets/bg/bg_manabiya.webp",
-    featured: false,
-    published: true
-  },
+
   {
     id: "moon-distance",
     number: "07",
@@ -69,19 +44,6 @@ window.MLC_GAMES = [
     icon: "☾",
     iconClass: "moon",
     image: "./assets/bg/bg_night-sky.webp",
-    featured: false,
-    published: true
-  },
-  {
-    id: "money-lending",
-    number: "08",
-    title: "お金貸して",
-    tag: "LIFE & MONEY",
-    description: "友だちとのお金の貸し借りを、何度かの選択を通じて考えます。",
-    href: "./games/money-lending/index.html",
-    icon: "¥",
-    iconClass: "compass",
-    image: "./assets/bg/bg_gorogoro.webp",
     featured: false,
     published: true
   },
@@ -121,6 +83,34 @@ window.MLC_GAMES = [
     icon: "✧",
     iconClass: "compass",
     image: "./assets/bg/bg_gorogoro.webp",
+    featured: false,
+    published: true
+  },
+
+  {
+    id: "money-stage",
+    number: "04",
+    title: "お金って大切！",
+    tag: "LIFE & MONEY",
+    description: "友だちとのお金の貸し借りを、何度かの選択を通じて考えます。",
+    href: "./games/money-stage/index.html",
+    icon: "¥",
+    iconClass: "compass",
+    image: "./assets/bg/bg_gorogoro.webp",
+    featured: false,
+    published: true
+  },
+
+  {
+    id: "sine-stage",
+    number: "03",
+    title: "サインってなんだ？",
+    tag: "MATH DISCOVERY",
+    description: "サイン・コサイン・タンジェントってなんだ？に決着をつけましょう！",
+    href: "./games/sine-stage/index.html",
+    icon: "∠",
+    iconClass: "compass",
+    image: "./assets/bg/bg_night-sky.webp",
     featured: false,
     published: true
   },

@@ -21,6 +21,17 @@ export default {
       featured: false
     },
     {
+      id: "sine-stage",
+      title: "サインってなんだ？！",
+      subtitle: "三角関数の基本",
+      description: "サイン・コサイン・タンジェントってなんだ？に決着をつけましょう！",
+      image: "../assets/bg/bg_manabiya.webp",
+      url: "./sine-stage/index.html",
+      label: "Sine",
+      featured: false
+    }
+
+    {
       id: "money",
       title: "お金の世界",
       subtitle: "数学でお金を考える",

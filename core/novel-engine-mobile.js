@@ -1588,6 +1588,9 @@ function openCustomModal(popupKey) {
     const bodyEl = document.getElementById('custom-modal-body');
 
     if (!overlay || !titleEl || !bodyEl) return;
+    // index.html側にclassが無くても、スマホ用の文字サイズが効くようにする
+    titleEl.classList.add('custom-modal-title');
+    bodyEl.classList.add('custom-modal-body');
 
     // タイトル反映
     titleEl.innerText = data.title || "";

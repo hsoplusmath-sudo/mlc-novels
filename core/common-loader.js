@@ -362,7 +362,11 @@
       "color:#fff;font-size:18px;line-height:36px;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;}" +
       ".sys-btn:hover{background:rgba(0,0,0,0.65);}" +
       ".sys-btn:active{transform:scale(0.94);}" +
-      ".sys-btn.is-on{background:rgba(230,120,0,0.85);}";
+      ".sys-btn.is-on{background:rgba(230,120,0,0.85);}"+
+      "@media (orientation: portrait){" +
+      ".sys-btn-bar{top:8px;right:60px;gap:8px;}" +
+      ".sys-btn{width:44px;height:44px;font-size:22px;line-height:44px;background:rgba(0,0,0,0.55);}" +
+      "}";
     document.head.appendChild(style);
 
     var bar = document.createElement("div");

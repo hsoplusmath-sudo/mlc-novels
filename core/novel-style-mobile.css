@@ -508,9 +508,10 @@
     position: relative;
     background: #ffffff;
     width: 100%;
-    max-width: 550px;
-    max-height: 85vh;
-    padding: 25px 20px 20px 20px;
+    max-width: 640px;
+    max-height: 90vh;
+    max-height: 90dvh;
+    padding: 28px 22px 24px 22px;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
@@ -525,10 +526,10 @@
     right: 12px;
     background: #f0f0f0;
     border: none;
-    width: 34px;
-    height: 34px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    font-size: 20px;
+    font-size: 28px;   
     font-weight: bold;
     color: #333;
     cursor: pointer;
@@ -546,16 +547,17 @@
 .custom-modal-title {
     margin-top: 0;
     margin-bottom: 15px;
-    font-size: 20px;
-    color: #333;
+    padding-right: 52px;
+    font-size: 26px;
+    color: #333;   
     border-bottom: 3px solid #ff6f00;
     padding-bottom: 8px;
 }
 
 /* 記事本文のスタイル調整 */
 .custom-modal-body {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 19px;
+    line-height: 1.8;
     color: #444;
 }
 
@@ -579,10 +581,10 @@
     margin: 20px auto 0 auto;
     background: linear-gradient(135deg, #ff9e42 0%, #ff6f00 100%) !important;
     color: #ffffff !important;
-    font-size: 18px !important;
+    font-size: 22px !important;
     font-weight: bold !important;
     border: none !important;
-    padding: 14px 24px !important;
+    padding: 16px 24px !important;
     border-radius: 50px !important;
     
     box-shadow: 0 5px 12px rgba(255, 111, 0, 0.4) !important;

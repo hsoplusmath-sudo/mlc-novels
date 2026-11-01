@@ -158,16 +158,130 @@
 })();
 
 
-
-/* ===== 追加: システムボタン(共通) ===== */
+/* ===== 追加: システムボタン(共通): オート送り / BGM / 全画面 ===== */
 (function () {
   "use strict";
 
   // ボタンを増やすときは、この一覧に1つ追加して、下に setup 関数を書くだけ
   var SYSTEM_BUTTONS = [
+    { id: "auto-advance-btn",      icon: "▶",  title: "オート送り",    setup: setupAuto },
     { id: "bgm-toggle-btn",        icon: "🔊", title: "BGM オン/オフ", setup: setupBgm },
     { id: "fullscreen-toggle-btn", icon: "⛶",  title: "全画面表示",   setup: setupFullscreen }
   ];
+
+    // ---------- オート送り ----------
+  function setupAuto(btn) {
+    var textEl = document.getElementById("dialogue-text");
+    if (!textEl) {
+      btn.style.display = "none";
+      return;
+    }
+
+    // 速さの設定(ミリ秒): 待ち時間 = base + 文字数 × per、ただし max まで
+    var SPEEDS = [
+      null,                                          // 0: OFF
+      { base: 1000, per: 40,  max: 5000,  icon: "⏩", title: "オート送り: 速い" },     // 1: 速い
+      { base: 2500, per: 140, max: 20000, icon: "🐢", title: "オート送り: ゆっくり" }  // 2: ゆっくり
+    ];
+
+    var mode = 0;
+    var timer = null;
+
+    function isVisible(el) {
+      return !!el && el.getClientRects().length > 0 &&
+             getComputedStyle(el).display !== "none" &&
+             getComputedStyle(el).visibility !== "hidden";
+    }
+
+    // 自動で進んでよい状態か
+    function canAdvance() {
+      var next = document.getElementById("next-scene-btn");
+      // 選択肢の表示中は、エンジンがコントロールバーごと隠すので、ここで止まる
+      if (!isVisible(next) || next.disabled) return false;
+      if (isVisible(document.getElementById("choice-container"))) return false;
+      // 解説ポップアップが開いている間は止める
+      if (isVisible(document.getElementById("custom-modal-overlay"))) return false;
+      // ポップアップを開くボタンがある場面は止める(止めたくなければ、この2行を消す)
+      var trigger = document.getElementById("game-popup-trigger-container");
+      if (trigger && trigger.style.display !== "none" && trigger.innerHTML.trim() !== "") return false;
+      return true;
+    }
+
+    // 最後のシーン(行き先がない)かどうか
+    function isLastScene() {
+      try {
+        if (typeof currentChapter === "undefined" || !window.storyFlow) return false;
+        var chapter = window.storyFlow[currentChapter];
+        var route = chapter && chapter[currentRoute];
+        if (!route || novelIndex < route.length - 1) return false;
+        var d = route[novelIndex];
+        return !(d && (d.nextRoute || d.branch));
+      } catch (e) {
+        return false;
+      }
+    }
+
+    // セリフの長さに応じた待ち時間(ミリ秒)
+    function readingDelay() {
+      var s = SPEEDS[mode];
+      if (!s) return 0;
+      var len = (textEl.textContent || "").length;
+      return Math.min(s.base + len * s.per, s.max);
+    }
+
+    function render() {
+      var s = SPEEDS[mode];
+      btn.textContent = s ? s.icon : "▶";
+      btn.classList.toggle("is-on", mode !== 0);
+      btn.title = s ? s.title + "(押すと切り替え)" : "オート送り";
+      btn.setAttribute("aria-pressed", mode !== 0 ? "true" : "false");
+    }
+
+    function setMode(m) {
+      mode = m;
+      render();
+      if (mode === 0) clearTimeout(timer);
+    }
+
+    function schedule(delay) {
+      clearTimeout(timer);
+      if (mode === 0) return;
+      timer = setTimeout(function () {
+        if (mode === 0) return;
+
+        // 選択肢・ポップアップなどで止まっている間は、状態を見守る
+        if (!canAdvance()) {
+          schedule(800);
+          return;
+        }
+
+        var next = document.getElementById("next-scene-btn");
+
+        // 最後のシーンでは押さずに、オートをOFFにする
+        if (isLastScene() || /終了する/.test(next.textContent)) {
+          setMode(0);
+          return;
+        }
+
+        next.click();
+        // セリフが変わらないシーンでも止まらないよう、念のため次を予約する
+        schedule(readingDelay());
+      }, delay);
+    }
+
+    // セリフが変わるたびに、待ち時間を数え直す
+    new MutationObserver(function () {
+      schedule(readingDelay());
+    }).observe(textEl, { childList: true, characterData: true, subtree: true });
+
+    // OFF → 速い → ゆっくり → OFF
+    btn.addEventListener("click", function () {
+      setMode((mode + 1) % SPEEDS.length);
+      if (mode !== 0) schedule(readingDelay());
+    });
+
+    render();
+  }
 
   // ---------- BGM ----------
   function setupBgm(btn) {
@@ -247,7 +361,8 @@
       ".sys-btn{width:36px;height:36px;border:none;border-radius:50%;background:rgba(0,0,0,0.45);" +
       "color:#fff;font-size:18px;line-height:36px;padding:0;cursor:pointer;-webkit-tap-highlight-color:transparent;}" +
       ".sys-btn:hover{background:rgba(0,0,0,0.65);}" +
-      ".sys-btn:active{transform:scale(0.94);}";
+      ".sys-btn:active{transform:scale(0.94);}" +
+      ".sys-btn.is-on{background:rgba(230,120,0,0.85);}";
     document.head.appendChild(style);
 
     var bar = document.createElement("div");

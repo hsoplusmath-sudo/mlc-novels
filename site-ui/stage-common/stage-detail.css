@@ -1,0 +1,357 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  color: #293832;
+  background: #f7f8f5;
+  font-family: sans-serif;
+}
+
+/* ヘッダー */
+
+.site-header {
+  min-height: 64px;
+  padding: 0 5%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-header a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-logo {
+  font-weight: bold;
+  font-size: 19px;
+}
+
+
+/* ステージメインビジュアル */
+
+.stage-hero {
+  min-height: 350px;
+  padding: 70px 24px;
+  background-color: #526b5d;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.stage-hero-content {
+  max-width: 750px;
+}
+
+.stage-hero h1 {
+  font-size: clamp(32px, 5vw, 48px);
+  margin: 18px 0;
+}
+
+.stage-hero p {
+  line-height: 1.9;
+}
+
+
+/* ゲーム一覧 */
+
+.games-container {
+  max-width: 1100px;
+  padding: 65px 24px 100px;
+  margin: auto;
+}
+
+.games-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.game-card {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px #0000000a;
+  cursor: pointer;
+  transition: transform .2s;
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+}
+
+.game-card-image {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+
+.game-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.game-card-content {
+  padding: 20px;
+}
+
+.game-card-content h3 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.game-card-content p {
+  min-height: 48px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #748078;
+}
+
+.game-card-button,
+.play-button {
+  border: none;
+  border-radius: 30px;
+  padding: 12px 24px;
+  background: #426c57;
+  color: white;
+  cursor: pointer;
+}
+
+.game-card-button:hover,
+.play-button:hover {
+  background: #315442;
+}
+
+
+/* =====================================
+   Popup
+===================================== */
+
+.game-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+}
+
+.game-modal.active {
+  display: flex;
+}
+
+.modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: #0009;
+}
+
+.modal-content {
+  position: relative;
+  z-index: 1;
+
+  width: min(1100px, 100%);
+  height: min(850px, 90vh);
+
+  overflow: hidden;
+  background: white;
+  border-radius: 18px;
+  padding: 30px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  z-index: 5;
+
+  border: none;
+  background: white;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* 説明画面 */
+
+#modal-body {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+#modal-body img {
+  width: 100%;
+  max-height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+#modal-body h2 {
+  margin-top: 20px;
+}
+
+#modal-body p {
+  line-height: 1.8;
+}
+
+/* ゲーム画面 */
+
+.modal-content:has(.game-iframe) {
+  padding: 0;
+  background: #000;
+  border: 2px solid #426c57;
+  box-shadow: 0 12px 40px #000a;
+}
+
+/* PC(横長)のときは、ゲーム画面と同じ16:9にする */
+@media (orientation: landscape) {
+
+  .modal-content:has(.game-iframe) {
+    width: min(1100px, 100%, 160vh);
+    height: auto;
+    aspect-ratio: 16 / 9;
+    max-height: 100vh;
+  }
+
+}
+
+/* PCでも縦長のウィンドウのときは、スマホ版と同じ3:4にする */
+@media (orientation: portrait) and (min-width: 761px) {
+
+  .modal-content:has(.game-iframe) {
+    width: min(100%, 67.5vh);
+    height: auto;
+    aspect-ratio: 3 / 4;
+  }
+
+}
+
+/* スマホ(縦長・幅760px以下)のとき */
+@media (max-width: 760px) and (orientation: portrait) {
+
+  .modal-content:has(.game-iframe) {
+    width: min(100%, 75vh);
+    height: auto;
+    max-height: 100vh;
+    aspect-ratio: 3 / 4;
+    border-radius: 12px;
+  }
+
+}
+
+.game-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  border: none;
+  background: white;
+}
+
+/* 説明画面のとき:中身に合わせた大きさにする */
+.modal-content:not(:has(.game-iframe)) {
+  width: min(700px, 100%);
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+/* 説明画面の「ゲームを始める」ボタン */
+.modal-content:not(:has(.game-iframe)) .play-button {
+  margin-top: 24px;
+}
+
+/* 説明画面では中身の高さを自動にする */
+.modal-content:not(:has(.game-iframe)) #modal-body {
+  height: auto;
+  overflow: visible;
+}
+
+.play-button[hidden] {
+  display: none;
+}
+
+body.modal-open {
+  overflow: hidden;
+}
+
+/* スマートフォン */
+
+@media (max-width: 760px) {
+
+  .game-modal {
+    padding: 12px;
+  }
+
+  .game-modal:has(.game-iframe) {
+    padding: 0;
+  }
+
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+
+    border-radius: 0;
+    padding: 15px;
+  }
+
+}
+
+
+
+/* フッター */
+
+.site-footer {
+  padding: 30px;
+  background: white;
+  text-align: center;
+  color: #89958e;
+}
+
+
+/* レスポンシブ */
+
+@media (max-width: 760px) {
+
+  .game-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .game-card-content {
+    padding: 14px;
+  }
+
+  .game-card-content h3 {
+    font-size: 17px;
+  }
+
+}
+
+@media (max-width: 480px) {
+
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stage-hero {
+    min-height: 270px;
+  }
+
+}

@@ -19,6 +19,26 @@
 
     const isMobile = checkIsMobile();
 
+    // 共通の基本スタイル(各ゲームのHTMLに書かなくてよい)
+    const baseStyle = document.createElement("style");
+    baseStyle.textContent = `
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+        .masulesson-proportion-box {
+            margin: 0 !important;
+            top: 0 !important;
+            left: 0 !important;
+        }
+    `;
+    document.head.appendChild(baseStyle);
+
+
     function loadScript(src) {
         return new Promise((resolve, reject) => {
             const script = document.createElement("script");
@@ -59,6 +79,25 @@
         // ② ポップアップデータ群 (popup-data/ 配下のファイル)
         await loadScript(new URL("popup-data/jinsei.js", siteRoot).href);
         //  await loadScript(new URL("popup-data/others.js", siteRoot).href);
+
+        // assets/ へのパスを、ルート基準に補正する
+        // 例: "../../assets/chara/a.webp" → "https://.../assets/chara/a.webp"
+        function fixAssetPath(p) {
+            if (typeof p !== "string") return p;
+            const m = p.match(/^(?:\.\.?\/)+(assets\/.*)$/);
+            return m ? new URL(m[1], siteRoot).href : p;
+        }
+
+        [
+            window.CHARACTER_MASTER,
+            window.BG_MASTER,
+            window.BGM_MASTER,
+            window.POPUP_MASTER
+        ].forEach(list => {
+            (list || []).forEach(item => {
+                if (item && item.src) item.src = fixAssetPath(item.src);
+            });
+        });
 
         // ③ ゲームエンジン
         const engineFile = isMobile ? "novel-engine-mobile.js" : "novel-engine.js";

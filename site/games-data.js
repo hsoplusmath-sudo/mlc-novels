@@ -22,19 +22,6 @@ window.MLC_GAMES = [
   },
 
   {
-    id: "moon-distance",
-    number: "07",
-    title: "月まではどれくらい？",
-    tag: "MATH DISCOVERY",
-    description: "二人の距離と月を見た角度から、月までの距離を考える物語です。",
-    href: "./games/moon-distance/index.html",
-    icon: "☾",
-    iconClass: "moon",
-    image: "./assets/bg/bg_night-sky.webp",
-    featured: false,
-    published: true
-  },
-  {
     id: "new-nisa",
     number: "11",
     title: "うさこと考える新NISA",

@@ -1,6 +1,4 @@
-if (!window.storyFlow) {
-  window.storyFlow = {};
-}
+if (!window.storyFlow) { window.storyFlow = {}; }
 
 window.storyFlow["host-kurui"] = {
 
@@ -25,7 +23,7 @@ window.storyFlow["host-kurui"] = {
       name: "",
       text: "ハロウィンの夜。街には仮装した人たちが行き交い、いつもより少しだけ賑やかな雰囲気が漂っている。",
       speaker: "none",
-      bg: "living-room",
+      bg: "./imgs/bg_kanrakugai-street.webp",
       showImgId: "none",
       nextRoute: "street_01"
     }
@@ -42,6 +40,7 @@ window.storyFlow["host-kurui"] = {
       text: "ふう。今日はいっぱい歩いたなあ。そろそろ帰ろう。",
       speaker: "usako",
       showImgId: "img-usako-normal",
+      bgm: "garden-party",
       nextRoute: "street_02"
     },
     {
@@ -280,9 +279,10 @@ window.storyFlow["host-kurui"] = {
     {
       name: "",
       text: "しばらくして、男性は目を覚ました。",
-      speaker: "none",
-      bg: "living-room",
+      speaker: "usagi",
+      bg: "kitchen",
       showImgId: "img-usagi-epiphany",
+      bgm: "kaeru",
       nextRoute: "wake_02"
     },
     {

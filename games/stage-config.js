@@ -13,7 +13,7 @@ export default {
     {
       id: "tutorial-stage",
       title: "チュートリアルステージ",
-      subtitle: "チュートリアル & エクストラ",
+      subtitle: "チュートリアル",
       description: "ここから旅を広げよう",
       image: "../assets/bg/bg_manabiya.webp",
       url: "./tutorial-stage/index.html",

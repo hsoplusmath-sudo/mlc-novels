@@ -14,7 +14,7 @@ export default {
       title: "チュートリアル",
       description:
         "ゲームのやり方を学びます。",
-      image: "../../assets/bg/bg_manabiya.webp",
+      image: "./starter/top_tutorial.webp",
       url: "./starter/index.html",
       open: "popup" // "popup" or "page"
     },
@@ -23,7 +23,7 @@ export default {
       title: "コンセプト",
       description:
         "このゲームのコンセプトを感じてみよう。",
-      image: "../../assets/bg/bg_nohara.webp",
+      image: "./starter//top_concept.webp",
       url: "./starter/index.html",
       open: "popup"
     },
@@ -32,7 +32,7 @@ export default {
       title: "うさことカズザメ",
       description:
         "うさこが かずを数えながらカズザメたちの背中を渡って海の向こう岸へ。",
-      image: "../../assets/bg/bg_the-ocean.webp",
+      image: "./inaba-rabbit/top_inaba-rabbit.webp",
       url: "./inaba-rabbit/index.html",
       open: "popup"
     }

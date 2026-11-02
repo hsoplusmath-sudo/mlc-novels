@@ -101,7 +101,7 @@ window.MLC_GAMES = [
     href: "./games/tutorial-stage/index.html",
     icon: "✧",
     iconClass: "compass",
-    image: "./assets/bg/bg_manabiya.webp",
+    image: "../games/tutorial-stage/starter/top_concept.webp",
     featured: false,
     published: true
   }

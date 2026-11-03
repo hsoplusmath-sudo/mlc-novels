@@ -298,128 +298,168 @@
 .hidden-chara { opacity: 0; pointer-events: none; }
 
 /* ==========================================================================
-   6. メッセージウィンドウ & 操作バー（縦横比を完全に維持）
+   6. メッセージウィンドウ & 操作バー（没入感アップ版 v2）
    ========================================================================== */
-/* --- 🎯 一体型メッセージウィンドウの基準定義 --- */
 .message-window {
-    background: rgba(255, 255, 255, 0.95); 
-    border: 0.2cqw solid #555; 
-    border-radius: 0.8cqw;
-    padding: 1.5cqw 3cqw; 
-    position: absolute !important; 
-    bottom: 25px !important; 
-    left: 50% !important; 
+    position: absolute !important;
+    bottom: 20px !important;
+    left: 50% !important;
     transform: translateX(-50%) !important;
-    width: 1200px !important; 
-    height: 180px !important;
-    box-sizing: border-box; 
-    z-index: 30 !important;
+    width: 1200px !important;
+    height: 200px !important;            /* 240 → 200 に縮小 */
+    padding: 30px 56px 56px 56px;        /* 下を広めに取り、右下の「次へ」と文字が重ならないようにする */
+    box-sizing: border-box;
+    z-index: 30 !important;              /* 次へボタン(40)より下 */
+
+    /* 半透明の紺色ガラス：黒さを抑えてキャラが透けて見えるように */
+    background: linear-gradient(180deg, rgba(34, 46, 82, 0.55) 0%, rgba(16, 22, 48, 0.68) 100%);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);          /* 6px → 2px：背後のキャラがぼやけすぎない */
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    border-radius: 18px;
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 4px rgba(255, 255, 255, 0.06),
+        inset 0 0 30px rgba(140, 180, 255, 0.15);
+    animation: windowFadeIn 0.4s ease-out;
 }
 
-.name-box { 
-    font-weight: bold; 
-    font-size: 1.8cqw; 
-    border-bottom: 0.2cqw solid #333; 
-    display: inline-block; 
-    padding-bottom: 0.2cqw; 
-    margin-bottom: 0.8cqw; 
-    min-width: 10cqw; 
+/* 名前タブ：ウィンドウの左上にせり出す */
+.name-box {
+    position: absolute;
+    top: -22px;
+    left: 40px;
+    min-width: 160px;
+    padding: 6px 30px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff9e42 0%, #ff6f00 100%);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.45);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    margin: 0;
+    display: block;
+}
+.name-box:empty { display: none; }
+
+/* セリフ：半透明になった分、影を強めて読みやすさを維持 */
+.text-box {
+    font-size: 30px;
+    line-height: 1.8;
+    letter-spacing: 0.06em;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow:
+        0 0 6px rgba(10, 14, 36, 0.9),
+        0 2px 4px rgba(0, 0, 0, 0.7);
+    height: 100%;
+    overflow: hidden;
 }
 
-.text-box { 
-    font-size: 1.8cqw; 
-    line-height: 1.6; 
-    color: #222; 
-}
-
-/* 選択肢ボタン */
-.choice-box-area { 
-    position: absolute; 
-    bottom: 18cqw; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 50%; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 1cqw; 
-    z-index: 25; 
+/* 選択肢：ウィンドウの上に表示 */
+.choice-box-area {
+    position: absolute;
+    bottom: 242px;                       /* 20 + 200 + 余白22 */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 640px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    z-index: 25;
 }
 
 .story-choice-btn {
-    background: #fff; 
-    border: 0.2cqw solid #777; 
-    border-radius: 0.6cqw; 
-    padding: 1.2cqw;
-    text-align: center; 
-    font-size: 1.6cqw; 
-    font-weight: bold; 
-    cursor: pointer; 
-    transition: all 0.2s; 
-    box-shadow: 0 0.4cqw 0.6cqw rgba(0,0,0,0.05);
+    background: #ffffff;
+    color: #222222;
+    border: 2px solid #777777;
+    border-radius: 8px;
+    padding: 14px 20px;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;   /* all をやめる */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    backface-visibility: hidden;
 }
 
-.story-choice-btn:hover { background: #f0f7ff; border-color: #0066cc; color: #0066cc; }
+.story-choice-btn:hover {
+    background: #f0f7ff;
+    border-color: #0066cc;
+    color: #0066cc;
+}
 
-/* 次へボタンのバー設置用コンテナ */
-.control-bar { 
+/* 次へボタン：ウィンドウの右下の角に置く（ウィンドウより前面） */
+.control-bar {
     position: absolute !important;
-    bottom: 15px !important;
-    right: 20px !important;
+    bottom: 32px !important;             /* ウィンドウ下端(20px) + 12px */
+    right: 68px !important;              /* ウィンドウ右端(40px) + 28px */
     z-index: 40 !important;
 }
 
-/* 🎯 メッセージウィンドウ埋め込み型の「次へ」ボタン専用CSS */
 .embedded-next-btn {
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    
     font-size: 20px !important;
     font-weight: bold !important;
     color: #ffffff !important;
-    background: #ff8c00 !important;
+    background: linear-gradient(135deg, #ff9e42 0%, #ff6f00 100%) !important;
     border: none !important;
-    border-bottom: 4px solid #cc7000 !important;
+    border-bottom: 4px solid #cc5a00 !important;
     border-radius: 30px !important;
-    
-    padding: 10px 35px !important;
+    padding: 8px 34px !important;
     cursor: pointer !important;
     box-sizing: border-box !important;
     transition: all 0.1s ease !important;
-    
-    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.45) !important;
+    animation: nextBounce 1.4s ease-in-out infinite;
 }
-
 .embedded-next-btn:hover {
-    background: #ffa500 !important; 
+    animation: none;
+    filter: brightness(1.1);
     transform: translateY(1px) !important;
     border-bottom-width: 3px !important;
-    box-shadow: 0 6px 15px rgba(255, 140, 0, 0.4) !important;
 }
-
 .embedded-next-btn:active {
     transform: translateY(4px) !important;
-    border-bottom-width: 0px !important;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+    border-bottom-width: 0 !important;
 }
 
-/* 旧仕様の次へボタン互換スタイル */
-.next-btn { 
-    background: #fff; 
-    border: 0.2cqw solid #333; 
-    border-radius: 2cqw; 
-    padding: 0.6cqw 2.5cqw; 
-    font-size: 1.6cqw; 
-    font-weight: bold; 
-    cursor: pointer; 
-    box-shadow: 0 0.4cqw 0.6cqw rgba(0,0,0,0.1); 
-    transition: all 0.2s; 
+/* 旧仕様の次へボタン互換 */
+.next-btn {
+    background: #fff;
+    border: 0.2cqw solid #333;
+    border-radius: 2cqw;
+    padding: 0.6cqw 2.5cqw;
+    font-size: 1.6cqw;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0.4cqw 0.6cqw rgba(0,0,0,0.1);
+    transition: all 0.2s;
 }
 .next-btn:hover { background: #333; color: #fff; }
 
-/* ==========================================================================
-   7. 追加：新設したレッスンポップアップボタン用の専用スタイル
-   ========================================================================== */
+@keyframes windowFadeIn {
+    from { opacity: 0; transform: translateX(-50%) translateY(12px); }
+    to   { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+@keyframes nextBounce {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(5px); }
+}
+
+
 /* ==========================================================================
    7. 追加：新設したレッスンポップアップボタン用の専用スタイル
    ========================================================================== */

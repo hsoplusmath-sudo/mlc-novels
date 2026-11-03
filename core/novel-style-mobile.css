@@ -296,73 +296,112 @@
 .hidden-chara { opacity: 0; pointer-events: none; transform: translateY(30px); }
 
 /* ==========================================================================
-   6. メッセージウィンドウ & 操作バー（🌟 縦幅をスタイリッシュに調整）
+   6. メッセージウィンドウ & 操作バー（没入感アップ版・スマホ）
    ========================================================================== */
 .message-window {
-    background: rgba(255, 255, 255, 0.96); 
-    border: 3.5px solid #555; 
-    border-radius: 18px;
-    padding: 25px 35px; 
-    position: absolute !important; 
-    bottom: 20px !important; /* 🌟 画面最下部への余白をスマートに */
-    left: 50% !important; 
-    transform: translateX(-50%) !important;
-    width: 680px !important;  
-    height: 250px !important; /* 🌟 高さを300pxから250pxに抑え、全体の引き締めを図る */
-    box-sizing: border-box; 
-    z-index: 30 !important;
-    box-shadow: 0 -5px 25px rgba(0,0,0,0.1);
-}
-
-.name-box { 
-    font-weight: bold; 
-    font-size: 28px; 
-    border-bottom: 3px solid #333; 
-    display: inline-block; 
-    padding-bottom: 2px; 
-    margin-bottom: 10px; 
-    min-width: 140px; 
-}
-
-.text-box { 
-    font-size: 24px; 
-    line-height: 1.5; 
-    color: #222; 
-}
-
-/* 選択肢ボタン */
-.choice-box-area { 
-    position: absolute; 
-    bottom: 290px; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 85%; 
-    display: flex; 
-    flex-direction: column; 
-    gap: 12px; 
-    z-index: 25; 
-}
-
-.story-choice-btn {
-    background: #fff; 
-    border: 3px solid #777; 
-    border-radius: 15px; 
-    padding: 16px;
-    text-align: center; 
-    font-size: 22px; 
-    font-weight: bold; 
-    cursor: pointer; 
-    transition: all 0.2s; 
-    box-shadow: 0 5px 10px rgba(0,0,0,0.08);
-}
-
-.story-choice-btn:hover { background: #f0f7ff; border-color: #0066cc; color: #0066cc; }
-
-/* 次へボタンのコンテナ */
-.control-bar { 
     position: absolute !important;
-    bottom: 15px !important; 
-    right: 25px !important;
+    bottom: 20px !important;
+    left: 20px !important;               /* 中央寄せはtransformを使わず固定値 (720-680)/2 */
+    transform: none !important;
+    width: 680px !important;
+    height: 250px !important;
+    padding: 32px 40px 58px 40px;        /* 下を広めに取り、右下の「次へ」と文字が重ならないようにする */
+    box-sizing: border-box;
+    z-index: 30 !important;              /* 次へボタンより下 */
+
+    /* 半透明の紺色ガラス */
+    background: linear-gradient(180deg, rgba(34, 46, 82, 0.55) 0%, rgba(16, 22, 48, 0.68) 100%);
+    -webkit-backdrop-filter: blur(2px);
+    backdrop-filter: blur(2px);
+    border: 2px solid rgba(255, 255, 255, 0.45);
+    border-radius: 18px;
+    box-shadow:
+        0 8px 30px rgba(0, 0, 0, 0.3),
+        inset 0 0 0 4px rgba(255, 255, 255, 0.06),
+        inset 0 0 30px rgba(140, 180, 255, 0.15);
+    animation: windowFadeIn 0.4s ease-out;
+}
+
+/* 名前タブ：ウィンドウの左上にせり出す */
+.name-box {
+    position: absolute;
+    top: -22px;
+    left: 28px;
+    min-width: 140px;
+    padding: 6px 26px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 900;
+    letter-spacing: 0.12em;
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff9e42 0%, #ff6f00 100%);
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(255, 111, 0, 0.45);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+    margin: 0;
+    display: block;
+}
+.name-box:empty { display: none; }       /* ナレーション時は名前タブを隠す */
+
+/* セリフ：24px → 30px、3行まで収まる */
+.text-box {
+    font-size: 30px;
+    line-height: 1.65;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow:
+        0 0 6px rgba(10, 14, 36, 0.9),
+        0 2px 4px rgba(0, 0, 0, 0.7);
+    height: 100%;
+    overflow: hidden;
+}
+
+/* 選択肢：ウィンドウの上に表示（にじみ防止のためtransformを使わない） */
+.choice-box-area {
+    position: absolute;
+    bottom: 300px;                       /* 20 + 250 + 名前タブ分 + 余白 */
+    left: 54px;                          /* (720 - 612) / 2 */
+    transform: none;
+    width: 612px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    z-index: 25;
+}
+
+/* 選択肢ボタン：白ボックス＋黒文字（デスクトップ版と同じ） */
+.story-choice-btn {
+    background: #ffffff;
+    color: #222222;
+    border: 2px solid #777777;
+    border-radius: 10px;
+    padding: 16px 20px;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s, color 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    backface-visibility: hidden;
+}
+.story-choice-btn:hover {
+    background: #f0f7ff;
+    border-color: #0066cc;
+    color: #0066cc;
+}
+
+/* 次へボタン：ウィンドウの右下の角（ウィンドウより前面） */
+.control-bar {
+    position: absolute !important;
+    bottom: 32px !important;             /* ウィンドウ下端(20px) + 12px */
+    right: 40px !important;              /* ウィンドウ右端(20px) + 20px */
     z-index: 40 !important;
 }
 
@@ -370,18 +409,33 @@
     display: inline-flex !important;
     align-items: center;
     justify-content: center;
-    font-size: 22px !important; 
-    font-weight: bold !important; 
+    font-size: 22px !important;
+    font-weight: bold !important;
     color: #ffffff !important;
-    background: #ff8c00 !important;
+    background: linear-gradient(135deg, #ff9e42 0%, #ff6f00 100%) !important;
     border: none !important;
-    border-bottom: 4px solid #cc7000 !important;
-    border-radius: 40px !important; 
-    padding: 10px 40px !important;
+    border-bottom: 4px solid #cc5a00 !important;
+    border-radius: 40px !important;
+    padding: 8px 32px !important;
     cursor: pointer !important;
     box-sizing: border-box !important;
     transition: all 0.1s ease !important;
-    box-shadow: 0 4px 10px rgba(255, 140, 0, 0.3) !important;
+    box-shadow: 0 4px 12px rgba(255, 140, 0, 0.45) !important;
+    animation: nextBounce 1.4s ease-in-out infinite;
+}
+.embedded-next-btn:active {
+    animation: none;
+    transform: translateY(4px) !important;
+    border-bottom-width: 0 !important;
+}
+
+@keyframes windowFadeIn {
+    from { opacity: 0; transform: translateY(12px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes nextBounce {
+    0%, 100% { transform: translateX(0); }
+    50%      { transform: translateX(5px); }
 }
 
 /* ==========================================================================

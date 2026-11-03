@@ -1,21 +1,12 @@
 export default {
   stages: [
-    {
-      id: "extra-stage",
-      title: "エクストラステージ",
-      subtitle: "エクストラ",
-      description: "ここから旅を広げよう",
-      image: "../site/top-hero.webp",
-      url: "./extra-stage/index.html",
-      label: "Trip",
-      featured: true
-    },
+
     {
       id: "tutorial-stage",
       title: "チュートリアルステージ",
       subtitle: "チュートリアル",
       description: "ここから旅を広げよう",
-      image: "../assets/bg/bg_manabiya.webp",
+      image: "./tutorial-stage/starter/top_tutorial.webp",
       url: "./tutorial-stage/index.html",
       label: "Tutorial",
       featured: false
@@ -40,6 +31,16 @@ export default {
       url: "./money-stage/index.html",
       label: "MONEY",
       featured: false
-    }
+    },
+    {
+      id: "extra-stage",
+      title: "冒険のステージ",
+      subtitle: "エクストラ",
+      description: "ここから旅を広げよう",
+      image: "../site/top-hero.webp",
+      url: "./extra-stage/index.html",
+      label: "Trip",
+      featured: false
+    },
   ]
 };

@@ -45,7 +45,7 @@ window.MLC_GAMES = [
     href: "./games/money-stage/index.html",
     icon: "¥",
     iconClass: "compass",
-    image: "./assets/bg/bg_gorogoro.webp",
+    image: "./games/money-stage/money-lending/top_money-lending.webp",
     featured: false,
     published: true
   },
@@ -59,7 +59,7 @@ window.MLC_GAMES = [
     href: "./games/sine-stage/index.html",
     icon: "∠",
     iconClass: "compass",
-    image: "./assets/bg/bg_night-sky.webp",
+    image: "./games/sine-stage/moon-distance/top_moon-distance.webp",
     featured: false,
     published: true
   },
@@ -87,7 +87,7 @@ window.MLC_GAMES = [
     href: "./games/extra-stage/index.html",
     icon: "✈",
     iconClass: "compass",
-    image: "./games/extra-stage/world-trip/imgs/top_world-trip.webp",
+    image: "./games/extra-stage/world-trip/top_world-trip.webp",
     featured: false,
     published: true
   },
@@ -101,7 +101,7 @@ window.MLC_GAMES = [
     href: "./games/tutorial-stage/index.html",
     icon: "✧",
     iconClass: "compass",
-    image: "../games/tutorial-stage/starter/top_concept.webp",
+    image: "./games/tutorial-stage/starter/top_concept.webp",
     featured: false,
     published: true
   }

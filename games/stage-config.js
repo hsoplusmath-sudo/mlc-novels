@@ -25,7 +25,7 @@ export default {
       title: "サインってなんだ？！",
       subtitle: "三角関数の基本",
       description: "サイン・コサイン・タンジェントってなんだ？に決着をつけましょう！",
-      image: "../assets/bg/bg_night-sky.webp",
+      image: "./sine-stage/moon-distance/top_moon-distance.webp",
       url: "./sine-stage/index.html",
       label: "Sine",
       featured: false
@@ -36,7 +36,7 @@ export default {
       title: "お金ってだいじ！",
       subtitle: "数学でお金を考える",
       description: "お金の仕組みや未来について考えよう。",
-      image: "../assets/bg/bg_gorogoro.webp",
+      image: "./money-stage/money-lending/top_money-lending.webp",
       url: "./money-stage/index.html",
       label: "MONEY",
       featured: false

@@ -14,7 +14,7 @@ export default {
       title: "お金貸して！",
       description:
         "うさこがぶきようくんにお金を借りることになりました。貸す？貸さない？",
-      image: "../../assets/bg/bg_gorogoro.webp",
+      image: "./money-lending/top_money-lending.webp",
       url: "./money-lending/index.html",
       open: "popup"
     },

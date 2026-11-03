@@ -22,7 +22,7 @@ export default {
       title: "サインってなんだ？",
       description:
         "三角関数の基本であるサインを学びましょう。",
-      image: "../../assets/bg/bg_manabiya.webp",
+      image: "./circle/top_circle-sine.webp",
       url: "./circle/index.html",
       open: "popup"
     },
@@ -31,7 +31,7 @@ export default {
       title: "月まではどれくらい？",
       description:
         "月までどれくらい？？と、うさこはふと考えてみました。",
-      image: "../../assets/bg/bg_night-sky.webp",
+      image: "./moon-distance/top_moon-distance.webp",
       url: "./moon-distance/index.html",
       open: "popup"
     }

@@ -165,6 +165,7 @@
   // ボタンを増やすときは、この一覧に1つ追加して、下に setup 関数を書くだけ
   var SYSTEM_BUTTONS = [
     { id: "auto-advance-btn",      icon: "▶",  title: "オート送り",    setup: setupAuto },
+    { id: "typewriter-btn",        icon: "あ", title: "1文字ずつ表示 オン/オフ", setup: setupTypewriter },
     { id: "bgm-toggle-btn",        icon: "🔊", title: "BGM オン/オフ", setup: setupBgm },
     { id: "fullscreen-toggle-btn", icon: "⛶",  title: "全画面表示",   setup: setupFullscreen }
   ];
@@ -280,6 +281,144 @@
       if (mode !== 0) schedule(readingDelay());
     });
 
+    render();
+  }
+
+  // ---------- 1文字ずつ表示（タイプライター） ----------
+  function setupTypewriter(btn) {
+    var textEl = document.getElementById("dialogue-text");
+    if (!textEl) {
+      btn.style.display = "none";
+      return;
+    }
+
+    var STORAGE_KEY = "masulesson-typewriter-on";
+    var OBS_OPTS = { childList: true, characterData: true, subtree: true };
+
+    // 文末の ▼ マーク（表示が終わったときだけ出る）
+    var st = document.createElement("style");
+    st.textContent =
+      "@keyframes twArrow{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(5px);opacity:.45}}" +
+      "#dialogue-text.tw-done::after{content:'▼';display:inline-block;margin-left:.4em;" +
+      "font-size:.65em;color:#ff9e42;text-shadow:none;animation:twArrow 1s ease-in-out infinite;}";
+    document.head.appendChild(st);
+
+    function loadOn() {
+      try { return localStorage.getItem(STORAGE_KEY) === "1"; } catch (e) { return false; }
+    }
+    function saveOn(v) {
+      try { localStorage.setItem(STORAGE_KEY, v ? "1" : "0"); } catch (e) {}
+    }
+
+    var on = loadOn();
+    var timer = null;
+    var typing = false;
+    var nodes = [];
+    var chars = [];
+    var ni = 0, ci = 0;
+
+    // 自分でテキストを書き換えるときは、監視を止めて無限ループを防ぐ
+    var obs = new MutationObserver(function () {
+      if (on) start();
+    });
+    function quiet(fn) {
+      obs.disconnect();
+      try { fn(); } finally { obs.observe(textEl, OBS_OPTS); }
+    }
+
+    function collect() {
+      var out = [];
+      var w = document.createTreeWalker(textEl, NodeFilter.SHOW_TEXT, null);
+      var n;
+      while ((n = w.nextNode())) out.push(n);
+      return out;
+    }
+
+    function start() {
+      clearTimeout(timer);
+      typing = false;
+      textEl.classList.remove("tw-done");
+
+      nodes = collect();
+      chars = nodes.map(function (n) { return Array.from(n.nodeValue); });
+      var total = chars.reduce(function (s, a) { return s + a.length; }, 0);
+      if (!total) return;
+
+      quiet(function () {
+        nodes.forEach(function (n) { n.nodeValue = ""; });
+      });
+      ni = 0; ci = 0;
+      typing = true;
+      tick();
+    }
+
+    function tick() {
+      while (ni < nodes.length && ci >= chars[ni].length) { ni++; ci = 0; }
+      if (ni >= nodes.length) {
+        typing = false;
+        textEl.classList.add("tw-done");
+        return;
+      }
+      var ch = chars[ni][ci];
+      ci++;
+      var shown = chars[ni].slice(0, ci).join("");
+      var node = nodes[ni];
+      quiet(function () { node.nodeValue = shown; });
+
+      // 句読点では少し間を置く
+      var delay = /[。！？!?…]/.test(ch) ? 260 :
+                  /[、，,]/.test(ch)     ? 130 :
+                  /\s/.test(ch)          ? 0   : 45;
+      timer = setTimeout(tick, delay);
+    }
+
+    // 途中なら、残りを一気に表示する
+    function finish() {
+      if (!typing) return;
+      clearTimeout(timer);
+      typing = false;
+      quiet(function () {
+        nodes.forEach(function (n, i) { n.nodeValue = chars[i].join(""); });
+      });
+      textEl.classList.add("tw-done");
+    }
+
+    function render() {
+      btn.classList.toggle("is-on", on);
+      btn.setAttribute("aria-pressed", on ? "true" : "false");
+      btn.title = on ? "1文字ずつ表示: オン(押すとオフ)" : "1文字ずつ表示: オフ";
+    }
+
+    btn.addEventListener("click", function () {
+      on = !on;
+      saveOn(on);
+      render();
+      if (on) {
+        if ((textEl.textContent || "").trim()) textEl.classList.add("tw-done");
+      } else {
+        finish();
+        clearTimeout(timer);
+        typing = false;
+        textEl.classList.remove("tw-done");
+      }
+    });
+
+    // 表示の途中で「次へ」を押したら、進まずに全文を表示する
+    document.addEventListener("click", function (e) {
+      if (!typing) return;
+      var t = e.target;
+      if (t && t.closest && t.closest("#next-scene-btn")) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        finish();
+      }
+    }, true);
+
+    // メッセージウィンドウをタップしても、全文を表示する
+    var win = document.getElementById("game-message-window");
+    if (win) win.addEventListener("click", finish);
+
+    obs.observe(textEl, OBS_OPTS);
     render();
   }
 

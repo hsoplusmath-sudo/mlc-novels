@@ -45,7 +45,7 @@ window.storyFlow["concept"] = {
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "center-chara",
-      bg: "omatsuri"
+      bg: "school-rouka"
     },
     {
       name: "",

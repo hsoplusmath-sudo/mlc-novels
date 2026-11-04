@@ -81,6 +81,7 @@ window.BG_MASTER = [
 
     // 学校
     { id: "school-sakura", src: "../../assets/bg/bg_school-sakura.webp" },
+    { id: "school-rouka", src: "../../assets/bg/bg_school-rouka.webp" },
 
     // 神社
     { id: "kinjo-jinja", src: "../../assets/bg/bg_image-jinja.webp" },

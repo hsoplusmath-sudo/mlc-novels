@@ -44,11 +44,28 @@ namidanokessyo
 shizukana-tikurin
 garden-party
 
+
+=========背景画像=========
+
+[school-rouka]AdobeStock_1200505275（2026.11.4）
+小学校・中学校・高校の校舎の廊下
+作成者 buritora
+ライセンスの種類 通常ライセンス
+
+[kanrakugai-street]AdobeStock_290061963（2026.11.2）
+※host-kurui直下
+夜の小倉中心街の歓楽街
+作成者 doraneko777
+ライセンスの種類 通常ライセンス
+
 [itukushima-misen]2026.10.25
+Canvaで作成
 [sanmine-torii]2026.10.25
+Canvaで作成
 [sangaku-titai]2026.10.25
+Canvaで作成
 [egypt-piramid]2026.10.25
-Canva
+Canvaで作成
 
 [the-ocean] AdobeStock_598837427（2026.10.25）
 Small tropical island with palm trees in the ocean flat design. Travel concept vector illustration background.

@@ -37,8 +37,14 @@ https://commons.nicovideo.jp/material/nc163924
 jinja-icho
 神社に続くイチョウ並木.mp3
 
+[france_italia]
+フランスって…イタリア？ written by Masuo（OpenTracks　2026.11.4）
+DL：1478
+OpenTracks（旧DOVA-SYNDROME）の 音源利用ライセンス に準拠します。
+この作曲者の素材利用条件：OpenTracks（旧DOVA-SYNDROME）の 音源利用ライセンス に準拠します。
+https://opentracks.com/help/articles/license/
+
 escort
-france_italia
 kaeru-piano
 namidanokessyo
 shizukana-tikurin
@@ -81,3 +87,13 @@ Small tropical island with palm trees in the ocean flat design. Travel concept v
 backgrounds night sky with stars and moon and clouds.
 作成者 Ruslan Ivantsov
 ライセンスの種類 通常ライセンス
+
+[pc-office]
+PIXTA siro46さん（2026.10）
+オフィス風景 無人
+インテリア（https://pixta.jp/photo/74613171）
+利用規約：https://pixta.jp/terms
+よくある質問：https://pixta.jp/guide/?post_type=faq&p=57735
+
+[living-room]
+Canvaで作成（おそらく）

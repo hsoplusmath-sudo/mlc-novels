@@ -99,7 +99,7 @@ window.storyFlow["inaba_rabbit"] = {
       text: "あれ？ なんだろう？",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "left-chara",
+      posClass: "center-chara",
       partnerAction: { id: "img-kazuzame-normal", class: "right-chara" }
     },
     {
@@ -480,7 +480,7 @@ window.storyFlow["inaba_rabbit"] = {
   ending_bitten: [
     {
       name: "うさこ",
-      text: "……。",
+      text: "島を探検してくるね！",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara"
@@ -509,11 +509,27 @@ window.storyFlow["inaba_rabbit"] = {
     },
     {
       name: "",
-      text: "カズザメは、うさこにガブリ！ ……でも、すぐに離してくれた。まるかは、うさこに「助けてもらったら、ありがとうって伝えようね」と話した。\nゴール：お礼を忘れて、かまれちゃった。",
-      speaker: "kazuzame",
-      showImgId: "img-kazuzame-normal",
-      posClass: "right-chara"
+      text: "カズザメは、うさこにガブリ！ ……でも、すぐに離してくれた。",
+      speaker: "",
+      showImgId: "",
+      posClass: ""
+    },
+    {
+      name: "まるか",
+      text: "助けてもらったら、ありがとうって伝えようね！",
+      speaker: "maruka",
+      showImgId: "img-maruka-normal",
+      posClass: "left-chara"
+    },
+    {
+      name: "",
+      text: "（BAD END）お礼を忘れて、かまれちゃった。",
+      speaker: "",
+      showImgId: "",
+      posClass: ""
     }
+
+
   ]
 
 };

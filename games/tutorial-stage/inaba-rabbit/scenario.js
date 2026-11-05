@@ -61,7 +61,7 @@ window.storyFlow["inaba_rabbit"] = {
   opening: [
     {
       name: "",
-      text: "青い海が、きらきらと光っている。波の向こうには、白い砂浜が見えた。",
+      text: "青い海が、きらきらと光っている。<br>波の向こうには、白い砂浜が見えた。",
       speaker: "",
       showImgId: "",
       bg: "the-ocean",
@@ -90,16 +90,17 @@ window.storyFlow["inaba_rabbit"] = {
     },
     {
       name: "",
-      text: "うさこは、波打ち際で立ち止まった。行ってみたい。でも、どうしたらいいんだろう。",
+      text: "",
       speaker: "",
       showImgId: ""
     },
     {
       name: "うさこ",
-      text: "あれ？ 海の上に、背中が見える……。",
+      text: "あれ？ なんだろう？",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      partnerAction: { id: "img-kazuzame-normal", class: "right-chara" }
     },
     {
       name: "カズザメ",
@@ -124,28 +125,35 @@ window.storyFlow["inaba_rabbit"] = {
     },
     {
       name: "うさこ",
-      text: "えっ、本当？ でも、カズザメひとりで大丈夫なの？",
+      text: "えっ、本当？ ",
       speaker: "usako",
       showImgId: "img-usako-shocked",
       posClass: "left-chara"
     },
     {
       name: "カズザメ",
-      text: "もちろん！ おーい、まるか！ こっちに来て、うさこの足場になってくれないか！",
+      text: "うん。まるかも呼ぶから、背中をピョンピョンって飛んでいきなよ！",
       speaker: "kazuzame",
       showImgId: "img-kazuzame-normal",
       posClass: "right-chara"
     },
     {
+      name: "カズザメ",
+      text: "おーい、まるか！ こっちに来て、うさこの足場になってくれないか！",
+      speaker: "kazuzame",
+      showImgId: "img-kazuzame-normal",
+      posClass: "center-chara"
+    },
+    {
       name: "まるか",
-      text: "はーい！ くじらのまるかだよ！ うさこ、わたしの背中も使ってね。",
+      text: "はーい！ くじらのまるかだよ！ わたしの背中もピョンピョンしていいよ！",
       speaker: "maruka",
       showImgId: "img-maruka-normal",
       posClass: "right-chara"
     },
     {
       name: "うさこ",
-      text: "ありがとう！ ふたりがいてくれたら、向こう岸まで行けるかもしれないね。",
+      text: "ありがとう！ ふたりがいてくれたら、向こう岸まで行けそう。",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "left-chara"
@@ -155,18 +163,25 @@ window.storyFlow["inaba_rabbit"] = {
       text: "うん。でも、背中から背中へ移るときは、あわてないでね。",
       speaker: "kazuzame",
       showImgId: "img-kazuzame-normal",
-      posClass: "right-chara"
+      posClass: "center-chara"
     },
     {
       name: "まるか",
-      text: "そうだ！ ひとつずつ数えながら進んだらどうかな？ 次の足場がわかりやすいよ。",
+      text: " ひとつずつ数えて進んでくれたら私たちも足場になれるよ！",
       speaker: "maruka",
       showImgId: "img-maruka-normal",
       posClass: "right-chara"
     },
     {
       name: "うさこ",
-      text: "ひとつずつ……。そっか！ 数えながら進めばいいんだね。よし、やってみる！",
+      text: "ひとつずつ……。そっか！ 数えながら進めばいいんだね。",
+      speaker: "usako",
+      showImgId: "img-usako-normal",
+      posClass: "left-chara"
+    },
+    {
+      name: "うさこ",
+      text: "よし、やってみる！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
       posClass: "left-chara",
@@ -358,14 +373,18 @@ window.storyFlow["inaba_rabbit"] = {
     },
     {
       name: "うさこ",
-      text: "ぷはっ！ びっくりした……。数え方を変えたら、足場をうまく渡れなかったよ。",
+      text: "ぷはっ！ びっくりした……。",
       speaker: "usako",
       showImgId: "img-usako-sad",
-      posClass: "gorogoro-chara"
+      posClass: "gorogoro-chara",
+      partnerAction: {
+        id: "img-maruka-normal",
+        class: "center-chara"
+      }
     },
     {
       name: "",
-      text: "エンド：数え方を途中で変えて、海に落ちてしまった。",
+      text: "（BAD END）数え方を間違えた。海に落ちてしまった。",
       speaker: "",
       showImgId: ""
     }
@@ -378,38 +397,38 @@ window.storyFlow["inaba_rabbit"] = {
   gratitude: [
     {
       name: "うさこ",
-      text: "やったー！ 向こう岸に着いたよ！ カズザメ、まるか、ふたりともありがとう！",
+      text: "やったー！ 向こう岸に着いたよ！ ",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara"
     },
     {
       name: "カズザメ",
-      text: "どういたしまして！ うさこが無事に渡れてよかったよ。",
+      text: "無事に渡れてよかったよ。",
       speaker: "kazuzame",
       showImgId: "img-kazuzame-normal",
       posClass: "left-chara"
     },
     {
       name: "まるか",
-      text: "みんなで力を合わせると、うれしい気持ちも大きくなるね！",
+      text: "みんなで力を合わせたから、楽しかった！",
       speaker: "maruka",
       showImgId: "img-maruka-normal",
-      posClass: "right-chara"
+      posClass: "center-chara"
     },
     {
       name: "うさこ",
       text: "ふたりに、なんて答えよう？",
       speaker: "usako",
-      showImgId: "img-usako-normal",
+      showImgId: "img-usako-sad",
       posClass: "right-chara",
       choices: [
         {
-          text: "助けてくれてありがとう！",
+          text: "ふたりともありがとう！",
           nextRoute: "ending_happy"
         },
         {
-          text: "お礼を言わず、そのまま行こうとする",
+          text: "島を探検してくるね！",
           nextRoute: "ending_bitten"
         }
       ]
@@ -423,30 +442,34 @@ window.storyFlow["inaba_rabbit"] = {
   ending_happy: [
     {
       name: "うさこ",
-      text: "カズザメ、まるか、助けてくれて本当にありがとう！ ふたりがいてくれたから、向こう岸まで来られたよ。",
+      text: "カズザメ、まるか、ふたりとも本当にありがとう！ ちゃんと渡れたよ！",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara"
     },
     {
       name: "カズザメ",
-      text: "どういたしまして！ ちゃんとお礼を言ってくれて、うれしいよ。",
+      text: "どういたしまして！ そう言ってくれてうれしいよ。",
       speaker: "kazuzame",
       showImgId: "img-kazuzame-normal",
       posClass: "left-chara"
     },
     {
       name: "まるか",
-      text: "みんなで力を合わせると、うれしい気持ちも大きくなるね！",
+      text: "うさこの役に立てて、うれしい気持ち！",
       speaker: "maruka",
       showImgId: "img-maruka-normal",
-      posClass: "right-chara"
+      posClass: "center-chara"
     },
     {
       name: "",
-      text: "三人は笑い合った。海には、あたたかな波の音が広がっていく。\nゴール：ありがとう、みんなハッピー！",
+      text: "（NORMAL END）海には、あたたかな波の音が広がっていきました。",
       speaker: "",
-      showImgId: ""
+      showImgId: "",
+      partnerAction: {
+        id: "img-usako-normal",
+        class: "right-chara"
+      }
     }
   ],
 
@@ -466,8 +489,8 @@ window.storyFlow["inaba_rabbit"] = {
       name: "カズザメ",
       text: "おーい！ 助けてもらったのに、お礼も言わずに行くのかい？",
       speaker: "kazuzame",
-      showImgId: "img-kazuzame2-normal",
-      posClass: "right-chara",
+      showImgId: "img-kazuzame-normal",
+      posClass: "gorogoro-chara",
       partnerAction: {
         id: "img-usako-normal",
         class: "right-chara"

@@ -42,5 +42,15 @@ export default {
       label: "Trip",
       featured: false
     },
+    {
+      id: "kokuhuku-stage",
+      title: "苦手克服集中ステージ",
+      subtitle: "みんな苦手な単元をバッチリ納得！",
+      description: "人生で１回しっかり学んだら、もう忘れない！",
+      image: "./tutorial-stage/starter/top_concept.webp",
+      url: "./kokuhuku-stage/index.html",
+      label: "KOKUHUKU",
+      featured: true
+    }
   ]
 };

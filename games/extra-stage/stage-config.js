@@ -14,7 +14,7 @@ export default {
       title: "ここは近くの神社",
       description:
         "家の近くにありました。",
-      image: "../../assets/bg/bg_image-jinja.webp",
+      image: "./jinja/top_jinja-normal.webp",
       url: "./jinja/index.html",
       open: "popup"
     },

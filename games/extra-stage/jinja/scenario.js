@@ -2,6 +2,88 @@ if (!window.storyFlow) { window.storyFlow = {}; }
 
 window.storyFlow["jinja"] = {
 
+jinja_normal: [
+  {
+    name: "",
+    text: "学校へと続く、いつもの道。",
+    speaker: "",
+    bg: "kinjo-jinja",
+    showImgId: "",
+    bgm: "jinja-icho"
+  },
+  {
+    name: "",
+    text: "タッ、タッ、タッ……",
+    speaker: "usako",
+    showImgId: "img-usako-sad",
+    posClass: "left-chara"
+  },
+  {
+    name: "",
+    text: "タッ、タッ、タッ……",
+    speaker: "usako",
+    showImgId: "img-usako-sad",
+    posClass: "center-chara"
+  },
+  {
+    name: "",
+    text: "木漏れ日が、古い石畳に揺れている。",
+    speaker: "",
+    showImgId: "",
+    posClass: ""
+  },
+  {
+    name: "",
+    text: "",
+    speaker: "usako",
+    showImgId: "img-usako-normal",
+    posClass: "right-chara"
+  },
+  {
+    name: "",
+    text: "……なんだろう。",
+    speaker: "usako",
+    showImgId: "img-usako-normal",
+    posClass: "right-chara"
+  },
+  {
+    name: "",
+    text: "風が、そっと頬をなでた。",
+    speaker: "",
+    showImgId: "",
+    posClass: ""
+  },
+  {
+    name: "",
+    text: "ずっと昔から、ここにある景色。",
+    speaker: "",
+    showImgId: "",
+    posClass: ""
+  },
+  {
+    name: "",
+    text: "そして、これからも、ここにあり続ける景色。",
+    speaker: "",
+    showImgId: "",
+    posClass: ""
+  },
+    {
+    name: "",
+    text: "うさこは振り返ることなく、駆けていった。",
+    speaker: "",
+    showImgId: "",
+    posClass: "",
+  },
+  {
+    name: "",
+    text: "タッ、タッ、タッ……",
+    speaker: "usako",
+    showImgId: "",
+    posClass: "",
+    customAction: "returnToMenuScreen"
+  }
+],
+
   jinja_opening: [
     {
       name: "",

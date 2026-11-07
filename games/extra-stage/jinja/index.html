@@ -17,8 +17,12 @@
 <div id="stage-selector" class="selector-screen" style="background-image: url('../../../assets/images/img_jinja-left.webp');">
     <div class="novel-content-wrapper">
     <div class="novel-top-title">ここは近所の神社</div>
-    <p class="novel-top-subtitle">ふと散歩して辿り着いた</p>
+    <p class="novel-top-subtitle">ふと気がつくと辿り着いた</p>
     <div class="stage-menu-list">
+        <button id="start-lesson-btn-normal" class="menu-btn active-stage">
+          <span class="moving-arrow">➔</span> 日々の景色
+        </button>
+        
         <button id="start-lesson-btn" class="menu-btn active-stage">
           <span class="moving-arrow">➔</span> 行ってみる
         </button>
@@ -67,6 +71,26 @@
     display: inline-block;
 }
 </style>
+
+<script>
+window.addEventListener('load', function() {
+    (function($) {
+    // レッスンスタートボタンの処理
+    $('#start-lesson-btn-normal').on('click', function() {
+        if (typeof startSelectedStage === "function") {
+            $('#stage-selector').hide();
+            $('#game-stage-area').show();
+            $('#game-message-window').show();
+            $('#game-control-bar').show();
+            startSelectedStage('jinja_normal', false, '', 'jinja');
+        } else {
+            alert("ゲームエンジンが読み込まれていません。");
+        }
+    });
+})(jQuery);
+
+});
+</script>
 
 <script>
 window.addEventListener('load', function() {

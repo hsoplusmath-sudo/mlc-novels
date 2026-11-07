@@ -38,7 +38,7 @@ window.MLC_GAMES = [
 
   {
     id: "money-stage",
-    number: "04",
+    number: "03",
     title: "お金って大切！",
     tag: "LIFE & MONEY",
     description: "友だちとのお金の貸し借りを、何度かの選択を通じて考えます。",
@@ -52,7 +52,7 @@ window.MLC_GAMES = [
 
   {
     id: "sine-stage",
-    number: "03",
+    number: "02",
     title: "サインってなんだ？",
     tag: "MATH DISCOVERY",
     description: "サイン・コサイン・タンジェントってなんだ？に決着をつけましょう！",
@@ -60,20 +60,6 @@ window.MLC_GAMES = [
     icon: "∠",
     iconClass: "compass",
     image: "./games/sine-stage/moon-distance/top_moon-distance.webp",
-    featured: false,
-    published: true
-  },
-
-  {
-    id: "jinja",
-    number: "02",
-    title: "近所の神社",
-    tag: "STORY ADVENTURE",
-    description: "近所の神社で出会う出来事から、自分の生き方や進み方について考える物語です。",
-    href: "./games/extra-stage/jinja/index.html",
-    icon: "⛩",
-    iconClass: "compass",
-    image: "./assets/images/img_jinja-left.webp",
     featured: false,
     published: true
   },

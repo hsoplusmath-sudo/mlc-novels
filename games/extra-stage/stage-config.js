@@ -11,7 +11,7 @@ export default {
 
     {
       id: "jinja",
-      title: "近くの神社",
+      title: "ここは近くの神社",
       description:
         "家の近くにありました。",
       image: "../../assets/bg/bg_image-jinja.webp",

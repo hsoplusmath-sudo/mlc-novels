@@ -13,7 +13,9 @@ window.storyFlow["factorization"] = {
       text: "先生、これなあに？",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      bg: "classroom",
+      bgm: "kaeru"
     },
     {
       name: "先生",
@@ -656,7 +658,9 @@ factorization_hs: [
     text: "グネグネ動くから困るよ……。大きさが変わると、長さが分からなくなっちゃう！",
     speaker: "usako",
     showImgId: "img-usako-sad",
-    posClass: "right-chara"
+    posClass: "right-chara",
+    bg: "classroom",
+    bgm: "kaeru"
   },
   {
     name: "先生",

@@ -53,6 +53,9 @@ garden-party
 
 =========背景画像=========
 
+[class-room]Canvaで作成（2026.11.8）
+[classroom]Canvaで作成（2026.11.8）
+
 [school-rouka]AdobeStock_1200505275（2026.11.4）
 小学校・中学校・高校の校舎の廊下
 作成者 buritora

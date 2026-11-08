@@ -80,6 +80,9 @@ window.BG_MASTER = [
     { id: "beach", src: "../../assets/bg/bg_romaneau-beach.webp" },
 
     // 学校
+    { id: "classroom", src: "../../assets/bg/bg_classroom.webp" },
+    { id: "class-room", src: "../../assets/bg/bg_class-room.webp" },
+
     { id: "school-sakura", src: "../../assets/bg/bg_school-sakura.webp" },
     { id: "school-rouka", src: "../../assets/bg/bg_school-rouka.webp" },
 

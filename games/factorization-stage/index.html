@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>ゲーム選択 | ますレッスン</title>
+
+  <link rel="stylesheet"
+    href="../../site-ui/stage-common/stage-detail.css">
+</head>
+
+<body data-stage-config="./stage-config.js">
+
+  <header class="site-header">
+    <a href="../../index.html" class="site-logo">ますレッスン</a>
+    <a href="../index.html">ステージ一覧へ</a>
+  </header>
+
+  <main>
+
+    <section id="stage-hero" class="stage-hero">
+      <div class="stage-hero-content">
+        <p id="stage-label"></p>
+        <h1 id="stage-title"></h1>
+        <p id="stage-description"></p>
+      </div>
+    </section>
+
+    <section class="games-container">
+
+      <div class="games-heading">
+        <h2>このステージのゲーム</h2>
+        <p>気になるゲームを選んでみよう。</p>
+      </div>
+
+      <div id="game-grid" class="game-grid"></div>
+
+    </section>
+
+  </main>
+
+  <!-- ゲームPopup -->
+
+  <div id="game-modal" class="game-modal">
+    <div class="modal-overlay" data-close></div>
+    <div class="modal-content">
+      <button class="modal-close"
+        data-close
+        aria-label="閉じる">×</button>
+      <div id="modal-body"></div>
+
+      <button id="modal-play" class="play-button">
+        ゲームを始める
+      </button>
+    </div>
+  </div>
+
+
+      <div class="games-heading">
+        <h2>感想をおしえてね！</h2>
+        <p>ゲーム作成の励みになります。</p>
+      </div>
+
+<iframe data-tally-src="https://tally.so/embed/2jXxDg?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&game_id=sine-stage" loading="lazy" width="100%" height="1617" frameborder="0" marginheight="0" marginwidth="0" title="ますレッスン｜ゲームの感想"></iframe>
+<script>var d=document,w="https://tally.so/widgets/embed.js",v=function(){"undefined"!=typeof Tally?Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])").forEach((function(e){e.src=e.dataset.tallySrc}))};if("undefined"!=typeof Tally)v();else if(d.querySelector('script[src="'+w+'"]')==null){var s=d.createElement("script");s.src=w,s.onload=v,s.onerror=v,d.body.appendChild(s);}</script>
+
+
+  <footer class="site-footer">
+    © 2026 ますレッスン教室
+  </footer>
+  <script type="module"
+    src="../../site-ui/stage-common/stage-detail.js"></script>
+
+</body>
+</html>
+
+

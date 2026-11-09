@@ -726,7 +726,7 @@ factorization_hs: [
     name: "うさこ",
     text: "名前をつけるの？",
     speaker: "usako",
-    showImgId: "img-usako-shocked",
+    showImgId: "img-usako-sad",
     posClass: "right-chara"
   },
   {
@@ -741,13 +741,6 @@ factorization_hs: [
     text: "あっ！それが「x」なんだ。",
     speaker: "usako",
     showImgId: "img-usako-epiphany",
-    posClass: "right-chara"
-  },
-  {
-    name: "うさこ",
-    text: "えっ……？",
-    speaker: "usako",
-    showImgId: "img-usako-shocked",
     posClass: "right-chara"
   },
 
@@ -849,7 +842,7 @@ factorization_hs: [
     {
       name: "",
       text: "",
-      speaker: "none",
+      speaker: "",
       popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/factorization/assets/factorization-split-34.png"
     },
     {
@@ -945,12 +938,12 @@ factorization_hs: [
     {
       name: "",
       text: "",
-      speaker: "none",
+      speaker: "",
       popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/factorization/assets/factorization-split-25.png"
     },
     {
       name: "先生",
-      text: "今度は「7x」を2xと5xに分けたんだね。",
+      text: "「7x」を2xと5xに分けたんだね。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
@@ -982,13 +975,6 @@ factorization_hs: [
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "あっ！2xと5xを合わせたら7xだから……。",
-      speaker: "usako",
-      showImgId: "img-usako-shocked",
-      posClass: "right-chara"
     },
     {
       name: "うさこ",

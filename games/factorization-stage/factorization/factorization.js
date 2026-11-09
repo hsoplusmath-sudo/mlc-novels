@@ -155,7 +155,7 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "先生",
-      text: "この四角形たちが、おっきくなってもちいさくなっても",
+      text: "この四角形たちが、おっきくなっても小さくなっても",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
@@ -235,7 +235,7 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "先生",
-      text: "この四角形たちが、おっきくなってもちいさくなっても",
+      text: "この四角形たちが、おっきくなっても小さくなっても",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
@@ -365,7 +365,7 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "先生",
-      text: "いいね！どこで分けたらいいか考えてみよう。",
+      text: "いいよ！どこで分けたらいいか考えてみよう。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
@@ -593,12 +593,12 @@ window.storyFlow["factorization"] = {
       name: "うさこ",
       text: "長さが分からなくても？",
       speaker: "usako",
-      showImgId: "img-usako-surprised",
+      showImgId: "img-usako-sad",
       posClass: "right-chara"
     },
     {
       name: "先生",
-      text: "そう。例えば、正方形の一辺がどれくらい長いのか、今は決めなくてもいいんだ。",
+      text: "そう。例えば、正方形の一辺がどれくらい長いのか、決まってなくてもいいんだ。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
@@ -655,7 +655,7 @@ window.storyFlow["factorization"] = {
 factorization_hs: [
   {
     name: "うさこ",
-    text: "グネグネ動くから困るよ……。大きさが変わると、長さが分からなくなっちゃう！",
+    text: "グネグネ動くから困ったよ……。大きさが変わると、長さが分からなくなっちゃう！",
     speaker: "usako",
     showImgId: "img-usako-sad",
     posClass: "right-chara",

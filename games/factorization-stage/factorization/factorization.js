@@ -49,6 +49,14 @@ window.storyFlow["factorization"] = {
       popupImg: "factorization-1"
     },
     {
+      name: "先生",
+      text: "黒の長方形の長さは「7」だよ！",
+      speaker: "usagi",
+      showImgId: "img-usagi-happy",
+      posClass: "left-chara",
+      popupImg: "factorization-1"
+    },
+    {
       name: "うさこ",
       text: "正方形と、横長の長方形と、あと「10」ってなんだろ？！",
       speaker: "usako",
@@ -79,7 +87,7 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "うさこ",
-      text: "ここと、ここは同じ色だからくっつけるよ！",
+      text: "ここと、２つの四角形には同じ長さの色があるからくっつけるよ！",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara",
@@ -379,7 +387,7 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "先生",
-      text: "あるんだよ！「7x」の長方形を割ってみよう！",
+      text: "あるんだよ！黒い長方形を割ってみよう！",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
@@ -393,7 +401,7 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "先生",
-      text: "いいよ！どこで分けたらいいか考えてみよう。",
+      text: "いいよ！「7」の長さをどこで分けたらいいか考えてみよう。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"

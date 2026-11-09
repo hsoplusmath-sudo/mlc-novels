@@ -1,20 +1,20 @@
 export default {
-  id: "sine-stage",
-  title: "サインってなんだ？！",
-  label: "Sine Stage",
+  id: "factorization-stage",
+  title: "因数分解ってなんだ？！",
+  label: "Factorization Stage",
   description:
-    "サイン・コサイン・タンジェントってなんだ？に決着をつけましょう！",
+    "因数分解ってなんだ？に決着をつけましょう！",
   heroImage: "../../site/top-hero.webp",
   layout: "card",
 
   games: [
     {
-      id: "circle-pi",
-      title: "πってなんだ？",
+      id: "factorization",
+      title: "因数分解ってなんだ？",
       description:
-        "正方形と円を比べながら、円周率 π が表すものを探ります。",
+        "因数分解の基本を学びましょう。",
       image: "../../assets/bg/bg_manabiya.webp",
-      url: "./circle/index.html",
+      url: "./factorization/index.html",
       open: "popup" // "popup" or "page"
     },
     {

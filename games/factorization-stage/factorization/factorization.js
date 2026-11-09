@@ -7,10 +7,16 @@ window.POPUP_MASTER = [
   { id: "factorization-4_bottom-g", src: "./imgs/factorization-4_bottom-gunegune.webp"}, 
 
   { id: "factorization-5_surround", src: "./imgs/factorization-5_surround.webp"}, 
-
   { id: "factorization-5_surround-g", src: "./imgs/factorization-5_surround-gunegune.webp"}, 
-
   { id: "factorization-5_surround-p", src: "./imgs/factorization-5_patin.webp"}, 
+
+  { id: "factorization-6-1", src: "./imgs/factorization-6-1.webp"}, 
+  { id: "factorization-6-2", src: "./imgs/factorization-6-2.webp"}, 
+  { id: "factorization-6-3", src: "./imgs/factorization-6-3.webp"}, 
+  { id: "factorization-7-1", src: "./imgs/factorization-7-1.webp"}, 
+  { id: "factorization-7-2", src: "./imgs/factorization-7-2.webp"}, 
+  { id: "factorization-7-3", src: "./imgs/factorization-7-3.webp"}, 
+  { id: "factorization-7-4", src: "./imgs/factorization-7-4.webp"}, 
 ];
 
 
@@ -87,7 +93,7 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "うさこ",
-      text: "ここと、２つの四角形には同じ長さの色があるからくっつけるよ！",
+      text: "２つの四角形には同じ長さの色があるからくっつけるよ！",
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara",
@@ -435,7 +441,8 @@ window.storyFlow["factorization"] = {
       text: "よし！3と4に分けてみよう！",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-6-1"
     },
     {
       name: "うさこ",
@@ -449,7 +456,8 @@ window.storyFlow["factorization"] = {
       text: "あれ？右下に、四角い隙間ができたよ！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-6-2"
     },
     {
       name: "先生",
@@ -463,14 +471,16 @@ window.storyFlow["factorization"] = {
       text: "えーっと……。あれ？大きさが合わないよ！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-6-3"
     },
     {
       name: "うさこ",
-      text: "隙間は、3と4の長さでできているんだね……。",
+      text: "隙間は、面積が「12」だから、「10」だと小さいね……。",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-6-3"
     },
     {
       name: "先生",
@@ -504,7 +514,8 @@ window.storyFlow["factorization"] = {
       text: "2と5に分けてみよう！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-7-1"
     },
     {
       name: "うさこ",
@@ -518,14 +529,16 @@ window.storyFlow["factorization"] = {
       text: "隙間があるね。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      popupImg: "factorization-7-2"
     },
     {
       name: "うさこ",
       text: "こっちは2と5の長さだから……。",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-7-2"
     },
     {
       name: "うさこ",
@@ -539,7 +552,8 @@ window.storyFlow["factorization"] = {
       text: "そう！ちょうど「10」と同じ面積になったね！",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      popupImg: "factorization-7-3"
     },
     {
       name: "うさこ",
@@ -560,7 +574,8 @@ window.storyFlow["factorization"] = {
       text: "わあ！大きくなったり、小さくなったりしても、ちゃんと「10」がはまってる！！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-7-4"
     },
     {
       name: "先生",
@@ -575,12 +590,7 @@ window.storyFlow["factorization"] = {
       speaker: "usako",
       showImgId: "img-usako-epiphany",
       posClass: "right-chara",
-      choices: [
-        {
-          text: "どうしてだろう？",
-          nextRoute: "factorization_discovery"
-        }
-      ]
+      nextRoute: "factorization_discovery"
     }
   ],
 
@@ -594,12 +604,12 @@ window.storyFlow["factorization"] = {
       name: "うさこ",
       text: "ねえ先生。さっきから不思議なんだけど……。",
       speaker: "usako",
-      showImgId: "img-usako-thinking",
+      showImgId: "img-usako-normal",
       posClass: "right-chara"
     },
     {
       name: "うさこ",
-      text: "正方形を小さくしても、大きくしても、ちゃんと長方形になるんだね！",
+      text: "なんで正方形を小さくしても、大きくしても、ちゃんと長方形になるの？",
       speaker: "usako",
       showImgId: "img-usako-shocked",
       posClass: "right-chara"
@@ -620,7 +630,14 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "先生",
-      text: "そのとおり！実は、今日は長さが分からなくても成り立つ関係を探していたんだよ。",
+      text: "そのとおり！",
+      speaker: "usagi",
+      showImgId: "img-usagi-epiphany",
+      posClass: "left-chara"
+    },
+    {
+      name: "先生",
+      text: "実は今日は長さが分からなくても成り立つことを探していたんだよ。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
@@ -634,7 +651,7 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "先生",
-      text: "そう。例えば、正方形の一辺がどれくらい長いのか、決まってなくてもいいんだ。",
+      text: "そう。正方形の一辺の長さが、決まってなくてもいいんだ。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
@@ -648,7 +665,7 @@ window.storyFlow["factorization"] = {
     },
     {
       name: "先生",
-      text: "うん。どんな長さだったとしても、この並べ方なら必ず長方形ができるよね。",
+      text: "うん。どんな長さでも、この並べ方なら必ず長方形ができるよね。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"

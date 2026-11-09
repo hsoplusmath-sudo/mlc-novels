@@ -1,3 +1,19 @@
+window.POPUP_MASTER = [
+  { id: "factorization-1", src: "./imgs/factorization-1.webp"}, 
+  { id: "factorization-2", src: "./imgs/factorization-2.webp"}, 
+  { id: "factorization-3_left", src: "./imgs/factorization-3_left.webp"}, 
+  { id: "factorization-3_left-g", src: "./imgs/factorization-3_left-gunegune.webp"}, 
+  { id: "factorization-4_bottom", src: "./imgs/factorization-4_bottom.webp"}, 
+  { id: "factorization-4_bottom-g", src: "./imgs/factorization-4_bottom-gunegune.webp"}, 
+
+  { id: "factorization-5_surround", src: "./imgs/factorization-5_surround.webp"}, 
+
+  { id: "factorization-5_surround-g", src: "./imgs/factorization-5_surround-gunegune.webp"}, 
+
+  { id: "factorization-5_surround-p", src: "./imgs/factorization-5_patin.webp"}, 
+];
+
+
 if (!window.storyFlow) { window.storyFlow = {}; }
 
 window.storyFlow["factorization"] = {
@@ -29,7 +45,8 @@ window.storyFlow["factorization"] = {
       text: "ここに3つの面積があるんだ。<br>同じ色の長さは一緒だよ！",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      popupImg: "factorization-1"
     },
     {
       name: "うさこ",
@@ -43,7 +60,8 @@ window.storyFlow["factorization"] = {
       text: "［課題］この3つを全部使って、ひとつの大きな長方形を作ること。",
       speaker: "",
       showImgId: "",
-      posClass: ""
+      posClass: "",
+      popupImg: "factorization-1"
     },
     {
       name: "うさこ",
@@ -64,7 +82,8 @@ window.storyFlow["factorization"] = {
       text: "ここと、ここは同じ色だからくっつけるよ！",
       speaker: "usako",
       showImgId: "img-usako-normal",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-2"
     },
     {
       name: "先生",
@@ -116,7 +135,8 @@ window.storyFlow["factorization"] = {
       text: "ほら、こんな風に置いたら、ひとつの長方形だよ！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-3_left"
     },
     {
       name: "先生",
@@ -137,14 +157,16 @@ window.storyFlow["factorization"] = {
       text: "おっきくなった！！あれ？さっきと同じ形の四角形じゃ、うまく合わないよ！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-3_left-g"
     },
     {
       name: "うさこ",
       text: "私の長方形があーー。うまく合わなくなった！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-3_left-g"
     },
     {
       name: "先生",
@@ -196,7 +218,8 @@ window.storyFlow["factorization"] = {
       text: "ほら、こんな風に置いたら、ひとつの長方形だよ！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-4_bottom"
     },
     {
       name: "先生",
@@ -217,14 +240,16 @@ window.storyFlow["factorization"] = {
       text: "おっきくなった！！あれ？さっきと同じ形の四角形じゃ、うまく合わないよ！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-4_bottom-g"
     },
     {
       name: "うさこ",
       text: "私の長方形があーー。うまく合わなくなった！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-4_bottom-g"
     },
     {
       name: "先生",
@@ -276,7 +301,8 @@ window.storyFlow["factorization"] = {
       text: "できたーー！！ほら、きれいな長方形になったよ！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-5_surround"
     },
     {
       name: "先生",
@@ -297,14 +323,16 @@ window.storyFlow["factorization"] = {
       text: "あれ？…………、あぶない……！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "factorization-5_surround-g"
     },
     {
       name: "",
       text: "パチン！！",
       speaker: "",
       showImgId: "",
-      posClass: ""
+      posClass: "",
+      popupImg: "factorization-5_surround-p"
     },
     {
       name: "うさこ",

@@ -17,6 +17,21 @@ window.POPUP_MASTER = [
   { id: "factorization-7-2", src: "./imgs/factorization-7-2.webp"}, 
   { id: "factorization-7-3", src: "./imgs/factorization-7-3.webp"}, 
   { id: "factorization-7-4", src: "./imgs/factorization-7-4.webp"}, 
+
+  { id: "factorization-x-1", src: "./imgs/factorization-x-1.webp" },
+  { id: "factorization-x-2-area", src: "./imgs/factorization-x-2-area.webp" },
+
+  { id: "factorization-x-6-1", src: "./imgs/factorization-x-6-1.webp" },
+  { id: "factorization-x-6-2", src: "./imgs/factorization-x-6-2.webp" },
+  { id: "factorization-x-6-3", src: "./imgs/factorization-x-6-3.webp" },
+
+  { id: "factorization-x-7-1", src: "./imgs/factorization-x-7-1.webp" },
+  { id: "factorization-x-7-2", src: "./imgs/factorization-x-7-2.webp" },
+  { id: "factorization-x-7-3", src: "./imgs/factorization-x-7-3.webp" },
+  { id: "factorization-x-7-4", src: "./imgs/factorization-x-7-4.webp" },
+  { id: "factorization-x-7-5", src: "./imgs/factorization-x-7-5.webp" },
+  { id: "factorization-x-7-6", src: "./imgs/factorization-x-7-6.webp" },
+  { id: "factorization-x-7-7", src: "./imgs/factorization-x-7-7.webp" }
 ];
 
 
@@ -702,9 +717,7 @@ window.storyFlow["factorization"] = {
 
 
 
-  /* =========================================
-     文字と式の導入
-  ========================================= */
+
 factorization_hs: [
   {
     name: "うさこ",
@@ -726,7 +739,7 @@ factorization_hs: [
     name: "うさこ",
     text: "名前をつけるの？",
     speaker: "usako",
-    showImgId: "img-usako-shocked",
+    showImgId: "img-usako-sad",
     posClass: "right-chara"
   },
   {
@@ -743,17 +756,6 @@ factorization_hs: [
     showImgId: "img-usako-epiphany",
     posClass: "right-chara"
   },
-  {
-    name: "うさこ",
-    text: "えっ……？",
-    speaker: "usako",
-    showImgId: "img-usako-shocked",
-    posClass: "right-chara"
-  },
-
-  /* =========================================
-     式に整理する
-  ========================================= */
 
   {
     name: "先生",
@@ -763,17 +765,12 @@ factorization_hs: [
     posClass: "left-chara"
   },
   {
-    name: "",
-    text: "",
-    speaker: "none",
-    popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/factorization/assets/factorization-formula.png"
-  },
-  {
     name: "先生",
     text: "正方形の面積は「x²」、長方形の面積は「7x」、最後の四角形は「10」だね。",
     speaker: "usagi",
     showImgId: "img-usagi-happy",
-    posClass: "left-chara"
+    posClass: "left-chara",
+    popupImg: "factorization-x-2-area"
   },
   {
     name: "先生",
@@ -786,7 +783,7 @@ factorization_hs: [
     name: "うさこ",
     text: "じゃあ、全部の面積を合わせると……？",
     speaker: "usako",
-    showImgId: "img-usako-thinking",
+    showImgId: "img-usako-sad",
     posClass: "right-chara"
   },
   {
@@ -794,7 +791,8 @@ factorization_hs: [
     text: "そう。全部の面積は「x² + 7x + 10」だね。",
     speaker: "usagi",
     showImgId: "img-usagi-happy",
-    posClass: "left-chara"
+    posClass: "left-chara",
+    popupImg: "factorization-x-2-area"
   },
   {
     name: "先生",
@@ -803,11 +801,6 @@ factorization_hs: [
     showImgId: "img-usagi-happy",
     posClass: "left-chara"
   },
-
-  /* =========================================
-     最初の発見に戻る
-  ========================================= */
-
   {
     name: "先生",
     text: "ところで、はじめはどうやって長方形を作ろうとしたんだっけ？",
@@ -824,227 +817,310 @@ factorization_hs: [
         nextRoute: "factorization_review_25"
       }
     ]
-  },
+  }
 ],
 
-  /* =========================================
-     式で振り返る：3と4
-  ========================================= */
 
-  factorization_review_34: [
-    {
-      name: "うさこ",
-      text: "そうそう！3と4に分けたんだった！",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "じゃあ、あのときの図をもう一度見てみよう。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "",
-      text: "",
-      speaker: "none",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/factorization/assets/factorization-split-34.png"
-    },
-    {
-      name: "先生",
-      text: "「7x」を3xと4xに分けたんだね。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "そうだよ！3xと4xを合わせたら7xになるもんね！",
-      speaker: "usako",
-      showImgId: "img-usako-happy",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "それじゃあ、図のそれぞれの面積を式にしてみよう。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "先生",
-      text: "正方形はx²、横の長方形は3x、縦の長方形は4xだね。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "それから、隙間は3×4だから……12だ！",
-      speaker: "usako",
-      showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "全部を合わせると、x² + 3x + 4x + 12 になるね。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "あれ？最後の四角形は「10」だったよね？",
-      speaker: "usako",
-      showImgId: "img-usako-shocked",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "そう。12と10では、面積が違うね。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "だから、うまくはまらなかったんだ！",
-      speaker: "usako",
-      showImgId: "img-usako-epiphany",
-      posClass: "right-chara",
-      choices: [
-        {
-          text: "2と5の場合も見てみる",
-          nextRoute: "factorization_review_25"
-        }
-      ]
-    }
-  ],
-  
-  /* =========================================
-     式で振り返る：2と5
-  ========================================= */
+factorization_review_34: [
+  {
+    name: "うさこ",
+    text: "そうそう！3と4に分けたんだった！",
+    speaker: "usako",
+    showImgId: "img-usako-normal",
+    posClass: "right-chara"
+  },
+  {
+    name: "先生",
+    text: "じゃあ、あのときの図をもう一度見てみよう。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara"
+  },
+  {
+    name: "先生",
+    text: "「7x」を4xと3xに分けたんだね。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara",
+    popupImg: "factorization-x-6-1"
+  },
+  {
+    name: "うさこ",
+    text: "そうだよ！4xと3xを合わせたら7xになるもんね！",
+    speaker: "usako",
+    showImgId: "img-usako-normal",
+    posClass: "right-chara"
+  },
+  {
+    name: "先生",
+    text: "それじゃあ、図をくっつけてみよう。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara"
+  },
+  {
+    name: "先生",
+    text: "正方形はx²、横の長方形は4x、下の長方形は3xだね。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara",
+    popupImg: "factorization-x-6-2"
+  },
+  {
+    name: "うさこ",
+    text: "それから、隙間は4×3だから……12だ！",
+    speaker: "usako",
+    showImgId: "img-usako-epiphany",
+    posClass: "right-chara"
+  },
+  {
+    name: "先生",
+    text: "全部を合わせると、x² + 3x + 4x + 12 になるね。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara"
+  },
+  {
+    name: "うさこ",
+    text: "あれ？最後の四角形は「10」だったよね？",
+    speaker: "usako",
+    showImgId: "img-usako-shocked",
+    posClass: "right-chara",
+    popupImg: "factorization-x-6-3"
+  },
+  {
+    name: "先生",
+    text: "そう。12と10では、面積が違うね。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara"
+  },
+  {
+    name: "うさこ",
+    text: "だから、うまくはまらなかったんだ！",
+    speaker: "usako",
+    showImgId: "img-usako-epiphany",
+    posClass: "right-chara",
+    choices: [
+      {
+        text: "2と5の場合も見てみる",
+        nextRoute: "factorization_review_25"
+      }
+    ]
+  }
+],
 
-  factorization_review_25: [
-    {
-      name: "うさこ",
-      text: "じゃあ、2と5に分けたときはどうなるんだろう？",
-      speaker: "usako",
-      showImgId: "img-usako-thinking",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "同じように、図を見ながら考えてみよう。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "",
-      text: "",
-      speaker: "none",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/factorization/assets/factorization-split-25.png"
-    },
-    {
-      name: "先生",
-      text: "今度は「7x」を2xと5xに分けたんだね。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "うん！2xと5xを合わせたら7xになるよ！",
-      speaker: "usako",
-      showImgId: "img-usako-happy",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "じゃあ、隙間の面積はどうなるかな？",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "2×5だから……10だ！！",
-      speaker: "usako",
-      showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "そう！全部の面積を式にすると、x² + 2x + 5x + 10 になるね。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "あっ！2xと5xを合わせたら7xだから……。",
-      speaker: "usako",
-      showImgId: "img-usako-shocked",
-      posClass: "right-chara"
-    },
-    {
-      name: "うさこ",
-      text: "x² + 7x + 10！最初の式と同じになったよ！",
-      speaker: "usako",
-      showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "そのとおり。だから、2と5に分けたときは、ぴったり長方形になったんだね。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "なるほど！式で考えると、どうしてうまくいったのか分かるね！",
-      speaker: "usako",
-      showImgId: "img-usako-happy",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "そして、この式はこんなふうにも書けるよ。",
-      speaker: "usagi",
-      showImgId: "img-usagi-epiphany",
-      posClass: "center-chara"
-    },
-    {
-      name: "",
-      text: "",
-      speaker: "none",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/factorization/assets/factorization-factorized.png"
-    },
-    {
-      name: "うさこ",
-      text: "えっ！さっきの長方形の形が、そのまま式になっているんだ！",
-      speaker: "usako",
-      showImgId: "img-usako-shocked",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "そう。こうして、ひとつの式をいくつかの式の積に表すことを「因数分解」というんだよ。",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "図で見つけたことが、数学の式につながったんだね！",
-      speaker: "usako",
-      showImgId: "img-usako-happy",
-      posClass: "right-chara",
-      customAction: "returnToMenuScreen"
-    }
-  ],
+factorization_review_25: [
+  {
+    name: "うさこ",
+    text: "2と5に分けたときはどうなるんだろう？",
+    speaker: "usako",
+    showImgId: "img-usako-sad",
+    posClass: "right-chara"
+  },
+  {
+    name: "先生",
+    text: "図を見ながら考えてみよう。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara"
+  },
+  {
+    name: "先生",
+    text: "「7x」を5xと2xに分けたんだね。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara",
+    popupImg: "factorization-x-7-1"
+  },
+  {
+    name: "うさこ",
+    text: "うん！5xと2xを合わせたら7xになるよ！",
+    speaker: "usako",
+    showImgId: "img-usako-normal",
+    posClass: "right-chara"
+  },
+  {
+    name: "先生",
+    text: "隙間があるね。ここの面積はどうなるかな？",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara",
+    popupImg: "factorization-x-7-2"
+  },
+  {
+    name: "うさこ",
+    text: "2×5だから……10だ！！",
+    speaker: "usako",
+    showImgId: "img-usako-epiphany",
+    posClass: "right-chara"
+  },
+  {
+    name: "うさこ",
+    text: "ピッタリ！！",
+    speaker: "usako",
+    showImgId: "img-usako-epiphany",
+    posClass: "right-chara",
+    popupImg: "factorization-x-7-3"
+  },
+  {
+    name: "先生",
+    text: "そう！ちょうど「10」と同じ面積になったね！",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara"
+  },
+
+  {
+    name: "うさこ",
+    text: "やったー！ぴったりはまったよ！！",
+    speaker: "usako",
+    showImgId: "img-usako-epiphany",
+    posClass: "right-chara"
+  },
+  {
+    name: "",
+    text: "グネグネ",
+    speaker: "",
+    showImgId: "",
+    posClass: ""
+  },
+  {
+    name: "うさこ",
+    text: "わあ！大きくなったり、小さくなったりしても、ちゃんと「10」がはまってる！！",
+    speaker: "usako",
+    showImgId: "img-usako-shocked",
+    posClass: "right-chara",
+    popupImg: "factorization-x-7-5"
+  },
+  {
+    name: "先生",
+    text: "横は「x」と「5」を合わせた長さで、さっきと一緒だね。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara",
+    popupImg: "factorization-x-7-3"
+  },
+  {
+    name: "先生",
+    text: "縦も「x」と「2」を合わせた長さで、さっきと同じだね。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara",
+    popupImg: "factorization-x-7-3"
+  },
+  {
+    name: "うさこ",
+    text: "x がグネグネしても、へっちゃら！",
+    speaker: "usako",
+    showImgId: "img-usako-normal",
+    posClass: "right-chara"
+  },
+  {
+    name: "先生",
+    text: "さいごに全体の面積を見てみるよ。<br>x²、5x、2x、そして10だね。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara",
+    popupImg: "factorization-x-7-5"
+  },
+  {
+    name: "うさこ",
+    text: "ん、むむむ……。",
+    speaker: "usako",
+    showImgId: "img-usako-sad",
+    posClass: "right-chara"
+  },
+  {
+    name: "先生",
+    text: "長方形全体の面積は、どうやって求めるんだっけ？",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara"
+  },
+  {
+    name: "うさこ",
+    text: "縦と横の長さを「かけ算するだけ」！",
+    speaker: "usako",
+    showImgId: "img-usako-epiphany",
+    posClass: "right-chara"
+  },
+  {
+    name: "うさこ",
+    text: "縦が「x+2」、横が「x+5」だから……。",
+    speaker: "usako",
+    showImgId: "img-usako-sad",
+    posClass: "right-chara",
+    popupImg: "factorization-x-7-6"
+  },
+  {
+    name: "うさこ",
+    text: "面積は「(x+2)(x+5)」だ！",
+    speaker: "usako",
+    showImgId: "img-usako-epiphany",
+    posClass: "right-chara",
+    popupImg: "factorization-x-7-7"
+  },
+  {
+    name: "先生",
+    text: "そのとおり。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara"
+  },
+  {
+    name: "うさこ",
+    text: "うわー！なんか違う式が出てきた！ややこしい。",
+    speaker: "usako",
+    showImgId: "img-usako-shocked",
+    posClass: "right-chara",
+    bgm: "namida"
+  },
+  {
+    name: "先生",
+    text: "x² + 7x + 10 を (x+2)(x+5) のようにかけ算の形にすることが「因数分解」なんだ。",
+    speaker: "usagi",
+    showImgId: "img-usagi-happy",
+    posClass: "left-chara",
+    popupImg: "factorization-x-7-7"
+  },
+  {
+    name: "うさこ",
+    text: "それ、学校の先生が言ってた。",
+    speaker: "usako",
+    showImgId: "img-usako-shocked",
+    posClass: "right-chara"
+  },
+  {
+    name: "うさこ",
+    text: "x² + 7x + 10 を (x+2)(x+5) に変形すること……。",
+    speaker: "usako",
+    showImgId: "img-usako-sad",
+    posClass: "right-chara"
+  },
+  {
+    name: "うさこ",
+    text: "x がグネグネ変わっても成り立つ式を作ること……。",
+    speaker: "usako",
+    showImgId: "img-usako-sad",
+    posClass: "right-chara"
+  },
+  {
+    name: "うさこ",
+    text: "たくさんの四角形の面積が、「かけ算するだけ」……。",
+    speaker: "usako",
+    showImgId: "img-usako-sad",
+    posClass: "right-chara"
+  },
+  {
+    name: "うさこ",
+    text: "なんだか、因数分解が分かった気がする！",
+    speaker: "usako",
+    showImgId: "img-usako-epiphany",
+    posClass: "right-chara",
+    customAction: "returnToMenuScreen"
+  }
+],
+
+
 };

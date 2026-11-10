@@ -47,7 +47,7 @@ export default {
       subtitle: "みんな苦手な単元をバッチリ納得！",
       description: "人生で１回しっかり学んだら、もう忘れない！",
       image: "./tutorial-stage/starter/top_concept.webp",
-      url: "./course/kouhuku/index.html",
+      url: "./course/kokuhuku/index.html",
       label: "KOKUHUKU",
       featured: true
     }

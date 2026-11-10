@@ -1,15 +1,4 @@
-export default
-
-    {
-      id: "factorization",
-      title: "因数分解ってなに？",
-      description:
-        "因数分解のイメージと、意味をバッチリ理解しました！",
-      image: "./moon-distance/top_moon-distance.webp",
-      url: "../factorization-stage/factorization/index.html",
-      open: "popup"
-    },
- {
+export default {
   id: "sine-stage",
   title: "サインってなんだ？！",
   label: "Sine Stage",
@@ -19,6 +8,15 @@ export default
   layout: "card",
 
   games: [
+    {
+      id: "",
+      title: "因数分解ってなに？",
+      description:
+        "因数分解のイメージと、意味をバッチリ理解しました！",
+      image: "./moon-distance/top_moon-distance.webp",
+      url: "../factorization-stage/factorization/index.html",
+      open: "popup"
+    },
     {
       id: "circle-pi",
       title: "πってなんだ？",

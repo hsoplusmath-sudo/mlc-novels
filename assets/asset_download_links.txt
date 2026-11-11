@@ -44,9 +44,19 @@ OpenTracks（旧DOVA-SYNDROME）の 音源利用ライセンス に準拠しま�
 この作曲者の素材利用条件：OpenTracks（旧DOVA-SYNDROME）の 音源利用ライセンス に準拠します。
 https://opentracks.com/help/articles/license/
 
+[kaeru-piano]かえるのピアノ(こおろぎ)
+DL:41-019
+https://opentracks.com/bgm/detail/568
+特殊な場合を除き、使用の可否についてのご連絡は返信いたしません。利用規約を読み、各自ご判断ください。
+
+[namidanokessyo]
+涙の結晶：BGMer (https://bgmer.net)
+https://bgmer.net/music/352/
+商用利用OK
+YouTube収益化OK
+クレジット表記任意
+
 escort
-kaeru-piano
-namidanokessyo
 shizukana-tikurin
 garden-party
 

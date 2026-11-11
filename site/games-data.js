@@ -38,7 +38,7 @@ window.MLC_GAMES = [
 
   {
     id: "money-stage",
-    number: "03",
+    number: "04",
     title: "お金って大切！",
     tag: "LIFE & MONEY",
     description: "友だちとのお金の貸し借りを、何度かの選択を通じて考えます。",
@@ -52,7 +52,7 @@ window.MLC_GAMES = [
 
   {
     id: "sine-stage",
-    number: "02",
+    number: "03",
     title: "サインってなんだ？",
     tag: "MATH DISCOVERY",
     description: "サイン・コサイン・タンジェントってなんだ？に決着をつけましょう！",
@@ -63,6 +63,20 @@ window.MLC_GAMES = [
     featured: false,
     published: true
   },
+
+    {
+      id: "kokuhuku-stage",
+      number: "02",
+      title: "苦手克服集中ステージ",
+      tag: "NIGATE KOKUHUKU",
+      description: "人生で１回しっかり学んだら、もう忘れない！",
+      href: "./games/course/kokuhuku/index.html",
+      icon: "🖋",
+      iconClass: "pencil",
+      image: "./games/factorization-stage/factorization/top_factorization-image.webp",
+      featured: false,
+      published: true
+    },
 
     {
     id: "extra-stage",

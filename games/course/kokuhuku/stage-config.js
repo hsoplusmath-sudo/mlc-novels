@@ -22,8 +22,8 @@ export default {
       title: "サインってなんだ？",
       description:
         "三角関数の基本であるサインを学びましょう。",
-      image: "../../circle/top_circle-sine.webp",
-      url: "../../circle/index.html",
+      image: "../../sine-stage/circle/top_circle-sine.webp",
+      url: "../../sine-stage/circle/index.html",
       open: "popup"
     },
     {
@@ -31,9 +31,9 @@ export default {
       title: "πってなんだ？",
       description:
         "正方形と円を比べながら、円周率 π が表すものを探ります。",
-      image: "../../assets/bg/bg_manabiya.webp",
-      url: "../../circle/index.html",
-      open: "popup" // "popup" or "page"
+      image: "../../sine-stage/circle/top_circle-sine.webp",
+      url: "../../sine-stage/circle/index.html",
+      open: "popup"
     }
   ]
 

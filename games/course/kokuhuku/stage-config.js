@@ -13,7 +13,7 @@ export default {
       title: "因数分解ってなに？",
       description:
         "因数分解のイメージと、意味をバッチリ理解しました！",
-      image: "../../factorization-stage/factorization/top_factorization-image.webp",
+      image: "../../factorization-stage/factorization/top_factorization-rikai.webp",
       url: "../../factorization-stage/factorization/index.html",
       open: "popup"
     },

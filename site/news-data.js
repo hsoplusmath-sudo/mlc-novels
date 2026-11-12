@@ -7,6 +7,14 @@
  */
 window.MLC_NEWS = [
   {
+    id: "release-factorization",
+    date: "2026-11-12",
+    title: "「因数分解ってなに？」を追加しました",
+    description: "因数分解のイメージと、意味をバッチリ理解します！",
+    href: "../games/factorization-stage/factorization/index.html",
+    published: true
+  },
+  {
     id: "release-kakeibo",
     date: "2026-10-29",
     title: "「家計簿つくるぞ！」を追加しました",

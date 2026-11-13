@@ -237,7 +237,7 @@ sin_30:[
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara",
-      popupImg: "circle^sine_5"
+      popupImg: "circle-sine_5"
       },
     {
       name: "うさこ",

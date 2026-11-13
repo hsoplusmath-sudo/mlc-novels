@@ -10,7 +10,7 @@ window.storyFlow["circle-sine"] = {
   msg_welcome: [
     {
       name: "先生",
-      text: "四角と円の左側に、「ピッ」て線を引くね！",
+      text: "円があるね。ザクッと切ってみよう！",
       speaker: "usagi",
       bg: "manabiya",
       showImgId: "img-usagi-happy",
@@ -18,16 +18,16 @@ window.storyFlow["circle-sine"] = {
       bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/manabisya-hukei.mp3"
     },
     {
-      name: "確認",
-      text: "円は直径が「1」、正方形は辺の長さが「1」でした。",
-      speaker: "none",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_circle-and-square.png"
-    },    
-    {
       name: "",
-      text: "ピッ",
+      text: "ザクッ",
       speaker: "none",
       popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chords.png"
+    },    
+    {
+      name: "確認",
+      text: "この円は直径が「1」、正方形は辺の長さが「1」でした。",
+      speaker: "none",
+      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_circle-and-square.png"
     },    
     {
       name: "うさこ",

@@ -1,6 +1,15 @@
-if (!window.storyFlow) {
-  window.storyFlow = {};
-}
+window.POPUP_MASTER = [
+  { id: "circle-sine_1", src: "./imgs/circle-sine_1.webp"}, 
+  { id: "circle-sine_2", src: "./imgs/circle-sine_2.webp"}, 
+  { id: "circle-sine_3", src: "./imgs/circle-sine_3.webp"}, 
+  { id: "circle-sine_4", src: "./imgs/circle-sine_4.webp"}, 
+  { id: "circle-sine_5", src: "./imgs/circle-sine_5.webp"}, 
+  { id: "circle-sine_6", src: "./imgs/circle-sine_6.webp"}, 
+  { id: "circle-sine_7-cos", src: "./imgs/circle-sine_7-cos.webp"}
+
+];
+
+if (!window.storyFlow) {  window.storyFlow = {}; }
 
 window.storyFlow["circle-sine"] = {
 
@@ -10,24 +19,18 @@ window.storyFlow["circle-sine"] = {
   msg_welcome: [
     {
       name: "先生",
-      text: "円があるね。ザクッと切ってみよう！",
+      text: "ここに円があるね。ザクッと切ってみよう！",
       speaker: "usagi",
-      bg: "manabiya",
+      bg: "classroom",
       showImgId: "img-usagi-happy",
       posClass: "center-chara",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/manabisya-hukei.mp3"
+      bgm: "kaeru"
     },
     {
       name: "",
       text: "ザクッ",
       speaker: "none",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chords.png"
-    },    
-    {
-      name: "確認",
-      text: "この円は直径が「1」、正方形は辺の長さが「1」でした。",
-      speaker: "none",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_circle-and-square.png"
+      popupImg: "circle-sine_1"
     },    
     {
       name: "うさこ",
@@ -37,32 +40,16 @@ window.storyFlow["circle-sine"] = {
       posClass: "right-chara"
     },
     {
-      name: "先生",
-      text: "オレンジの線は、どれくらい長さ、違うかな？",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
+      name: "",
+      text: "［課題］この円は直径が「1」です。オレンジの線の長さはどれくらいでしょうか？",
+      speaker: "none",
+      popupImg: "circle-sine_1"
     },
     {
       name: "うさこ",
       text: "ぅうう",
       speaker: "usako",
       showImgId: "img-usako-sad",
-      posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chords.png"
-    },
-    {
-      name: "先生",
-      text: "正方形の方は長さは「1」だね",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "うさこ",
-      text: "円の方は全然わからない",
-      speaker: "usako",
-      showImgId: "img-usako-shocked",
       posClass: "right-chara"
     },
     {
@@ -77,8 +64,7 @@ window.storyFlow["circle-sine"] = {
       text: "なまえ？？？「弦」じゃないの？",
       speaker: "usako",
       showImgId: "img-usako-sad",
-      posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord.png"
+      posClass: "right-chara"
     },
     {
       name: "先生",
@@ -92,19 +78,14 @@ window.storyFlow["circle-sine"] = {
       text: "名前を付ける前に、「弦」から円の反対側まで線を引いてみよう。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      popupImg: "circle-sine_1"
     },
     {
       name: "",
-      text: "",
+      text: "ピッ、ピッ。ピッ。",
       speaker: "",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord.png"
-    },
-    {
-      name: "",
-      text: "ピッ、ピッ。",
-      speaker: "",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord-sine.png"
+      popupImg: "circle-sine_2"
     },
     {
       name: "うさこ",
@@ -112,20 +93,15 @@ window.storyFlow["circle-sine"] = {
       speaker: "usako",
       showImgId: "img-usako-normal",
       posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord-sine.png"
+      popupImg: "circle-sine_2"
     },
     {
       name: "先生",
       text: "この角度が30度だったとしよっか",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "left-chara"
-    },
-    {
-      name: "",
-      text: "",
-      speaker: "",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord-sine-30.png"
+      posClass: "left-chara",
+      popupImg: "circle-sine_3"
     },
     {
       name: "先生",
@@ -133,7 +109,7 @@ window.storyFlow["circle-sine"] = {
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord-sine-30.png"
+      popupImg: "circle-sine_3"
     },
     {
       name: "うさこ",
@@ -153,9 +129,9 @@ window.storyFlow["circle-sine"] = {
       name: "先生",
       text: "名前はね、これが「sin30°」なんだ！",
       speaker: "usagi",
-      showImgId: "img-usagi-happy",
+      showImgId: "img-usagi-epiphany",
       posClass: "left-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord-sine-30.png"
+      popupImg: "circle-sine_3"
     },
     {
       name: "うさこ",
@@ -177,15 +153,14 @@ window.storyFlow["circle-sine"] = {
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord-sines.png"
+      popupImg: "circle-sine_4"
     },
     {
       name: "うさこ",
       text: "ほぇー。向こう側が30度の弦の長さが「サイン」なんだ！！",
       speaker: "usako",
       showImgId: "img-usako-shocked",
-      posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord-sines.png"
+      posClass: "right-chara" 
     },
     {
       name: "先生",
@@ -194,11 +169,43 @@ window.storyFlow["circle-sine"] = {
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
     },
+
+    {
+      name: "先生",
+      text: "ところで、どこに三角形を作ってもよかったよね。",
+      speaker: "usagi",
+      showImgId: "img-usagi-happy",
+      posClass: "left-chara",
+      popupImg: "circle-sine_4"
+    },
+    {
+      name: "先生",
+      text: "だから、こんな特別な三角形を考えてみて！",
+      speaker: "usagi",
+      showImgId: "img-usagi-happy",
+      posClass: "left-chara",
+      popupImg: "circle-sine_5"
+    },
     {
       name: "うさこ",
       text: "わくわく！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
+      posClass: "right-chara" 
+    },
+    {
+      name: "先生",
+      text: "これで分かることがあるんだよ！",
+      speaker: "usagi",
+      showImgId: "img-usagi-happy",
+      posClass: "left-chara",
+      popupImg: "circle-sine_4"
+    },
+    {
+      name: "うさこ",
+      text: "なになに？",
+      speaker: "usako",
+      showImgId: "img-usako-normal",
       posClass: "center-chara",
       choices: [
         { text: "sin30°の長さを求める！", nextRoute: "sin_30" },
@@ -207,13 +214,15 @@ window.storyFlow["circle-sine"] = {
     }
   ],
 
+
 sin_30:[
 {
       name: "先生",
-      text: "で、この弦の長さをもとめよっか",
+      text: "この弦の長さをもとめよっか",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      popupImg: "circle-sine_5"
  },
     {
       name: "うさこ",
@@ -224,23 +233,12 @@ sin_30:[
     },
     {
       name: "先生",
-      text: "どこに三角形を作ってもよかったことを利用して、この三角形に注目してみるよ！直径を使うんだよ！。",
+      text: "この特別な三角形には「直径」があるね！。",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
-      posClass: "left-chara"
+      posClass: "left-chara",
+      popupImg: "circle^sine_5"
       },
-    {
-      name: "",
-      text: "",
-      speaker: "",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_chord-sines.png"
-    },
-    {
-      name: "",
-      text: "シュッ",
-      speaker: "",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_circle-sine-30.png"
-    },
     {
       name: "うさこ",
       text: "ふむふむ、なにか分かりそう",
@@ -254,15 +252,23 @@ sin_30:[
       speaker: "usako",
       showImgId: "img-usako-epiphany",
       posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_circle-sine-30.png"
+      popupImg: "circle-sine_5"
     },
     {
       name: "うさこ",
-      text: "こうやれば全部の辺の長さが「1」の正三角形ができて、弦の長さは「1」の半分だから「0.5」だね！",
+      text: "こうやれば全部の辺の長さが「1」の正三角形ができて、",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
       posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_sin-equilateral-triangle.png"
+      popupImg: "circle-sine_6"
+    },
+    {
+      name: "うさこ",
+      text: "弦の長さは「1」の半分だから「0.5」だね！",
+      speaker: "usako",
+      showImgId: "img-usako-epiphany",
+      posClass: "right-chara",
+      popupImg: "circle-sine_6"
     },
     {
       name: "先生",
@@ -276,7 +282,8 @@ sin_30:[
       text: "ほい",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      bgm: "namida"
     },
     {
       name: "うさこ",
@@ -342,15 +349,11 @@ sin_30:[
       posClass: "left-chara"
     },
     {
-      name: "先生",
-      text: "何を考えているの？？",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara",
-      choices: [
-        { text: "学校で習ったことと、なんか違う", nextRoute: "school_sine" },
-        { text: "なんか、すごいサインの定理みたいなのないの？", nextRoute: "sine_law" }
-      ]
+      name: "うさこ",
+      text: "わぁあ！",
+      speaker: "usako",
+      showImgId: "img-usako-epiphany",
+      posClass: "right-chara"
     }
   ],
 
@@ -365,7 +368,7 @@ sin_30:[
       speaker: "usako",
       showImgId: "img-usako-shocked",
       posClass: "right-chara",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3"
+      bgm: "kaeru"
     },
     {
       name: "先生",
@@ -376,38 +379,23 @@ sin_30:[
     },
     {
       name: "先生",
-      text: "直径で作った三角形を使えば、30度の向かい側の弦の長さを計算できたよね。",
+      text: "この三角形って、「直径」と「sin30°の長さの弦」ともう一本あるよね",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_circle-sine-30.png"
+      popupImg: "circle-sine_5"
     },
     {
       name: "うさこ",
-      text: "うん。あれがsin30°＝0.5。",
-      speaker: "usako",
-      showImgId: "img-usako-normal",
-      posClass: "right-chara"
-    },
-    {
-      name: "先生",
-      text: "直径と弦以外に、",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_circle-sine-30.png"
-    },
-    {
-      name: "うさこ",
-      text: "「もう一本、線があるよね。それがコサインなんだよ。」",
+      text: "だよね！もう一本の線がコサインなんだよね？",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
       posClass: "right-chara",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_circle-cosine-30.png"
+      popupImg: "circle-sine_7-cos"
     },
     {
       name: "先生",
-      text: "あっ。",
+      text: "そうだよ！",
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara"
@@ -421,10 +409,12 @@ sin_30:[
     },
     {
       name: "うさこ",
-      text: "三平方の定理使えば、ここの長さ、√3 / 2 って分かるよ！",
+      text: "三平方の定理を使えば、ここの長さ、√3 / 2 って分かるよ！",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "circle-sine_7-cos",
+      bgm: "fraita"
     },
     {
       name: "先生",
@@ -438,7 +428,8 @@ sin_30:[
       text: "つまり、cos30° = √3 / 2 ってこと？？",
       speaker: "usako",
       showImgId: "img-usako-epiphany",
-      posClass: "right-chara"
+      posClass: "right-chara",
+      popupImg: "circle-sine_7-cos"
     },
     {
       name: "先生",
@@ -479,18 +470,21 @@ sin_30:[
     }
   ],
 
+
+
   // ========================================
-  // ②ならったことと違う
+  // 第２部：ならったことと違う
   // 円を大きくして、最後に円を消す
   // ========================================
 
-school_sine: [
+sine_hs: [
   {
       name: "うさこ",
       text: "でも、学校ではsinって、三角形で習ったよ？",
       speaker: "usako",
       showImgId: "img-usako-sad",
       posClass: "right-chara",
+      bg: "classroom",
       bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3"
   },
   {
@@ -622,6 +616,17 @@ school_sine: [
 // ③ サイン定理みたいなのないの？
 // ========================================
 sine_law: [
+    {
+      name: "先生",
+      text: "何を考えているの？？",
+      speaker: "usagi",
+      showImgId: "img-usagi-happy",
+      posClass: "left-chara",
+      choices: [
+        { text: "学校で習ったことと、なんか違う", nextRoute: "school_sine" },
+        { text: "なんか、すごいサインの定理みたいなのないの？", nextRoute: "sine_law" }
+      ]
+    },
   {
     name: "うさこ",
     text: "なんか、すごいサインの定理みたいなのないの？",

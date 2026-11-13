@@ -199,7 +199,7 @@ window.storyFlow["circle-sine"] = {
       speaker: "usagi",
       showImgId: "img-usagi-happy",
       posClass: "left-chara",
-      popupImg: "circle-sine_4"
+      popupImg: "circle-sine_3"
     },
     {
       name: "うさこ",

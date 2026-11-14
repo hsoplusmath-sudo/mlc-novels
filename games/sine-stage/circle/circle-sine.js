@@ -485,7 +485,7 @@ sine_hs: [
       showImgId: "img-usako-sad",
       posClass: "right-chara",
       bg: "classroom",
-      bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3"
+      bgm: "kaeru"
   },
   {
     name: "先生",
@@ -507,14 +507,9 @@ sine_hs: [
     text: "じゃあ、その三角形を円で囲ってみて！",
     speaker: "usagi",
     showImgId: "img-usagi-happy",
-    posClass: "left-chara"
+    posClass: "left-chara",
+    popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_school-triangle.png"
   },
-   {
-      name: "",
-      text: "",
-      speaker: "",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_school-triangle.png"
-    },
    {
       name: "",
       text: "シュッ",
@@ -607,33 +602,45 @@ sine_hs: [
     showImgId: "img-usako-epiphany",
     posClass: "right-chara",
     completeStepId: "circle-sine_school-sine",
+  },
+  {
+    name: "うさこ",
+    text: "んーー、とそうなんだ！",
+    speaker: "usako",
+    showImgId: "img-usako-epiphany",
+    posClass: "right-chara",
+    choices: [
+        { text: "めっちゃ、分かった！", nextRoute: "sin_understand" },
+        { text: "なんか、すごいサインの定理みたいなのないの？", nextRoute: "sine_law" }
+      ]
+  }
+],
+
+sin_understand: [
+  {
+    name: "うさこ",
+    text: "たくさん頭つかった。。。",
+    speaker: "usako",
+    showImgId: "img-usako-normal",
+    posClass: "gorogoro-chara",
     customAction: "returnToMenuScreen"
   }
 ],
+
 
 
 // ========================================
 // ③ サイン定理みたいなのないの？
 // ========================================
 sine_law: [
-    {
-      name: "先生",
-      text: "何を考えているの？？",
-      speaker: "usagi",
-      showImgId: "img-usagi-happy",
-      posClass: "left-chara",
-      choices: [
-        { text: "学校で習ったことと、なんか違う", nextRoute: "school_sine" },
-        { text: "なんか、すごいサインの定理みたいなのないの？", nextRoute: "sine_law" }
-      ]
-    },
   {
     name: "うさこ",
     text: "なんか、すごいサインの定理みたいなのないの？",
     speaker: "usako",
     showImgId: "img-usako-shocked",
     posClass: "right-chara",
-    bgm: "https://masulessonclass.sakura.ne.jp/mlc/novels/assets/bgm/kirakira-sakurahubuki.mp3"
+    bg: "classroom",
+    bgm: "kaeru"
   },
   {
     name: "先生",
@@ -657,7 +664,7 @@ sine_law: [
   },
   {
     name: "先生",
-    text: "初めはサイン関係ないんだけど、サインを使うと三角形のことが分かる定理なんだよ！",
+    text: "サインを使うと三角形のことが分かる定理なんだよ！",
     speaker: "usagi",
     showImgId: "img-usagi-happy",
     posClass: "left-chara"
@@ -674,14 +681,9 @@ sine_law: [
     text: "じゃあ、この三角形を円で囲ってみて。",
     speaker: "usagi",
     showImgId: "img-usagi-happy",
-    posClass: "left-chara"
-  },
-   {
-      name: "",
-      text: "",
-      speaker: "",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_thm-triangle.png"
-    }, 
+    posClass: "left-chara",
+    popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_thm-triangle.png"
+  }, 
    {
       name: "",
       text: "",
@@ -785,9 +787,16 @@ sine_law: [
   },
   {
     name: "うさこ",
-    text: "a ÷ sinA も、b ÷ sinB も、どっちも直径（d）になる！",
+    text: "a ÷ sinA も、b ÷ sinB も、どっちも直径（d）だ！",
     speaker: "usako",
     showImgId: "img-usako-epiphany",
+    posClass: "right-chara"
+  },
+  {
+    name: "うさこ",
+    text: "ふしぎ",
+    speaker: "usako",
+    showImgId: "img-usako-sad",
     posClass: "right-chara"
   },
   {
@@ -864,5 +873,6 @@ sine_law: [
     customAction: "returnToMenuScreen"
   }
 ]
+
 
 };

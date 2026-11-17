@@ -605,7 +605,7 @@ sine_hs: [
   },
   {
     name: "うさこ",
-    text: "んーー、とそうなんだ！",
+    text: "んーー、そうなんだ！",
     speaker: "usako",
     showImgId: "img-usako-epiphany",
     posClass: "right-chara",
@@ -649,22 +649,17 @@ sine_law: [
     showImgId: "img-usagi-happy",
     posClass: "left-chara"
   },
-   {
-      name: "",
-      text: "",
-      speaker: "",
-      popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_thm-triangle.png"
-    }, 
   {
     name: "うさこ",
     text: "ほうほう。",
     speaker: "usako",
     showImgId: "img-usako-normal",
-    posClass: "right-chara"
+    posClass: "right-chara",
+    popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_thm-triangle.png"
   },
   {
     name: "先生",
-    text: "サインを使うと三角形のことが分かる定理なんだよ！",
+    text: "サインを使うと三角形のことが分かる定理を紹介するね！",
     speaker: "usagi",
     showImgId: "img-usagi-happy",
     posClass: "left-chara"
@@ -686,7 +681,7 @@ sine_law: [
   }, 
    {
       name: "",
-      text: "",
+      text: "シュッと",
       speaker: "",
       popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_thm-triangle-circle.png"
     }, 
@@ -696,7 +691,8 @@ sine_law: [
     text: "円の直径を「d」としておくよ。",
     speaker: "usagi",
     showImgId: "img-usagi-happy",
-    posClass: "left-chara"
+    posClass: "left-chara",
+    popupImg: "https://masulessonclass.sakura.ne.jp/mlc/novels/basic/circle-sine/assets/circle-sine-image_thm-triangle-circle.png"
   },
   {
     name: "うさこ",
